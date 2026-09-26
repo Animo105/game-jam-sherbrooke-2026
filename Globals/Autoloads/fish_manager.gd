@@ -12,3 +12,13 @@ func _ready() -> void:
 			var res = ResourceLoader.load(FISH_FOLDER_PATH + file)
 			if res is FishResource:
 				fish_list[fish_name] = res
+
+func pick_a_fish() -> FishResource:
+	var can_pick : Array[FishResource]
+	var current_bait_type : FishResource.Bait = Globals.rod.bait_type
+	for fish : FishResource in fish_list.values():
+		if fish.habitat != Globals.current_habitat:
+			continue
+		if fish.bait_type == FishResource.Bait.ANY or fish.bait_type == current_bait_type:
+			can_pick.append(fish)
+	return can_pick.pick_random()

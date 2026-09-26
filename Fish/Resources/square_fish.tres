@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://pnu58eom84qc"]
 
-[ext_resource type="Texture2D" uid="uid://blxivccevuu5w" path="res://Assets/fish/full_cube_fish_hidden.png" id="1_f0go8"]
-[ext_resource type="Script" uid="uid://bb6mc2xy1t4uq" path="res://Fish/fish.gd" id="1_gajjq"]
-[ext_resource type="Texture2D" uid="uid://dixrk3ge4wxjn" path="res://Assets/fish/full_cube_fish.png" id="2_rpmga"]
+[ext_resource type="Texture2D" uid="uid://blxivccevuu5w" path="res://Assets/fish/full_cube_fish_hidden.png" id="1_2uqjh"]
+[ext_resource type="Script" uid="uid://bb6mc2xy1t4uq" path="res://Fish/fish.gd" id="2_mixwj"]
+[ext_resource type="Texture2D" uid="uid://dixrk3ge4wxjn" path="res://Assets/fish/full_cube_fish.png" id="3_wxkwq"]
 
 [resource]
-script = ExtResource("1_gajjq")
-texture = ExtResource("2_rpmga")
-hidden_texture = ExtResource("1_f0go8")
-catch_difficulty = 0.5
+script = ExtResource("2_mixwj")
+texture = ExtResource("3_wxkwq")
+hidden_texture = ExtResource("1_2uqjh")
 direction_change_frequency = 0.05
 metadata/_custom_type_script = "uid://bb6mc2xy1t4uq"

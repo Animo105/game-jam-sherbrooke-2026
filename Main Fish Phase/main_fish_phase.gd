@@ -52,7 +52,7 @@ func try_catch_fish(delta : float):
 	if current_fish: return # si ya un fish faut pas
 	if bait_timer_s <= 0:
 		bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
-		new_fish(FishManager.fish_list["fish_template"])
+		new_fish(FishManager.pick_a_fish())
 	bait_timer_s -= delta
 
 func fish_physic_frame(delta : float) -> void:
@@ -90,7 +90,7 @@ func fish_physic_frame(delta : float) -> void:
 		snap_timer_s -= delta
 		catch_timer_s = clamp(catch_timer_s + delta, 0, max_catch_timer)
 		if snap_timer_s <= 0:
-			pass # snapp
+			snap()
 	# update catch bar
 	catch_progress_bar.set_value(1-(catch_timer_s/max_catch_timer))
 
