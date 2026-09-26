@@ -35,6 +35,10 @@ folder_colors={
 "res://Globals/": "purple"
 }
 
+[gui]
+
+theme/custom_font="uid://bt5jw78ub44tu"
+
 [input]
 
 left={

@@ -1,3 +1,54 @@
 [gd_scene format=3 uid="uid://cvfxjkik6kjlh"]
 
+[ext_resource type="Script" uid="uid://cef5srpaxdjfu" path="res://level_select.gd" id="1_vomi7"]
+[ext_resource type="Texture2D" uid="uid://biwntyxx0cvic" path="res://Assets/swamp.png" id="2_apu6u"]
+[ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_wevku"]
+[ext_resource type="Texture2D" uid="uid://bbp5i1sx0d04w" path="res://Assets/boatFront.png" id="4_apu6u"]
+
 [node name="LevelSelect" type="Node2D" unique_id=647650039]
+script = ExtResource("1_vomi7")
+
+[node name="Stage1" type="Sprite2D" parent="." unique_id=1974264440]
+position = Vector2(642, 306)
+scale = Vector2(2.9003909, 1.3219612)
+texture = ExtResource("2_apu6u")
+
+[node name="Stage2" type="Sprite2D" parent="." unique_id=1591262851]
+position = Vector2(1749.0001, 376)
+scale = Vector2(5.4335938, 2.4765627)
+texture = ExtResource("2_wevku")
+
+[node name="Stage3" type="Sprite2D" parent="." unique_id=722650381]
+position = Vector2(1747.0001, 378)
+scale = Vector2(5.4335938, 2.4765627)
+texture = ExtResource("2_wevku")
+
+[node name="Boat" type="Sprite2D" parent="." unique_id=186891850]
+position = Vector2(643, 463.5)
+scale = Vector2(5.0390625, 1.9492188)
+texture = ExtResource("4_apu6u")
+
+[node name="Left" type="Button" parent="." unique_id=382652896]
+offset_left = 116.0
+offset_top = 384.0
+offset_right = 160.0
+offset_bottom = 415.0
+text = "LEFT"
+
+[node name="Right" type="Button" parent="." unique_id=860776478]
+offset_left = 1092.0
+offset_top = 399.0
+offset_right = 1136.0
+offset_bottom = 430.0
+text = "Right"
+
+[node name="Select" type="Button" parent="." unique_id=619448512]
+offset_left = 598.0
+offset_top = 598.0
+offset_right = 652.0
+offset_bottom = 629.0
+text = "Select"
+
+[connection signal="pressed" from="Left" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Select" to="." method="_on_select_pressed"]
