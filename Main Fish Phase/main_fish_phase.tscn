@@ -3,7 +3,13 @@
 [ext_resource type="Script" uid="uid://b137yplwpytd4" path="res://Main Fish Phase/main_fish_phase.gd" id="1_sb3fd"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="1_vq508"]
 [ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_6y7v2"]
+[ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/money_sign.svg" id="2_lyorp"]
+[ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_ueg10"]
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_yf5fn"]
+color = Color(1, 1, 1, 1)
+thickness = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtnf0"]
 bg_color = Color(0.0885599, 0.08855992, 0.08855986, 1)
@@ -50,7 +56,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1179687559]
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 50
 
 [node name="MainScreen" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1015210953]
 layout_mode = 2
@@ -58,12 +64,64 @@ size_flags_vertical = 3
 
 [node name="BucketZone" type="PanelContainer" parent="MarginContainer/VBoxContainer/MainScreen" unique_id=462486461]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -430.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+offset_left = -370.0
 grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone" unique_id=1566124324]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer" unique_id=548658380]
+layout_mode = 2
+
+[node name="MoneyIndicator" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer" unique_id=775385549]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/MoneyIndicator" unique_id=566308917]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_lyorp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/MoneyIndicator" unique_id=1666752320]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "100"
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer" unique_id=515804753]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_yf5fn")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer" unique_id=192214029]
+custom_minimum_size = Vector2(350, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="BucketPhysic" type="Node2D" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/TextureRect2" unique_id=1593353333]
+
+[node name="Bucket" type="Sprite2D" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/TextureRect2/BucketPhysic" unique_id=433539008]
+texture = ExtResource("3_ueg10")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/TextureRect2/BucketPhysic/Bucket" unique_id=1664466354]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/TextureRect2/BucketPhysic/Bucket/StaticBody2D" unique_id=42466222]
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 368, 320, 368, 320, 0, 350, 0, 350, 400, 0, 400)
+
+[node name="FishGroup" type="Node2D" parent="MarginContainer/VBoxContainer/MainScreen/BucketZone/MarginContainer/VBoxContainer/TextureRect2/BucketPhysic" unique_id=68161821]
+unique_name_in_owner = true
+position = Vector2(186, 25)
 
 [node name="FishingBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=117461320]
 layout_mode = 2
@@ -91,6 +149,7 @@ size_flags_vertical = 1
 
 [node name="FishSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder/FishingBar" unique_id=410207045]
 unique_name_in_owner = true
+visible = false
 position = Vector2(414, 64)
 scale = Vector2(0.5, 0.5)
 
@@ -99,7 +158,8 @@ unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = -15.0
+offset_top = -25.0
+offset_bottom = -10.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 alignment = 1

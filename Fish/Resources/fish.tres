@@ -8,5 +8,6 @@
 script = ExtResource("1_gajjq")
 texture = ExtResource("2_rpmga")
 hidden_texture = ExtResource("1_f0go8")
+catch_difficulty = 0.5
 direction_change_frequency = 0.05
 metadata/_custom_type_script = "uid://bb6mc2xy1t4uq"
