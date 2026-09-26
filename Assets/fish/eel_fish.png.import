@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj4hyhusontt4"
-path="res://.godot/imported/spike_fish_hidden.png-b4224f2e830a247c358bf419baa227b2.ctex"
+uid="uid://xsihxotxmib0"
+path="res://.godot/imported/eel_fish.png-9a7957ea6bc41100dff18b5a3dadadc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fish/spike_fish_hidden.png"
-dest_files=["res://.godot/imported/spike_fish_hidden.png-b4224f2e830a247c358bf419baa227b2.ctex"]
+source_file="res://Assets/fish/eel_fish.png"
+dest_files=["res://.godot/imported/eel_fish.png-9a7957ea6bc41100dff18b5a3dadadc8.ctex"]
 
 [params]
 
