@@ -7,7 +7,6 @@ extends Node2D
 @onready var fish_display: HFlowContainer = $FishDisplay
 
 var stages: Array
-var current_stage : int = 0
 var tween : Tween
 var tween2 : Tween
 # Called when the node enters the scene tree for the first time.
@@ -24,12 +23,12 @@ func _input(event: InputEvent) -> void:
 		_on_button_2_pressed()
 
 func _on_button_pressed() -> void:
-	if current_stage != 0:
+	if Globals.current_habitat != 0:
 		if tween:
 			if tween.is_running():
 				return
 			tween.kill()
-		if !Globals.level_unlocked.has(current_stage-1):
+		if !Globals.level_unlocked.has(Globals.current_habitat-1):
 			select_button.text = "locked"
 		else:
 			select_button.text = "select"
@@ -37,22 +36,22 @@ func _on_button_pressed() -> void:
 		tween.set_parallel()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(stages[current_stage], "position:x", 1700, 2.0)
-		tween.tween_property(stages[current_stage-1], "position:x", 600, 2.0)
-		current_stage -= 1
+		tween.tween_property(stages[Globals.current_habitat], "position:x", 1700, 2.0)
+		tween.tween_property(stages[Globals.current_habitat-1], "position:x", 600, 2.0)
+		Globals.current_habitat -= 1
 		for child in fish_display.get_children():
 			fish_display.remove_child(child)
 		#await tween.finished
 		display_fishes()
-	print(current_stage)
+	print(Globals.current_habitat)
 
 func _on_button_2_pressed() -> void:
-	if current_stage != stages.size()-1:
+	if Globals.current_habitat != stages.size()-1:
 		if tween:
 			if tween.is_running():
 				return
 			tween.kill()
-		if !Globals.level_unlocked.has(current_stage+1):
+		if !Globals.level_unlocked.has(Globals.current_habitat+1):
 			select_button.text = "locked"
 		else:
 			select_button.text = "select"
@@ -60,14 +59,14 @@ func _on_button_2_pressed() -> void:
 		tween.set_parallel()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(stages[current_stage], "position:x", -500, 2.0)
-		tween.tween_property(stages[current_stage+1], "position:x", 600, 2.0)
-		current_stage += 1
+		tween.tween_property(stages[Globals.current_habitat], "position:x", -500, 2.0)
+		tween.tween_property(stages[Globals.current_habitat+1], "position:x", 600, 2.0)
+		Globals.current_habitat += 1
 		for child in fish_display.get_children():
 			fish_display.remove_child(child)
 		#await tween.finished
 		display_fishes()
-	print(current_stage)
+	print(Globals.current_habitat)
 
 
 func _on_select_pressed() -> void:
@@ -75,7 +74,7 @@ func _on_select_pressed() -> void:
 
 func display_fishes() -> void:
 	for x : FishResource in FishManager.fish_list.values():
-		if x.habitat == current_stage:
+		if x.habitat == Globals.current_habitat:
 			print("here")
 			var fish_display_texture : TextureRect = TextureRect.new()
 			fish_display_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
