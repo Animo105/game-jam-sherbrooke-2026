@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c67651jp4gnm7"]
+
+[ext_resource type="Script" uid="uid://b137yplwpytd4" path="res://Main Fish Phase/main_fish_phase.gd" id="1_sb3fd"]
+[ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="1_vq508"]
+[ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_6y7v2"]
+
+[node name="MainFishPhase" type="Control" unique_id=1897626187]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb3fd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1546046090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="FishingBar" type="HBoxContainer" parent="MarginContainer" unique_id=117461320]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Left" type="TextureRect" parent="MarginContainer/FishingBar" unique_id=968988412]
+layout_mode = 2
+texture = ExtResource("2_6y7v2")
+
+[node name="FishingBar" parent="MarginContainer/FishingBar" unique_id=1666678743 instance=ExtResource("1_vq508")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="Right" type="TextureRect" parent="MarginContainer/FishingBar" unique_id=60413647]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("2_6y7v2")
+
+[node name="FishSprite" type="Sprite2D" parent="." unique_id=410207045]
+position = Vector2(570, 631)
+scale = Vector2(0.5, 0.5)
+
+[node name="DayIndicatorSprite" type="Sprite2D" parent="." unique_id=459513602]
+
+[node name="Timer" type="Timer" parent="." unique_id=1191305872]
+
+[connection signal="resized" from="MarginContainer/FishingBar/FishingBar" to="MarginContainer/FishingBar/FishingBar" method="_on_resized"]

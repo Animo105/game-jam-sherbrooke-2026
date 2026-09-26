@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://e7xxgeedlnwv"]
 
 [ext_resource type="Script" uid="uid://bmy5aoei163wv" path="res://world.gd" id="1_f3sb7"]
-[ext_resource type="Texture2D" uid="uid://bivsqbohpm6h5" path="res://Assets/fishing_bar.png" id="2_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_tlwt5"]
 
 [sub_resource type="Curve2D" id="Curve2D_gv5m4"]
@@ -29,47 +28,10 @@ position = Vector2(25, 25)
 
 [node name="Fish" type="Sprite2D" parent="." unique_id=256127849]
 
-[node name="Bar" type="Sprite2D" parent="." unique_id=547113134]
-position = Vector2(640, 620)
-texture = ExtResource("2_fj7yv")
-
 [node name="BucketZone" type="Node2D" parent="." unique_id=243462047]
 position = Vector2(1012.5, 272.5)
 
 [node name="Bucket" type="Sprite2D" parent="BucketZone" unique_id=364839387]
 texture = ExtResource("3_tlwt5")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1812472451]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_right = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="FishingBar" type="HBoxContainer" parent="MarginContainer" unique_id=639623664]
-layout_mode = 2
-
-[node name="Left" type="TextureRect" parent="MarginContainer/FishingBar" unique_id=212023310]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="Bar" type="PanelContainer" parent="MarginContainer/FishingBar" unique_id=1545052944]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/FishingBar/Bar" unique_id=1511129581]
-layout_mode = 2
-texture = ExtResource("2_fj7yv")
-region_rect = Rect2(32, 32, 32, 32)
-
-[node name="Right" type="TextureRect" parent="MarginContainer/FishingBar" unique_id=2055404149]
-layout_mode = 2
-size_flags_vertical = 8
+[connection signal="resized" from="." to="." method="_on_resized"]
