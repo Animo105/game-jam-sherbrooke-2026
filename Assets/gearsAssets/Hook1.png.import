@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dixrk3ge4wxjn"
-path="res://.godot/imported/full_cube_fish.png-cc523f8573f03c0df04547ae6b422d10.ctex"
+uid="uid://ceqtiyeq0tre3"
+path="res://.godot/imported/Hook1.png-4d50a6c6732273faf760e515b5667015.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/full_cube_fish.png"
-dest_files=["res://.godot/imported/full_cube_fish.png-cc523f8573f03c0df04547ae6b422d10.ctex"]
+source_file="res://Assets/gearsAssets/Hook1.png"
+dest_files=["res://.godot/imported/Hook1.png-4d50a6c6732273faf760e515b5667015.ctex"]
 
 [params]
 

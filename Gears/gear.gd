@@ -13,7 +13,11 @@ enum Type {
 @export var price : int
 @export var texture : Texture2D
 @export_range(0, 2, 1) var level : int
-@export_range(-5,5, 1) var strenght : int
-@export_range(-5,5, 1) var speed : int
-@export_range(-5,5, 1) var snap : int
-@export_range(-5,5, 1) var rarity : int
+## La strength est en pourcentage et soustraite a celle du poisson
+@export var strenght : float
+## La speed est mesurer en seconde et soustraite a celle du poisson
+@export var speed : float
+## La snap speed est mesurer en seconde et soustraite a celle du poisson
+@export var snap : float
+## La rarity est mesurer de 0 à 5 et change les poissons hooked
+@export var rarity : float
