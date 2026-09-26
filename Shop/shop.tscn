@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b550ddq5avurd" path="res://Shop/shop.gd" id="1_6mmxm"]
 [ext_resource type="Theme" uid="uid://dcks5er6tsnu3" path="res://Assets/theme.tres" id="1_u3phx"]
+[ext_resource type="Texture2D" uid="uid://0k3yieku3ywa" path="res://Assets/textures/Hook2.png" id="3_56y0i"]
+[ext_resource type="Texture2D" uid="uid://b6k6wu57i7vlv" path="res://Assets/textures/ShopShack.png" id="3_so0yi"]
+[ext_resource type="Texture2D" uid="uid://dlp767upymw1n" path="res://Assets/textures/Spoon2.png" id="4_so0yi"]
+[ext_resource type="Texture2D" uid="uid://d26wl1vau1xi3" path="res://Assets/textures/Baite.png" id="5_hfkrb"]
+[ext_resource type="Texture2D" uid="uid://dlfrf84gu0jud" path="res://Assets/textures/Line.png" id="6_7gdb2"]
+[ext_resource type="Texture2D" uid="uid://bq00msmej2w6m" path="res://Assets/textures/Bait_Bucket.png" id="8_7gdb2"]
+[ext_resource type="Script" uid="uid://lmpnnvwi765h" path="res://Shop/bait_bucket.gd" id="9_25km1"]
+[ext_resource type="Texture2D" uid="uid://bgsyejp6av7aw" path="res://Assets/textures/Bucket_worms.png" id="9_buhfn"]
+[ext_resource type="Texture2D" uid="uid://brbgdp6ymqs5i" path="res://Assets/textures/Bucket_worms2.png" id="10_25km1"]
+[ext_resource type="Texture2D" uid="uid://fd6175gtgwcg" path="res://Assets/textures/Tag.png" id="12_eu4ty"]
+[ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="13_7nrtk"]
+[ext_resource type="Texture2D" uid="uid://dk4cvr36s6v70" path="res://Assets/textures/Tag_big.png" id="14_b5trs"]
+[ext_resource type="Texture2D" uid="uid://v2gr88mjq0sr" path="res://Assets/textures/Tag_small.png" id="15_16e15"]
 
 [node name="Shop" type="Control" unique_id=1115530980]
 layout_mode = 3
@@ -15,8 +28,150 @@ grow_vertical = 2
 theme = ExtResource("1_u3phx")
 script = ExtResource("1_6mmxm")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=322902441]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_so0yi")
+
 [node name="GridContainer" type="GridContainer" parent="." unique_id=216375886]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 163.0
+offset_top = 100.0
+offset_right = 203.0
+offset_bottom = 140.0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
 columns = 3
+
+[node name="Rig" type="Control" parent="." unique_id=878125065]
+anchors_preset = 0
+offset_left = 728.0
+offset_top = 80.0
+offset_right = 768.0
+offset_bottom = 120.0
+
+[node name="Hook" type="TextureRect" parent="Rig" unique_id=1154737522]
+layout_mode = 0
+offset_left = 103.49005
+offset_top = 216.0
+offset_right = 231.49005
+offset_bottom = 344.0
+rotation = 0.69013464
+texture = ExtResource("3_56y0i")
+
+[node name="Spoon" type="TextureRect" parent="Rig" unique_id=541707476]
+layout_mode = 0
+offset_left = 98.49005
+offset_top = 86.0
+offset_right = 226.49005
+offset_bottom = 214.0
+rotation = 0.61418915
+texture = ExtResource("4_so0yi")
+
+[node name="Bait" type="TextureRect" parent="Rig" unique_id=1838366607]
+layout_mode = 0
+offset_left = 38.49005
+offset_top = 309.0
+offset_right = 166.49005
+offset_bottom = 437.0
+texture = ExtResource("5_hfkrb")
+
+[node name="Line" type="TextureRect" parent="Rig" unique_id=1211373828]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 131.0
+offset_bottom = 128.0
+texture = ExtResource("6_7gdb2")
+
+[node name="Baits" type="HBoxContainer" parent="." unique_id=1045309075]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 488.0
+offset_right = 687.0
+offset_bottom = 705.0
+
+[node name="TextureRect" type="TextureRect" parent="Baits" unique_id=2049848154]
+layout_mode = 2
+texture = ExtResource("8_7gdb2")
+
+[node name="TextureRect3" type="TextureRect" parent="Baits" unique_id=1142274621]
+layout_mode = 2
+texture = ExtResource("8_7gdb2")
+
+[node name="BaitBucket" type="Control" parent="Baits" unique_id=845254726]
+layout_mode = 2
+script = ExtResource("9_25km1")
+frames = Array[Texture2D]([ExtResource("10_25km1"), ExtResource("9_buhfn")])
+
+[node name="TextureRect" type="TextureRect" parent="Baits/BaitBucket" unique_id=1539180754]
+layout_mode = 0
+offset_right = 199.0
+offset_bottom = 217.0
+texture = ExtResource("9_buhfn")
+
+[node name="Tag2" type="TextureRect" parent="Baits/BaitBucket" unique_id=277562950]
+layout_mode = 0
+offset_left = 56.396515
+offset_top = 80.2146
+offset_right = 199.39651
+offset_bottom = 181.2146
+scale = Vector2(0.46811762, 0.46811762)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("12_eu4ty")
+
+[node name="Price" type="Label" parent="Baits/BaitBucket/Tag2" unique_id=198885030]
+layout_mode = 0
+offset_left = 36.252384
+offset_top = 6.7076244
+offset_right = 78.83739
+offset_bottom = 29.707624
+rotation = 0.3109843
+scale = Vector2(2.255, 2.255)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_7nrtk")
+horizontal_alignment = 1
+
+[node name="TagBig" type="TextureRect" parent="Baits/BaitBucket" unique_id=462314853]
+layout_mode = 0
+offset_left = 36.396515
+offset_top = 74.2146
+offset_right = 215.39651
+offset_bottom = 186.2146
+scale = Vector2(0.46811762, 0.46811762)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("14_b5trs")
+
+[node name="Price" type="Label" parent="Baits/BaitBucket/TagBig" unique_id=1820137512]
+layout_mode = 0
+offset_left = 49.98002
+offset_top = 11.139515
+offset_right = 100.98002
+offset_bottom = 34.139515
+rotation = 0.3109843
+scale = Vector2(2.255, 2.255)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_7nrtk")
+horizontal_alignment = 1
+
+[node name="TagSmall" type="TextureRect" parent="Baits/BaitBucket" unique_id=1230391433]
+layout_mode = 0
+offset_left = 52.396515
+offset_top = 78.2146
+offset_right = 195.39651
+offset_bottom = 179.2146
+scale = Vector2(0.46811762, 0.46811762)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("15_16e15")
+
+[node name="Price" type="Label" parent="Baits/BaitBucket/TagSmall" unique_id=1405249848]
+layout_mode = 0
+offset_left = 46.086353
+offset_top = 10.521624
+offset_right = 88.67136
+offset_bottom = 33.521626
+rotation = 0.3109843
+scale = Vector2(2.255, 2.255)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_7nrtk")
+horizontal_alignment = 1
