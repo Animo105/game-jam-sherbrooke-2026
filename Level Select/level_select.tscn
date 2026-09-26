@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cvfxjkik6kjlh"]
+
+[ext_resource type="Script" uid="uid://cef5srpaxdjfu" path="res://Level Select/level_select.gd" id="1_x1q5d"]
+[ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_k822h"]
+[ext_resource type="Texture2D" uid="uid://ckgxti6ahwwju" path="res://Assets/boat.png" id="6_73a0u"]
+
+[node name="LevelSelect" type="Node2D" unique_id=647650039]
+script = ExtResource("1_x1q5d")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=334011105]
+position = Vector2(651.50006, 341.5)
+scale = Vector2(2.5957034, 1.404297)
+texture = ExtResource("2_k822h")
+
+[node name="Boat" type="Sprite2D" parent="." unique_id=186891850]
+position = Vector2(645, 501)
+scale = Vector2(1.2187499, 1.0049751)
+texture = ExtResource("6_73a0u")
+
+[node name="Left" type="Button" parent="." unique_id=382652896]
+offset_left = 116.0
+offset_top = 384.0
+offset_right = 160.0
+offset_bottom = 415.0
+text = "LEFT"
+
+[node name="Right" type="Button" parent="." unique_id=860776478]
+offset_left = 1092.0
+offset_top = 399.0
+offset_right = 1136.0
+offset_bottom = 430.0
+text = "Right"
+
+[node name="SelectButton" type="Button" parent="." unique_id=619448512]
+offset_left = 592.0
+offset_top = 335.0
+offset_right = 649.0
+offset_bottom = 366.0
+text = "Select"
+
+[node name="FishDisplay" type="HFlowContainer" parent="." unique_id=1604793732]
+offset_left = 377.0
+offset_top = -111.0
+offset_right = 909.0
+offset_bottom = -37.0
+
+[connection signal="pressed" from="Left" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_pressed"]

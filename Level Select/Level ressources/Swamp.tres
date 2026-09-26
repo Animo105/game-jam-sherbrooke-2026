@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelRessource" format=3 uid="uid://drwblbpu7ev7f"]
+
+[ext_resource type="Script" uid="uid://d34bq8wrfn1wc" path="res://Level Select/level_ressource.gd" id="1_38lh3"]
+[ext_resource type="Texture2D" uid="uid://biwntyxx0cvic" path="res://Assets/level icons/swamp.png" id="2_lkaos"]
+
+[resource]
+script = ExtResource("1_38lh3")
+texture = ExtResource("2_lkaos")
+metadata/_custom_type_script = "uid://d34bq8wrfn1wc"

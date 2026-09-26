@@ -1,20 +1,34 @@
 extends Node2D
 
-@onready var swamp: Sprite2D = $Swamp
-@onready var frozen: Sprite2D = $Frozen
-@onready var volcano: Sprite2D = $Volcano
 @onready var select_button: Button = $SelectButton
 @onready var fish_display: HFlowContainer = $FishDisplay
+@onready var boat: Sprite2D = $Boat
 
 var stages: Array
 var tween : Tween
-var tween2 : Tween
+
+var center_screen : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	center_screen = get_window().size/2.0
+	center_screen.y -= 75
 	display_fishes()
-	stages.append(swamp)
-	stages.append(frozen)
-	stages.append(volcano)
+	boat.position = Vector2(center_screen.x,center_screen.y * 1.8)
+	var values : = LevelManager.level_list.values()
+	values.sort_custom(
+		func(a : LevelRessource, b : LevelRessource) -> bool:
+			return a.id < b.id
+	)
+	for level : LevelRessource in values:
+		var level_sprite : Sprite2D = Sprite2D.new()
+		level_sprite.texture = level.texture if level.is_unlocked else level.hidden_texture
+		if level.id == 0:
+			level_sprite.position = center_screen
+		else:
+			level_sprite.position = Vector2(center_screen.x * 3,center_screen.y)
+		stages.append(level_sprite)
+		add_child(level_sprite)
+
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action("left"):
@@ -28,16 +42,16 @@ func _on_button_pressed() -> void:
 			if tween.is_running():
 				return
 			tween.kill()
-		if !Globals.level_unlocked.has(Globals.current_habitat-1):
-			select_button.text = "locked"
+		if !LevelManager.level_list[Globals.current_habitat-1].is_unlocked:
+			select_button.text = str(LevelManager.level_list[Globals.current_habitat-1].cost) + "$"
 		else:
 			select_button.text = "select"
 		tween = create_tween()
 		tween.set_parallel()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(stages[Globals.current_habitat], "position:x", 1700, 2.0)
-		tween.tween_property(stages[Globals.current_habitat-1], "position:x", 600, 2.0)
+		tween.tween_property(stages[Globals.current_habitat], "position:x", center_screen.x * 3, 2.0)
+		tween.tween_property(stages[Globals.current_habitat-1], "position:x", center_screen.x, 2.5)
 		Globals.current_habitat -= 1
 		for child in fish_display.get_children():
 			fish_display.remove_child(child)
@@ -51,16 +65,16 @@ func _on_button_2_pressed() -> void:
 			if tween.is_running():
 				return
 			tween.kill()
-		if !Globals.level_unlocked.has(Globals.current_habitat+1):
-			select_button.text = "locked"
+		if !LevelManager.level_list[Globals.current_habitat+1].is_unlocked:
+			select_button.text = str(LevelManager.level_list[Globals.current_habitat+1].cost) + "$"
 		else:
 			select_button.text = "select"
 		tween = create_tween()
 		tween.set_parallel()
 		tween.set_trans(Tween.TRANS_BACK)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(stages[Globals.current_habitat], "position:x", -500, 2.0)
-		tween.tween_property(stages[Globals.current_habitat+1], "position:x", 600, 2.0)
+		tween.tween_property(stages[Globals.current_habitat], "position:x", center_screen.x * -1.5, 2.5)
+		tween.tween_property(stages[Globals.current_habitat+1], "position:x", center_screen.x, 2.0)
 		Globals.current_habitat += 1
 		for child in fish_display.get_children():
 			fish_display.remove_child(child)
@@ -70,7 +84,13 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_select_pressed() -> void:
-	pass # Replace with function body.
+	if LevelManager.level_list[Globals.current_habitat].is_unlocked:
+		pass # instert transition here
+	else :
+		if LevelManager.level_list[Globals.current_habitat].cost < Globals.money:
+			Globals.money -= LevelManager.level_list[Globals.current_habitat].cost
+			LevelManager.level_list[Globals.current_habitat].is_unlocked = true
+			stages[Globals.current_habitat].texture = LevelManager.level_list[Globals.current_habitat].texture
 
 func display_fishes() -> void:
 	for x : FishResource in FishManager.fish_list.values():
