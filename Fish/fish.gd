@@ -10,7 +10,8 @@ enum Depth {
 enum Bait{
 	ANY,
 	WORM,
-	CORN,
+	SHRIMP,
+	OCTOPUS,
 }
 
 ## Sprite du fish

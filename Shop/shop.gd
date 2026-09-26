@@ -19,11 +19,23 @@ var slot_scene = preload("res://Shop/Slot.tscn")
 @onready var snap: PowerBar = $Equipment/VBoxContainer/Snap
 @onready var speed: PowerBar = $Equipment/VBoxContainer/Speed
 
+@onready var money_label: Label = %MoneyLabel
+
 @export var frames: Array[Texture2D] = []
 var frame_index: int = 0
 
-
 func _ready():
+	money_label.text = str(Globals.money)
+	set_actives_slots()
+	if Globals.rod.bait_gear:
+		bait.texture = Globals.rod.bait_gear.texture
+	if Globals.rod.spoon_gear:
+		spoon.texture = Globals.rod.spoon_gear.texture
+	if Globals.rod.line_gear:
+		line.texture = Globals.rod.line_gear.texture
+	if Globals.rod.hook_gear:
+		hook.texture  = Globals.rod.hook_gear.texture
+
 	for gear in GearManager.gear_list:
 		var slot : Slot = slot_scene.instantiate()
 		slot.pressed.connect(slot_clicked)
@@ -38,6 +50,7 @@ func _ready():
 	
 	var timer := Timer.new()
 	timer.wait_time = 0.5
+	texture_rect.texture = frames[frame_index]
 	timer.timeout.connect(func():
 		texture_rect.texture = frames[frame_index]
 		frame_index = 1 if frame_index == 0 else 0
@@ -50,6 +63,7 @@ func bucket_clicked(bucket: BaitBucket) :
 
 func slot_clicked(slot: Slot) -> void :
 	if buy_and_set(slot.gear):
+		set_actives_slots()
 		grid_container.remove_child(slot)
 		
 func slot_enter_hover(slot: Slot) -> void :
@@ -68,16 +82,28 @@ func buy_and_set(gear : GearResource) -> bool:
 	if Globals.money < gear_price :
 		return false
 	Globals.money -= gear_price
+	money_label.text = str(Globals.money)
 	match gear.type :
 		GearResource.Type.BAIT :
+			Globals.rod.bait_gear = gear
 			bait.texture = gear.texture
 		GearResource.Type.SPOON :
+			Globals.rod.spoon_gear = gear
 			spoon.texture = gear.texture
 		GearResource.Type.LINE :
+			Globals.rod.line_gear = gear
 			line.texture = gear.texture
 		GearResource.Type.HOOK :
+			Globals.rod.hook_gear = gear
 			hook.texture = gear.texture
 	return true
 
+func set_actives_slots():
+	Globals.rod.calculate_stats()
+	strength.active_slots = Globals.rod.pull_strenght
+	speed.active_slots = Globals.rod.catch_speed
+	snap.active_slots = Globals.rod.snap_resistence
+
 func _on_next_button_pressed() -> void:
+	Globals.rod.calculate_stats()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Main Fish Phase/main_fish_phase.tscn"))

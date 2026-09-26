@@ -6,7 +6,6 @@ enum Type {
 	SPOON,
 	LINE,
 	BAIT,
-	
 }
 
 @export var type : Type
