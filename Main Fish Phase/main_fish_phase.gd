@@ -2,11 +2,15 @@ extends Control
 
 const FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN : int = 5
 const MINIMAL_SNAP_STRENGHT_s : float = 3
+const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 
 @onready var fishing_bar: FishingBar = %FishingBar
 @onready var catch_progress_bar: CatchProgressBar = %CatchProgressBar
 @onready var timer: Timer = $Timer
 @onready var fish_sprite: Sprite2D = %FishSprite
+@onready var fish_group: Node2D = %FishGroup
+
+var bait_timer_s : float = 0
 
 var current_fish : FishResource = null
 var max_catch_timer : float = 0
@@ -22,12 +26,13 @@ var is_inside_zone : bool = false
 var tween : Tween
 
 func _ready() -> void:
-	await fishing_bar.resized # thrust ca marche pas sans ca
-	new_fish(FishManager.fish_list["fish"])
+	bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 
 func new_fish(fish : FishResource):
+	if current_fish: return # déja un fish
 	current_fish = fish
 	fish_sprite.texture = fish.texture
+	fish_sprite.visible = true
 	max_catch_timer = fish.catch_difficulty - Globals.rod.catch_speed
 	catch_timer_s = max_catch_timer
 	catch_recovery_s = current_fish.catch_recovery_speed
@@ -41,7 +46,15 @@ func new_fish(fish : FishResource):
 
 func _physics_process(delta: float) -> void:
 	fish_physic_frame(delta)
-	
+	try_catch_fish(delta)
+
+func try_catch_fish(delta : float):
+	if current_fish: return # si ya un fish faut pas
+	if bait_timer_s <= 0:
+		bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
+		new_fish(FishManager.fish_list["fish"])
+	bait_timer_s -= delta
+
 func fish_physic_frame(delta : float) -> void:
 	if not current_fish: return # pas de fish a reel
 	var new_x = fish_sprite.global_position.x + (fishing_bar.get_amount_px_for_speed(fish_speed) * fish_direction * delta)
@@ -71,7 +84,7 @@ func fish_physic_frame(delta : float) -> void:
 		catch_timer_s -= delta
 		snap_timer_s = clamp(snap_timer_s + delta, 0, max_snap_timer)
 		if catch_timer_s <= 0:
-			pass # catch
+			catch()
 	else:
 		pass
 		snap_timer_s -= delta
@@ -81,11 +94,26 @@ func fish_physic_frame(delta : float) -> void:
 	# update catch bar
 	catch_progress_bar.set_value(1-(catch_timer_s/max_catch_timer))
 
+func catch():
+	var bucket_preview : FishRigidBody = FishRigidBody.new(current_fish.texture)
+	bucket_preview.position.x = randf_range(-100, 100)
+	fish_group.add_child(bucket_preview)
+	fish_sprite.texture = null
+	fish_sprite.visible = false
+	#current_fish.seen = true
+	current_fish = null
+
+func snap():
+	print("Ho oh...!")
+	fish_sprite.texture = null
+	fish_sprite.visible = false
+	current_fish = null
+
 func shaking_fish_or_bar():
 		if tween:
 			tween.kill()
 		fish_sprite.scale = Vector2(0.5,0.5)
-		fishing_bar.offset_left = 0
+		fishing_bar.offset_transform_rotation = 0
 		if is_inside_zone:
 			tween = create_tween()
 			tween.set_loops()
@@ -94,8 +122,8 @@ func shaking_fish_or_bar():
 		else:
 			tween = create_tween()
 			tween.set_loops()
-			tween.tween_property(fishing_bar,"offset_transform_position", Vector2(0,1.5), 0.1)
-			tween.tween_property(fishing_bar,"offset_transform_position", Vector2(0,-1.5), 0.1)
+			tween.tween_property(fishing_bar,"offset_transform_rotation", 0.01, 0.1)
+			tween.tween_property(fishing_bar,"offset_transform_rotation", -0.01, 0.1)
 
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
