@@ -20,6 +20,9 @@ var displayed_money : int = 0 :
 		if money_label:
 			money_label.text = str(value)
 
+
+var day_ended : bool = false
+
 var money_tween : Tween
 
 var bait_timer_s : float = 0
@@ -52,9 +55,10 @@ func new_fish(fish : FishResource):
 	fish_sprite.global_position = fishing_bar.absolute_center_position
 
 func _physics_process(delta: float) -> void:
-	update_day_timer()
-	fish_physic_frame(delta)
-	try_catch_fish(delta)
+	if not day_ended:
+		update_day_timer()
+		fish_physic_frame(delta)
+		try_catch_fish(delta)
 
 func try_catch_fish(delta : float):
 	if current_fish: return # si ya un fish faut pas
@@ -143,4 +147,9 @@ func update_day_timer():
 
 
 func _on_timer_timeout() -> void:
+	day_ended = true
+	fish_sprite.visible = false
+	current_fish = null
 	EventBus.day_ended.emit()
+	await get_tree().create_timer(3).timeout
+	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))

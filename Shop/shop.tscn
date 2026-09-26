@@ -19,8 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Strength.png" id="20_2wh60"]
 [ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Snap.png" id="23_b7bcc"]
 [ext_resource type="Script" uid="uid://dhcss8ophpmb1" path="res://power_bar.gd" id="24_2b2i5"]
+[ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/arrow_next.png" id="24_2wh60"]
 [ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Speed.png" id="24_q8r8l"]
 [ext_resource type="Texture2D" uid="uid://df7x3mxgunmnx" path="res://Assets/textures/StatBar.png" id="25_07ndg"]
+[ext_resource type="Texture2D" uid="uid://6nnmmxhojud8" path="res://Assets/arrow_next_hover.png" id="25_ytoel"]
 [ext_resource type="Texture2D" uid="uid://qfnimdp76wj2" path="res://Assets/textures/Rarity.png" id="26_07ndg"]
 [ext_resource type="Texture2D" uid="uid://cym040m8qc8ph" path="res://Assets/textures/StatBar_full.png" id="26_ytoel"]
 
@@ -58,9 +60,12 @@ script = ExtResource("1_6mmxm")
 frames = Array[Texture2D]([ExtResource("9_b7bcc"), ExtResource("10_q8r8l")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=322902441]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_w1rpo")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=216375886]
@@ -74,32 +79,44 @@ theme_override_constants/v_separation = 20
 columns = 3
 
 [node name="Baits" type="HBoxContainer" parent="." unique_id=1045309075]
-layout_mode = 0
-offset_left = 108.0
-offset_top = 517.0
-offset_right = 713.0
-offset_bottom = 734.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08400001
+anchor_top = 1.0
+anchor_right = 0.508
+anchor_bottom = 1.0
+offset_left = 0.47999573
+offset_top = -203.0
+offset_right = -0.23999023
+offset_bottom = -36.0
 theme_override_constants/separation = 40
+alignment = 1
 
 [node name="BaitBucket" parent="Baits" unique_id=988010713 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
+size_flags_horizontal = 3
 setup_gear = SubResource("Resource_icvdq")
 
 [node name="BaitBucket2" parent="Baits" unique_id=685434837 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
+size_flags_horizontal = 3
 frames = Array[Texture2D]([ExtResource("13_jhfdn"), ExtResource("14_eu4ty")])
 setup_gear = SubResource("Resource_8sid2")
 
 [node name="BaitBucket3" parent="Baits" unique_id=547223277 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
+size_flags_horizontal = 3
 frames = Array[Texture2D]([ExtResource("16_b5trs"), ExtResource("17_16e15")])
 setup_gear = SubResource("Resource_jhfdn")
 
 [node name="Money" type="Label" parent="." unique_id=233853279]
-layout_mode = 0
-offset_left = 762.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.657
+anchor_right = 0.657
+offset_left = -78.96002
 offset_top = 100.00001
-offset_right = 987.0
+offset_right = 146.03998
 offset_bottom = 165.00002
 rotation = -0.19871618
 scale = Vector2(0.8660436, 0.8660436)
@@ -189,3 +206,20 @@ custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(32, 32)
+
+[node name="NextButton" type="TextureButton" parent="." unique_id=773777067]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("24_2wh60")
+texture_pressed = ExtResource("24_2wh60")
+texture_hover = ExtResource("25_ytoel")
+texture_disabled = ExtResource("24_2wh60")
+texture_focused = ExtResource("25_ytoel")
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

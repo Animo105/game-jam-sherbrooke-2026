@@ -31,11 +31,11 @@ func _ready():
 		slot.on_mouse_exited.connect(slot_exit_hover)
 		grid_container.add_child(slot)
 		slot.setup(gear)
-		
+
 	bait_bucket.pressed.connect(bucket_clicked)
 	bait_bucket_2.pressed.connect(bucket_clicked)
 	bait_bucket_3.pressed.connect(bucket_clicked)
-		
+	
 	var timer := Timer.new()
 	timer.wait_time = 0.5
 	timer.timeout.connect(func():
@@ -65,11 +65,9 @@ func slot_exit_hover(slot: Slot) -> void :
 
 func buy_and_set(gear : GearResource) -> bool:
 	var gear_price = gear.price
-	if Globals.money > gear_price :
+	if Globals.money < gear_price :
 		return false
-	
 	Globals.money -= gear_price
-		
 	match gear.type :
 		GearResource.Type.BAIT :
 			bait.texture = gear.texture
@@ -80,6 +78,6 @@ func buy_and_set(gear : GearResource) -> bool:
 		GearResource.Type.HOOK :
 			hook.texture = gear.texture
 	return true
-	
-	
-	
+
+func _on_next_button_pressed() -> void:
+	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Main Fish Phase/main_fish_phase.tscn"))
