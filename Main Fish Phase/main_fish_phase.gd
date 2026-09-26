@@ -31,7 +31,7 @@ func _ready() -> void:
 func new_fish(fish : FishResource):
 	if current_fish: return # déja un fish
 	current_fish = fish
-	fish_sprite.texture = fish.texture
+	fish_sprite.texture = fish.texture if fish.seen else fish.hidden_texture
 	fish_sprite.visible = true
 	max_catch_timer = fish.catch_difficulty - Globals.rod.catch_speed
 	catch_timer_s = max_catch_timer
@@ -52,7 +52,7 @@ func try_catch_fish(delta : float):
 	if current_fish: return # si ya un fish faut pas
 	if bait_timer_s <= 0:
 		bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
-		new_fish(FishManager.fish_list["fish"])
+		new_fish(FishManager.fish_list["fish_template"])
 	bait_timer_s -= delta
 
 func fish_physic_frame(delta : float) -> void:
@@ -100,7 +100,7 @@ func catch():
 	fish_group.add_child(bucket_preview)
 	fish_sprite.texture = null
 	fish_sprite.visible = false
-	#current_fish.seen = true
+	current_fish.seen = true
 	current_fish = null
 
 func snap():

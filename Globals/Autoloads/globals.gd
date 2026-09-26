@@ -10,3 +10,4 @@ func _ready() -> void:
 	level_unlocked[0] = true
 
 var rod : Rod = Rod.new()
+var current_habitat : int = 0
