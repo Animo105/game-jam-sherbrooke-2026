@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://csg3va7sbxqy" path="res://Shop/slot.gd" id="1_h2c3q"]
 [ext_resource type="Texture2D" uid="uid://fd6175gtgwcg" path="res://Assets/textures/Tag.png" id="2_arf5i"]
+[ext_resource type="Texture2D" uid="uid://cgfl251nkpg3o" path="res://Assets/textures/Hook3.png" id="2_c6x67"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="3_arf5i"]
 [ext_resource type="Texture2D" uid="uid://dk4cvr36s6v70" path="res://Assets/textures/Tag_big.png" id="4_bohsq"]
 [ext_resource type="Texture2D" uid="uid://v2gr88mjq0sr" path="res://Assets/textures/Tag_small.png" id="5_tbhmc"]
+[ext_resource type="Texture2D" uid="uid://80dqy1msnxqk" path="res://Assets/textures/Shadow.png" id="6_tbhmc"]
 
 [node name="Slot" type="Control" unique_id=2051599230]
 custom_minimum_size = Vector2(126, 126)
@@ -18,14 +20,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h2c3q")
 
+[node name="Shadow" type="TextureRect" parent="." unique_id=1047718804]
+custom_minimum_size = Vector2(126, -1)
+custom_maximum_size = Vector2(126, -1)
+layout_mode = 0
+offset_top = 88.0
+offset_right = 126.0
+offset_bottom = 140.0
+scale = Vector2(1, 0.56)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_tbhmc")
+
 [node name="Item" type="TextureRect" parent="." unique_id=2106111644]
 custom_minimum_size = Vector2(126, 126)
 custom_maximum_size = Vector2(256, 256)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.84000975, 0.84000975)
+offset_right = 126.0
+offset_bottom = 126.0
+scale = Vector2(0.78059095, 0.78059095)
 pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_c6x67")
 expand_mode = 2
 
 [node name="Tag" type="TextureRect" parent="." unique_id=642074189]
@@ -97,5 +111,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_arf5i")
 horizontal_alignment = 1
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

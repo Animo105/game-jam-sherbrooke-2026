@@ -28,8 +28,10 @@ func _on_button_pressed() -> void:
 			tween.kill()
 		tween = create_tween()
 		tween.set_parallel()
-		tween.tween_property(stages[current_stage], "position:x", 1700, 1.0)
-		tween.tween_property(stages[current_stage-1], "position:x", 600, 1.0)
+		tween.set_trans(Tween.TRANS_BACK)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(stages[current_stage], "position:x", 1700, 2.0)
+		tween.tween_property(stages[current_stage-1], "position:x", 600, 2.0)
 		current_stage -= 1
 	print(current_stage)
 
@@ -41,8 +43,10 @@ func _on_button_2_pressed() -> void:
 			tween.kill()
 		tween = create_tween()
 		tween.set_parallel()
-		tween.tween_property(stages[current_stage], "position:x", -500, 1.0)
-		tween.tween_property(stages[current_stage+1], "position:x", 600, 1.0)
+		tween.set_trans(Tween.TRANS_BACK)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(stages[current_stage], "position:x", -500, 2.0)
+		tween.tween_property(stages[current_stage+1], "position:x", 600, 2.0)
 		current_stage += 1
 	print(current_stage)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gnbc6j1xdvae"
-path="res://.godot/imported/spike_fish.png-bcbe6692edc5c667a605fcfc5673c244.ctex"
+uid="uid://brbgdp6ymqs5i"
+path="res://.godot/imported/Bucket_worms2.png-80e3b02b505f99d145921e577b7a3399.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spike_fish.png"
-dest_files=["res://.godot/imported/spike_fish.png-bcbe6692edc5c667a605fcfc5673c244.ctex"]
+source_file="res://Assets/textures/Bucket_worms2.png"
+dest_files=["res://.godot/imported/Bucket_worms2.png-80e3b02b505f99d145921e577b7a3399.ctex"]
 
 [params]
 
