@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://h7fa1nbewfue"]
+
+[ext_resource type="Script" uid="uid://b550ddq5avurd" path="res://Shop/shop.gd" id="1_6mmxm"]
+[ext_resource type="Texture2D" uid="uid://dlp767upymw1n" path="res://Rig/Spoon/Spoon2.png" id="1_qlv7h"]
+
+[node name="Shop" type="Control" unique_id=1115530980]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mmxm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=778980674]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Row" type="HBoxContainer" parent="VBoxContainer" unique_id=1193966530]
+layout_mode = 2
+
+[node name="Slot1" type="TextureButton" parent="VBoxContainer/Row" unique_id=1855342115 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot2" type="TextureButton" parent="VBoxContainer/Row" unique_id=1537641336 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot3" type="TextureButton" parent="VBoxContainer/Row" unique_id=1243529593 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Row2" type="HBoxContainer" parent="VBoxContainer" unique_id=1911958849]
+layout_mode = 2
+
+[node name="Slot1" type="TextureButton" parent="VBoxContainer/Row2" unique_id=173971683 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot2" type="TextureButton" parent="VBoxContainer/Row2" unique_id=1392304594 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot3" type="TextureButton" parent="VBoxContainer/Row2" unique_id=964399322 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Row3" type="HBoxContainer" parent="VBoxContainer" unique_id=145495248]
+layout_mode = 2
+
+[node name="Slot1" type="TextureButton" parent="VBoxContainer/Row3" unique_id=1713327570 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot2" type="TextureButton" parent="VBoxContainer/Row3" unique_id=924999299 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
+
+[node name="Slot3" type="TextureButton" parent="VBoxContainer/Row3" unique_id=109591026 groups=["buying_slots"]]
+layout_mode = 2
+texture_normal = ExtResource("1_qlv7h")
