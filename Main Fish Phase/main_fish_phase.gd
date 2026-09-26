@@ -9,6 +9,7 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var timer: Timer = $Timer
 @onready var fish_sprite: Sprite2D = %FishSprite
 @onready var fish_group: Node2D = %FishGroup
+@onready var day_cycle_path_follow: PathFollow2D = %DayCyclePathFollow
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
@@ -33,6 +34,7 @@ var is_inside_zone : bool = false
 var tween : Tween
 
 func _ready() -> void:
+	timer.start(Globals.DAY_DURATION)
 	bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 
 func new_fish(fish : FishResource):
@@ -42,13 +44,14 @@ func new_fish(fish : FishResource):
 	fish_sprite.visible = true
 	max_catch_timer = fish.catch_difficulty - Globals.rod.catch_speed
 	catch_timer_s = max_catch_timer
-	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, 0, Globals.MAX_SNAP_SPEED)
+	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, Globals.MIN_SNAP_SPEED, Globals.MAX_SNAP_SPEED)
 	fish_speed = fish.speed - Globals.rod.pull_strenght
 	fish_direction = 1 if randf() < 0.5 else -1
 	fish_sprite.flip_h = fish_direction < 0
 	fish_sprite.global_position = fishing_bar.absolute_center_position
 
 func _physics_process(delta: float) -> void:
+	update_day_timer()
 	fish_physic_frame(delta)
 	try_catch_fish(delta)
 
@@ -90,7 +93,7 @@ func fish_physic_frame(delta : float) -> void:
 			catch()
 	else:
 		pass
-		catch_timer_s = clamp(catch_timer_s + delta, 0, max_catch_timer)
+		catch_timer_s = clamp(catch_timer_s + catch_recovery_s * delta, 0, max_catch_timer)
 		if catch_timer_s == max_catch_timer:
 			snap()
 	# update catch bar
@@ -135,7 +138,8 @@ func shaking_fish_or_bar():
 
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
+	day_cycle_path_follow.progress_ratio = progress
 
 
 func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+	EventBus.day_ended.emit()

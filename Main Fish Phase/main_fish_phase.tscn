@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://c67651jp4gnm7"]
 
 [ext_resource type="Script" uid="uid://b137yplwpytd4" path="res://Main Fish Phase/main_fish_phase.gd" id="1_sb3fd"]
-[ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="1_vq508"]
 [ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_02ott"]
 [ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_6y7v2"]
 [ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/money_sign.svg" id="2_lyorp"]
+[ext_resource type="Texture2D" uid="uid://bu0whue464lh2" path="res://Assets/soleil.png" id="3_ofyt0"]
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_ueg10"]
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
+[ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
+
+[sub_resource type="Curve2D" id="Curve2D_02ott"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 25, 25, 0, 0, 0, 0, 810, 25)
+}
+point_count = 2
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yf5fn"]
 color = Color(1, 1, 1, 1)
@@ -79,10 +86,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=1210880583]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Path2D" type="Path2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control" unique_id=1262604445]
+curve = SubResource("Curve2D_02ott")
+
+[node name="DayCyclePathFollow" type="PathFollow2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control/Path2D" unique_id=1713440370]
+unique_name_in_owner = true
+position = Vector2(25, 25)
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control/Path2D/DayCyclePathFollow" unique_id=1914180449]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ofyt0")
 
 [node name="BucketZone" type="PanelContainer" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=462486461]
 layout_mode = 2
@@ -152,7 +172,7 @@ texture = ExtResource("2_6y7v2")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FishingBar" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder" unique_id=1666678743 instance=ExtResource("1_vq508")]
+[node name="FishingBar" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder" unique_id=1666678743 instance=ExtResource("7_ofyt0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 1
@@ -210,6 +230,7 @@ texture = ExtResource("2_6y7v2")
 [node name="DayIndicatorSprite" type="Sprite2D" parent="." unique_id=459513602]
 
 [node name="Timer" type="Timer" parent="." unique_id=1191305872]
+one_shot = true
 
 [node name="Bucket Anchor" type="Control" parent="." unique_id=1951671770]
 layout_mode = 1
