@@ -36,3 +36,5 @@ enum Bait{
 @export var depth : Depth
 ##IDK
 @export var habitat : int
+
+var seen : bool = false

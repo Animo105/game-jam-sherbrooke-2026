@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://b4tmymav81b7t"]
+
+[ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="1_gwsnw"]
+
+[resource]
+script = ExtResource("1_gwsnw")
+type = 1
+price = 250
+level = 1
+rarity = 2.0
+metadata/_custom_type_script = "uid://c6skkt4jmcl07"
