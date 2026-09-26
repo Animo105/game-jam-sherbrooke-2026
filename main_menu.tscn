@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ci6fmohwbwdhl"]
+
+[node name="MainMenu" type="Control" unique_id=1982284498]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=658047967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=921458838]
+layout_mode = 2
+alignment = 1
+
+[node name="PLay" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1811568935]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1683178103]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1356301924]
+layout_mode = 2
+text = "QUITTER"

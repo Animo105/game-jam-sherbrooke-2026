@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biwntyxx0cvic"
-path="res://.godot/imported/swamp.png-f55702e8b9cf87bf66083f0921d2f77d.ctex"
+uid="uid://bw40etruspjdf"
+path="res://.godot/imported/level_selct_background.png-0086ea6f030a3dcd1924d6da8837a93f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/swamp.png"
-dest_files=["res://.godot/imported/swamp.png-f55702e8b9cf87bf66083f0921d2f77d.ctex"]
+source_file="res://Assets/level icons/level_selct_background.png"
+dest_files=["res://.godot/imported/level_selct_background.png-0086ea6f030a3dcd1924d6da8837a93f.ctex"]
 
 [params]
 
