@@ -24,7 +24,6 @@
 [ext_resource type="Script" uid="uid://dhcss8ophpmb1" path="res://power_bar.gd" id="24_2b2i5"]
 [ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Speed.png" id="24_q8r8l"]
 [ext_resource type="Texture2D" uid="uid://df7x3mxgunmnx" path="res://Assets/textures/StatBar.png" id="25_07ndg"]
-[ext_resource type="Texture2D" uid="uid://qfnimdp76wj2" path="res://Assets/textures/Rarity.png" id="26_07ndg"]
 [ext_resource type="Texture2D" uid="uid://cym040m8qc8ph" path="res://Assets/textures/StatBar_full.png" id="26_ytoel"]
 
 [sub_resource type="Resource" id="Resource_icvdq"]
@@ -175,6 +174,8 @@ offset_bottom = 319.48138
 layout_mode = 2
 script = ExtResource("24_2b2i5")
 slots = 5
+active_slots = 3
+preview_slots = 2
 texture_empty = ExtResource("25_07ndg")
 texture_filled = ExtResource("26_ytoel")
 texture_icon = ExtResource("20_2wh60")
@@ -184,6 +185,8 @@ metadata/_custom_type_script = "uid://dhcss8ophpmb1"
 layout_mode = 2
 script = ExtResource("24_2b2i5")
 slots = 5
+active_slots = 3
+preview_slots = 2
 texture_empty = ExtResource("25_07ndg")
 texture_filled = ExtResource("26_ytoel")
 texture_icon = ExtResource("23_b7bcc")
@@ -193,16 +196,9 @@ metadata/_custom_type_script = "uid://dhcss8ophpmb1"
 layout_mode = 2
 script = ExtResource("24_2b2i5")
 slots = 5
+active_slots = 3
+preview_slots = 2
 texture_empty = ExtResource("25_07ndg")
 texture_filled = ExtResource("26_ytoel")
 texture_icon = ExtResource("24_q8r8l")
-metadata/_custom_type_script = "uid://dhcss8ophpmb1"
-
-[node name="Rarity" type="Control" parent="Equipment/VBoxContainer" unique_id=7412238]
-layout_mode = 2
-script = ExtResource("24_2b2i5")
-slots = 3
-texture_empty = ExtResource("25_07ndg")
-texture_filled = ExtResource("26_ytoel")
-texture_icon = ExtResource("26_07ndg")
 metadata/_custom_type_script = "uid://dhcss8ophpmb1"

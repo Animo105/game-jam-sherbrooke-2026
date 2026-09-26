@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgfl251nkpg3o"
-path="res://.godot/imported/Hook3.png-fda7fd2106d172d79f05cdd0ed22626c.ctex"
+uid="uid://d0j5xwp1cw5u4"
+path="res://.godot/imported/Squid_bucket.png-73dc288a96e85a35d7a7b8747e1bdccf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Hook3.png"
-dest_files=["res://.godot/imported/Hook3.png-fda7fd2106d172d79f05cdd0ed22626c.ctex"]
+source_file="res://Assets/textures/Squid_bucket.png"
+dest_files=["res://.godot/imported/Squid_bucket.png-73dc288a96e85a35d7a7b8747e1bdccf.ctex"]
 
 [params]
 
