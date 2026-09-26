@@ -1,4 +1,5 @@
 extends AudioStreamPlayer
+class_name SplashPlayer
 
 var splash_sound : Array
 

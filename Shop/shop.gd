@@ -2,8 +2,6 @@ extends Control
 
 @onready var grid_container: GridContainer = $GridContainer
 
-@export var Gears: Array[GearResource] = []
-
 var slot_scene = preload("res://Shop/Slot.tscn")
 
 @onready var texture_rect: TextureRect = $TextureRect
@@ -13,12 +11,9 @@ var slot_scene = preload("res://Shop/Slot.tscn")
 @onready var bait: TextureRect = $Equipment/VBoxContainer2/Bait
 @onready var line: TextureRect = $Equipment/VBoxContainer2/Line
 
-
-
 @onready var bait_bucket: BaitBucket = $Baits/BaitBucket
 @onready var bait_bucket_2: BaitBucket = $Baits/BaitBucket2
 @onready var bait_bucket_3: BaitBucket = $Baits/BaitBucket3
-
 
 @onready var strength: PowerBar = $Equipment/VBoxContainer/Strength
 @onready var snap: PowerBar = $Equipment/VBoxContainer/Snap
@@ -29,18 +24,17 @@ var frame_index: int = 0
 
 
 func _ready():
-	for gear in Gears:
+	for gear in GearManager.gear_list:
 		var slot : Slot = slot_scene.instantiate()
 		slot.pressed.connect(slot_clicked)
 		slot.on_mouse_entered.connect(slot_enter_hover)
 		slot.on_mouse_exited.connect(slot_exit_hover)
-		
-		bait_bucket.pressed.connect(bucket_clicked)
-		bait_bucket_2.pressed.connect(bucket_clicked)
-		bait_bucket_3.pressed.connect(bucket_clicked)
-		
 		grid_container.add_child(slot)
 		slot.setup(gear)
+		
+	bait_bucket.pressed.connect(bucket_clicked)
+	bait_bucket_2.pressed.connect(bucket_clicked)
+	bait_bucket_3.pressed.connect(bucket_clicked)
 		
 	var timer := Timer.new()
 	timer.wait_time = 0.5

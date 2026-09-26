@@ -35,7 +35,7 @@ func _on_mouse_entered() -> void:
 		.set_ease(Tween.EASE_OUT)
 
 	tween.tween_property(item, "rotation", deg_to_rad(-55), 0.15)
-	tag.rotate(tween, deg_to_rad(-7))
+	tag.rotate_tag(tween, deg_to_rad(-7))
 
 func _on_mouse_exited() -> void:	
 	on_mouse_exited.emit(self)
@@ -45,7 +45,7 @@ func _on_mouse_exited() -> void:
 		.set_ease(Tween.EASE_OUT)
 
 	tween.tween_property(item, "rotation", deg_to_rad(-45), 0.15)
-	tag.rotate(tween, deg_to_rad(0))
+	tag.rotate_tag(tween, deg_to_rad(0))
 
 
 func _on_gui_input(event: InputEvent) -> void:

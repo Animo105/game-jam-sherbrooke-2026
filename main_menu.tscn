@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://ci6fmohwbwdhl"]
 
+[ext_resource type="Script" uid="uid://5f4lbiivbiev" path="res://main_menu.gd" id="1_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://5wnpq3elmifg" path="res://Assets/main_screen.png" id="1_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://clneii0m17c1k" path="res://Assets/buttons/play_normal.png" id="1_jix8l"]
+[ext_resource type="Texture2D" uid="uid://cx4mckcf7r11y" path="res://Assets/main_screen_boat.png" id="2_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://cp1pi5mbs362i" path="res://Assets/buttons/play_pressed.png" id="2_glbon"]
+[ext_resource type="Texture2D" uid="uid://4cl0incw3ob5" path="res://Assets/buttons/play_hover.png" id="3_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://d4agbxgsndtir" path="res://Assets/buttons/play_disabled.png" id="4_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dk3tbrep1lli0" path="res://Assets/buttons/exit_normal.png" id="5_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://duftm28avbswt" path="res://Assets/buttons/exit_pressed.png" id="6_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://minph8lx7i3i" path="res://Assets/buttons/exit_hover.png" id="7_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://dx4ktk7ecvmxk" path="res://Assets/buttons/exit_disabled.png" id="8_0k4wn"]
+
 [node name="MainMenu" type="Control" unique_id=1982284498]
 layout_mode = 3
 anchors_preset = 15
@@ -7,31 +19,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0k4wn")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=658047967]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1869360301]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 400
-theme_override_constants/margin_bottom = 100
+texture = ExtResource("1_0o4t1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=921458838]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=934800560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -93.0
+offset_right = 27.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_0k4wn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=658047967]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -658.0
+offset_top = -300.0
+offset_right = 658.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=210134337]
 layout_mode = 2
 alignment = 1
 
-[node name="PLay" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1811568935]
+[node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1805563097]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "PLAY"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_jix8l")
+texture_pressed = ExtResource("2_glbon")
+texture_hover = ExtResource("3_nlkkf")
+texture_disabled = ExtResource("4_qe12f")
+texture_focused = ExtResource("3_nlkkf")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1683178103]
+[node name="QuittButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=2059674648]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "OPTIONS"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_8qtwp")
+texture_pressed = ExtResource("6_dy7ct")
+texture_hover = ExtResource("7_0o4t1")
+texture_disabled = ExtResource("8_0k4wn")
+texture_focused = ExtResource("7_0o4t1")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1356301924]
-layout_mode = 2
-text = "QUITTER"
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuittButton" to="." method="_on_quitt_button_pressed"]

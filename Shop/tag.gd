@@ -30,10 +30,10 @@ func setup(setup_gear: GearResource) -> void:
 	var price_tag = active_tag.get_child(0)
 	price_tag.text = "%d$" % setup_gear.price
 
-func rotate(tween: Tween, rotation: float) -> void:
+func rotate_tag(tween: Tween, rotation: float) -> void:
 	tween.tween_property(active_tag, "rotation", rotation, 0.15)
 
 func sold():
-	var price = active_tag.get_child(0)
-	price.text = "sold"
-	price.add_theme_color_override("font_color", "FF0000")
+	var new_price = active_tag.get_child(0)
+	new_price.text = "sold"
+	new_price.add_theme_color_override("font_color", "FF0000")

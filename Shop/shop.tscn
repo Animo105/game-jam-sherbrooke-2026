@@ -4,14 +4,9 @@
 [ext_resource type="Theme" uid="uid://dcks5er6tsnu3" path="res://Assets/theme.tres" id="1_u3phx"]
 [ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="3_icvdq"]
 [ext_resource type="Texture2D" uid="uid://b6k6wu57i7vlv" path="res://Assets/textures/ShopShack.png" id="3_so0yi"]
-[ext_resource type="Resource" uid="uid://b8tjya7jsnhcu" path="res://Gears/Resources/hook1.tres" id="4_8sid2"]
 [ext_resource type="Texture2D" uid="uid://d26wl1vau1xi3" path="res://Assets/textures/Baite.png" id="5_hfkrb"]
-[ext_resource type="Resource" uid="uid://dic1dx0wevjse" path="res://Gears/Resources/hook2.tres" id="5_jhfdn"]
-[ext_resource type="Resource" uid="uid://4h1eur3x4y8d" path="res://Gears/Resources/hook3.tres" id="6_eu4ty"]
-[ext_resource type="Resource" uid="uid://b2gx2un86eys2" path="res://Gears/Resources/spoon1.tres" id="7_b7bcc"]
 [ext_resource type="Texture2D" uid="uid://btvmretf7wbuw" path="res://Assets/textures/ShopShack2.png" id="7_ytoel"]
 [ext_resource type="PackedScene" uid="uid://b3mjmisp70kjr" path="res://Shop/bait_bucket.tscn" id="8_hfkrb"]
-[ext_resource type="Resource" uid="uid://b4tmymav81b7t" path="res://Gears/Resources/spoon2.tres" id="8_q8r8l"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="13_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cv1uiwryd4h4i" path="res://Assets/textures/Bucket_shrimp2.png" id="13_jhfdn"]
 [ext_resource type="Texture2D" uid="uid://xfenj2nhkp6l" path="res://Assets/textures/Bucket_shrimp.png" id="14_eu4ty"]
@@ -59,7 +54,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u3phx")
 script = ExtResource("1_6mmxm")
-Gears = Array[ExtResource("3_icvdq")]([ExtResource("4_8sid2"), ExtResource("5_jhfdn"), ExtResource("6_eu4ty"), ExtResource("7_b7bcc"), ExtResource("8_q8r8l")])
 frames = Array[Texture2D]([ExtResource("7_ytoel"), ExtResource("3_so0yi")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=322902441]

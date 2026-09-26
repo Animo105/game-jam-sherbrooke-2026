@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_ueg10"]
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
+[ext_resource type="Script" uid="uid://cev86rrwog377" path="res://Main Fish Phase/splash_audio_sound.gd" id="11_7suml"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yf5fn"]
 color = Color(1, 1, 1, 1)
@@ -265,5 +266,6 @@ offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=701712670]
+script = ExtResource("11_7suml")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

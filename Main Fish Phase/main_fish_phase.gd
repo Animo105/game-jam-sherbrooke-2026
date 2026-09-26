@@ -10,6 +10,7 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var fish_sprite: Sprite2D = %FishSprite
 @onready var fish_group: Node2D = %FishGroup
 @onready var progress_container: ProgressContainer = %ProgressContainer
+@onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
@@ -103,7 +104,7 @@ func catch():
 	var bucket_preview : FishRigidBody = FishRigidBody.new(current_fish.texture)
 	bucket_preview.position.x = randf_range(-100, 100)
 	fish_group.add_child(bucket_preview)
-	SplashAudioSound.play_splash()
+	audio_stream_player.play_splash()
 	total_money_today += int(current_fish.base_value)
 	if money_tween:
 		money_tween.kill()

@@ -11,24 +11,25 @@ config_version=5
 [application]
 
 config/name="GameJam Sherbrooke 2026"
-run/main_scene="uid://e7xxgeedlnwv"
+run/main_scene="uid://ci6fmohwbwdhl"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
+TransitionScreen="*uid://cpm8yq6a7piu0"
 EventBus="*uid://dy0knqfdoqsya"
+SceneManager="*uid://dsxhsrelgofi4"
 Globals="*uid://brgkyplwkebrl"
 FishManager="*uid://dq6gb58w754co"
-SplashAudioSound="*uid://cev86rrwog377"
-SceneManager="*uid://dsxhsrelgofi4"
 LevelManager="*uid://c700ylpryqcy2"
+GearManager="*uid://y0ol1txdnsck"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [file_customization]
@@ -40,7 +41,6 @@ folder_colors={
 
 [gui]
 
-theme/custom="uid://xg6adh6jloxn"
 theme/custom_font="uid://bt5jw78ub44tu"
 
 [input]
