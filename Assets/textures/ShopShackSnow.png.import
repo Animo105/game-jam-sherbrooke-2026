@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6k6wu57i7vlv"
-path="res://.godot/imported/ShopShack.png-c6ac8ab4c90fb2d264f73a978fbb573b.ctex"
+uid="uid://c3tm67fkk3aic"
+path="res://.godot/imported/ShopShackSnow.png-adc74a5d734e256381ee59438d133542.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/ShopShack.png"
-dest_files=["res://.godot/imported/ShopShack.png-c6ac8ab4c90fb2d264f73a978fbb573b.ctex"]
+source_file="res://Assets/textures/ShopShackSnow.png"
+dest_files=["res://.godot/imported/ShopShackSnow.png-adc74a5d734e256381ee59438d133542.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btvmretf7wbuw"
-path="res://.godot/imported/ShopShack2.png-b92479bd0abc0ded38aec6561b6ee5f6.ctex"
+uid="uid://b4khboge8ro3f"
+path="res://.godot/imported/Inventory.png-837e76bedf81d87e0994948535a41684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/ShopShack2.png"
-dest_files=["res://.godot/imported/ShopShack2.png-b92479bd0abc0ded38aec6561b6ee5f6.ctex"]
+source_file="res://Assets/textures/Inventory.png"
+dest_files=["res://.godot/imported/Inventory.png-837e76bedf81d87e0994948535a41684.ctex"]
 
 [params]
 
