@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bphtp80rd1oto"]
 
-[ext_resource type="Texture2D" uid="uid://bivsqbohpm6h5" path="res://Assets/fishing_bar.png" id="1_bq1mb"]
+[ext_resource type="Texture2D" uid="uid://bivsqbohpm6h5" path="res://Assets/textures/fishing_bar.png" id="1_bq1mb"]
 [ext_resource type="Script" uid="uid://dcgwtwxfmt3mx" path="res://Main Fish Phase/fishing_bar.gd" id="1_f0njc"]
-[ext_resource type="Texture2D" uid="uid://bbdilm67v3ly1" path="res://Assets/that_one_green_pixel.png" id="2_wt0h1"]
+[ext_resource type="Texture2D" uid="uid://bbdilm67v3ly1" path="res://Assets/textures/that_one_green_pixel.png" id="2_wt0h1"]
 
 [node name="Bar" type="PanelContainer" unique_id=736783115]
 custom_minimum_size = Vector2(0, 75)

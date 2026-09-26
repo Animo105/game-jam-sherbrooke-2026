@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b3mjmisp70kjr"]
 
 [ext_resource type="Script" uid="uid://lmpnnvwi765h" path="res://Shop/bait_bucket.gd" id="1_fr1gt"]
-[ext_resource type="Texture2D" uid="uid://brbgdp6ymqs5i" path="res://Assets/textures/Bucket_worms2.png" id="2_rp02g"]
-[ext_resource type="Texture2D" uid="uid://bgsyejp6av7aw" path="res://Assets/textures/Bucket_worms.png" id="3_8im0h"]
+[ext_resource type="Texture2D" uid="uid://brbgdp6ymqs5i" path="res://Assets/textures/Shop/Bucket_worms2.png" id="2_rp02g"]
+[ext_resource type="Texture2D" uid="uid://bgsyejp6av7aw" path="res://Assets/textures/Shop/Bucket_worms.png" id="3_8im0h"]
 [ext_resource type="PackedScene" uid="uid://biw0vwxg4yf6p" path="res://Shop/tag.tscn" id="4_exppb"]
-[ext_resource type="Texture2D" uid="uid://bq00msmej2w6m" path="res://Assets/textures/Bait_Bucket.png" id="4_rp02g"]
+[ext_resource type="Texture2D" uid="uid://bq00msmej2w6m" path="res://Assets/textures/Shop/Bait_Bucket.png" id="4_rp02g"]
 
 [node name="BaitBucket" type="Control" unique_id=988010713]
 custom_minimum_size = Vector2(153.077, 166.923)

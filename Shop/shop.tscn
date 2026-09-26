@@ -2,51 +2,26 @@
 
 [ext_resource type="Script" uid="uid://b550ddq5avurd" path="res://Shop/shop.gd" id="1_6mmxm"]
 [ext_resource type="Theme" uid="uid://dcks5er6tsnu3" path="res://Assets/theme.tres" id="1_u3phx"]
-[ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="3_icvdq"]
-[ext_resource type="Texture2D" uid="uid://dqnc7023jbst7" path="res://Assets/textures/ShopShackSwamp2.png" id="3_w1rpo"]
-[ext_resource type="Texture2D" uid="uid://d26wl1vau1xi3" path="res://Assets/textures/Baite.png" id="5_hfkrb"]
+[ext_resource type="Texture2D" uid="uid://dqnc7023jbst7" path="res://Assets/textures/Shop/animations/ShopShackSwamp2.png" id="3_w1rpo"]
+[ext_resource type="Resource" uid="uid://bvjviu2cpm7ag" path="res://Gears/Resources/bait1.tres" id="7_2b2i5"]
 [ext_resource type="PackedScene" uid="uid://b3mjmisp70kjr" path="res://Shop/bait_bucket.tscn" id="8_hfkrb"]
-[ext_resource type="Texture2D" uid="uid://cyjst6sngugs2" path="res://Assets/textures/ShopShackSnow2.png" id="9_b7bcc"]
-[ext_resource type="Texture2D" uid="uid://c3tm67fkk3aic" path="res://Assets/textures/ShopShackSnow.png" id="10_q8r8l"]
-[ext_resource type="Texture2D" uid="uid://cv1uiwryd4h4i" path="res://Assets/textures/Bucket_shrimp2.png" id="13_jhfdn"]
-[ext_resource type="Texture2D" uid="uid://xfenj2nhkp6l" path="res://Assets/textures/Bucket_shrimp.png" id="14_eu4ty"]
-[ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/money_sign.svg" id="15_2wh60"]
-[ext_resource type="Texture2D" uid="uid://bfqcekuiso7t4" path="res://Assets/textures/Shrimp.png" id="15_eu4ty"]
-[ext_resource type="Texture2D" uid="uid://b4khboge8ro3f" path="res://Assets/textures/Inventory.png" id="16_3mw0j"]
-[ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Squid_bucket.png" id="16_b5trs"]
-[ext_resource type="Texture2D" uid="uid://ci56e0203jxad" path="res://Assets/textures/Squid.png" id="16_b7bcc"]
-[ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Squid_bucket2.png" id="17_16e15"]
-[ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Strength.png" id="20_2wh60"]
-[ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Snap.png" id="23_b7bcc"]
+[ext_resource type="Resource" uid="uid://c3gd7n1huyw7" path="res://Gears/Resources/bait2.tres" id="10_2wh60"]
+[ext_resource type="Resource" uid="uid://do3o0337y223o" path="res://Gears/Resources/bait3.tres" id="13_07ndg"]
+[ext_resource type="Texture2D" uid="uid://cv1uiwryd4h4i" path="res://Assets/textures/Shop/Bucket_shrimp2.png" id="13_jhfdn"]
+[ext_resource type="Texture2D" uid="uid://xfenj2nhkp6l" path="res://Assets/textures/Shop/Bucket_shrimp.png" id="14_eu4ty"]
+[ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/textures/money_sign.svg" id="15_2wh60"]
+[ext_resource type="Texture2D" uid="uid://b4khboge8ro3f" path="res://Assets/textures/Shop/Inventory.png" id="16_3mw0j"]
+[ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Shop/Squid_bucket.png" id="16_b5trs"]
+[ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Shop/Squid_bucket2.png" id="17_16e15"]
+[ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Shop/Strength.png" id="20_2wh60"]
+[ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Shop/Snap.png" id="23_b7bcc"]
 [ext_resource type="Script" uid="uid://dhcss8ophpmb1" path="res://power_bar.gd" id="24_2b2i5"]
-[ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/arrow_next.png" id="24_2wh60"]
-[ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Speed.png" id="24_q8r8l"]
-[ext_resource type="Texture2D" uid="uid://df7x3mxgunmnx" path="res://Assets/textures/StatBar.png" id="25_07ndg"]
-[ext_resource type="Texture2D" uid="uid://6nnmmxhojud8" path="res://Assets/arrow_next_hover.png" id="25_ytoel"]
-[ext_resource type="Texture2D" uid="uid://qfnimdp76wj2" path="res://Assets/textures/Rarity.png" id="26_07ndg"]
-[ext_resource type="Texture2D" uid="uid://cym040m8qc8ph" path="res://Assets/textures/StatBar_full.png" id="26_ytoel"]
-
-[sub_resource type="Resource" id="Resource_icvdq"]
-script = ExtResource("3_icvdq")
-type = 3
-texture = ExtResource("5_hfkrb")
-metadata/_custom_type_script = "uid://c6skkt4jmcl07"
-
-[sub_resource type="Resource" id="Resource_8sid2"]
-script = ExtResource("3_icvdq")
-type = 3
-price = 40
-texture = ExtResource("15_eu4ty")
-level = 1
-metadata/_custom_type_script = "uid://c6skkt4jmcl07"
-
-[sub_resource type="Resource" id="Resource_jhfdn"]
-script = ExtResource("3_icvdq")
-type = 3
-price = 150
-texture = ExtResource("16_b7bcc")
-level = 2
-metadata/_custom_type_script = "uid://c6skkt4jmcl07"
+[ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/textures/Shop/arrow_next.png" id="24_2wh60"]
+[ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Shop/Speed.png" id="24_q8r8l"]
+[ext_resource type="Texture2D" uid="uid://df7x3mxgunmnx" path="res://Assets/textures/Shop/StatBar.png" id="25_07ndg"]
+[ext_resource type="Texture2D" uid="uid://6nnmmxhojud8" path="res://Assets/textures/Shop/arrow_next_hover.png" id="25_ytoel"]
+[ext_resource type="Texture2D" uid="uid://qfnimdp76wj2" path="res://Assets/textures/Shop/Rarity.png" id="26_07ndg"]
+[ext_resource type="Texture2D" uid="uid://cym040m8qc8ph" path="res://Assets/textures/Shop/StatBar_full.png" id="26_ytoel"]
 
 [node name="Shop" type="Control" unique_id=1115530980]
 layout_mode = 3
@@ -59,7 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u3phx")
 script = ExtResource("1_6mmxm")
-frames = Array[Texture2D]([ExtResource("9_b7bcc"), ExtResource("10_q8r8l")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=322902441]
 layout_mode = 1
@@ -71,11 +45,15 @@ grow_vertical = 2
 texture = ExtResource("3_w1rpo")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=216375886]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 100.0
-offset_right = 203.0
-offset_bottom = 140.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_right = 0.50200003
+anchor_bottom = 1.0
+offset_left = 25.639992
+offset_top = 113.0
+offset_right = 0.4399414
+offset_bottom = -192.0
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 20
 columns = 3
@@ -97,19 +75,22 @@ alignment = 1
 [node name="BaitBucket" parent="Baits" unique_id=988010713 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
 size_flags_horizontal = 3
-setup_gear = SubResource("Resource_icvdq")
+mouse_default_cursor_shape = 2
+setup_gear = ExtResource("7_2b2i5")
 
 [node name="BaitBucket2" parent="Baits" unique_id=685434837 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 frames = Array[Texture2D]([ExtResource("13_jhfdn"), ExtResource("14_eu4ty")])
-setup_gear = SubResource("Resource_8sid2")
+setup_gear = ExtResource("10_2wh60")
 
 [node name="BaitBucket3" parent="Baits" unique_id=547223277 instance=ExtResource("8_hfkrb")]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 frames = Array[Texture2D]([ExtResource("16_b5trs"), ExtResource("17_16e15")])
-setup_gear = SubResource("Resource_jhfdn")
+setup_gear = ExtResource("13_07ndg")
 
 [node name="Money" type="HBoxContainer" parent="." unique_id=887497269]
 layout_mode = 1
@@ -138,11 +119,18 @@ texture = ExtResource("15_2wh60")
 expand_mode = 2
 
 [node name="Equipment" type="TextureRect" parent="." unique_id=1685118257]
-layout_mode = 0
-offset_left = 742.0
-offset_top = 179.00002
-offset_right = 1190.0
-offset_bottom = 727.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -493.0
+offset_top = -533.0
+offset_right = -41.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(1.082414, 0.96591586)
 texture = ExtResource("16_3mw0j")
 

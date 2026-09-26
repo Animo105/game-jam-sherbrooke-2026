@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csg3va7sbxqy" path="res://Shop/slot.gd" id="1_h2c3q"]
 [ext_resource type="PackedScene" uid="uid://biw0vwxg4yf6p" path="res://Shop/tag.tscn" id="4_aes2j"]
-[ext_resource type="Texture2D" uid="uid://80dqy1msnxqk" path="res://Assets/textures/Shadow.png" id="6_tbhmc"]
+[ext_resource type="Texture2D" uid="uid://80dqy1msnxqk" path="res://Assets/textures/Shop/Shadow.png" id="6_tbhmc"]
 
 [node name="Slot" type="Control" unique_id=2051599230]
 custom_minimum_size = Vector2(126, 126)

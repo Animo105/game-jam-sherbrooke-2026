@@ -8,3 +8,5 @@ class_name LevelRessource
 @export var id : int
 @export var cost : int
 var is_unlocked : bool = false
+
+@export var shop_frames: Array[Texture2D] = []

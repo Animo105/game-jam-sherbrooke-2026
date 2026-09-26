@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://biw0vwxg4yf6p"]
 
 [ext_resource type="Script" uid="uid://cnkhnjt868d7y" path="res://Shop/tag.gd" id="1_g7rg5"]
-[ext_resource type="Texture2D" uid="uid://fd6175gtgwcg" path="res://Assets/textures/Tag.png" id="2_2sk11"]
+[ext_resource type="Texture2D" uid="uid://fd6175gtgwcg" path="res://Assets/textures/Shop/Tag.png" id="2_2sk11"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="3_fumiu"]
-[ext_resource type="Texture2D" uid="uid://dk4cvr36s6v70" path="res://Assets/textures/Tag_big.png" id="4_lpb8s"]
-[ext_resource type="Texture2D" uid="uid://v2gr88mjq0sr" path="res://Assets/textures/Tag_small.png" id="5_doumi"]
+[ext_resource type="Texture2D" uid="uid://dk4cvr36s6v70" path="res://Assets/textures/Shop/Tag_big.png" id="4_lpb8s"]
+[ext_resource type="Texture2D" uid="uid://v2gr88mjq0sr" path="res://Assets/textures/Shop/Tag_small.png" id="5_doumi"]
 
 [node name="Tag" type="Control" unique_id=632957116]
 layout_mode = 3
