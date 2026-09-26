@@ -28,6 +28,8 @@ enum Bait{
 @export var direction_change_frequency : float
 ## base sell_value
 @export var base_value : float
+## rarity of the fish
+@export var rarity : float
 
 ##don't ask me
 @export var bait_type : Bait

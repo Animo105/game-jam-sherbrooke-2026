@@ -14,11 +14,19 @@ func _ready() -> void:
 				fish_list[fish_name] = res
 
 func pick_a_fish() -> FishResource:
-	var can_pick : Array[FishResource]
+	var can_pick : Array[FishResource] = []
 	var current_bait_type : FishResource.Bait = Globals.rod.bait_type
 	for fish : FishResource in fish_list.values():
 		if fish.habitat != Globals.current_habitat:
 			continue
 		if fish.bait_type == FishResource.Bait.ANY or fish.bait_type == current_bait_type:
 			can_pick.append(fish)
-	return can_pick.pick_random()
+		
+	var rng = RandomNumberGenerator.new()
+	var weights : Array = []
+	for x : FishResource in can_pick:
+		if x.rarity > Globals.rod.rarity:
+			weights.append(0.5)
+		else :
+			weights.append(2.0)
+	return can_pick[rng.rand_weighted(weights)]
