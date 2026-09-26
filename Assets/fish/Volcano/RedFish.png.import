@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xsihxotxmib0"
-path="res://.godot/imported/eel_fish.png-9a7957ea6bc41100dff18b5a3dadadc8.ctex"
+uid="uid://bj8ype30j6sch"
+path="res://.godot/imported/RedFish.png-22d09a782e16a7f0dbc5c98be2ca5631.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fish/eel_fish.png"
-dest_files=["res://.godot/imported/eel_fish.png-9a7957ea6bc41100dff18b5a3dadadc8.ctex"]
+source_file="res://Assets/fish/Volcano/RedFish.png"
+dest_files=["res://.godot/imported/RedFish.png-22d09a782e16a7f0dbc5c98be2ca5631.ctex"]
 
 [params]
 

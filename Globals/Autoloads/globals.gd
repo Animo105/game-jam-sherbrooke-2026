@@ -5,7 +5,7 @@ const PULL_FORCE_PERCENT : float = 0.05
 const MAX_SNAP_SPEED : float = 10
 const MIN_SNAP_SPEED : float = 0.5
 
-var money : float = 1000000
+var money : float = 100000
 
 func _ready() -> void:
 	rod.snap_resistence = 1

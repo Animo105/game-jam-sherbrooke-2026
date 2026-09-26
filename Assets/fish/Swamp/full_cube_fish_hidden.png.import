@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dixrk3ge4wxjn"
-path="res://.godot/imported/full_cube_fish.png-b3a02ae31a55f59c4ba9535c1329e5a6.ctex"
+uid="uid://blxivccevuu5w"
+path="res://.godot/imported/full_cube_fish_hidden.png-c9e47363378cc213815fbdb4f4f5b0be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fish/full_cube_fish.png"
-dest_files=["res://.godot/imported/full_cube_fish.png-b3a02ae31a55f59c4ba9535c1329e5a6.ctex"]
+source_file="res://Assets/fish/Swamp/full_cube_fish_hidden.png"
+dest_files=["res://.godot/imported/full_cube_fish_hidden.png-c9e47363378cc213815fbdb4f4f5b0be.ctex"]
 
 [params]
 
