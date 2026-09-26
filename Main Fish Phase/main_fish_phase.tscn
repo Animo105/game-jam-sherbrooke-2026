@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_02ott"]
 [ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_6y7v2"]
 [ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/money_sign.svg" id="2_lyorp"]
-[ext_resource type="Script" uid="uid://ckitegob0uchk" path="res://progress_container.gd" id="3_bbyx3"]
+[ext_resource type="Script" uid="uid://ckitegob0uchk" path="res://Globals/progress_container.gd" id="3_bbyx3"]
 [ext_resource type="Texture2D" uid="uid://b6yw4ia8ojgc2" path="res://Assets/bar_test.png" id="3_lbgfd"]
 [ext_resource type="Texture2D" uid="uid://bu0whue464lh2" path="res://Assets/soleil.png" id="3_ofyt0"]
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_ueg10"]
