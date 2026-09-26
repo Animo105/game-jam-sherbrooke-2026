@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jqjejes2frq3"
-path="res://.godot/imported/Spoon3.png-bb54436e7e62311638e509c0a12a8044.ctex"
+uid="uid://dlfrf84gu0jud"
+path="res://.godot/imported/Line.png-16404651dbc192f5f677c5347dabc517.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rig/Spoon/Spoon3.png"
-dest_files=["res://.godot/imported/Spoon3.png-bb54436e7e62311638e509c0a12a8044.ctex"]
+source_file="res://Assets/textures/Line.png"
+dest_files=["res://.godot/imported/Line.png-16404651dbc192f5f677c5347dabc517.ctex"]
 
 [params]
 

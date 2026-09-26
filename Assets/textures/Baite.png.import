@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx13cerf2ru5k"
-path="res://.godot/imported/Reel2.png-9fa8d3fb72e0377e11e650d8d3f215a8.ctex"
+uid="uid://d26wl1vau1xi3"
+path="res://.godot/imported/Baite.png-8516f09fef5caf115785ee274f158907.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rig/Reel/Reel2.png"
-dest_files=["res://.godot/imported/Reel2.png-9fa8d3fb72e0377e11e650d8d3f215a8.ctex"]
+source_file="res://Assets/textures/Baite.png"
+dest_files=["res://.godot/imported/Baite.png-8516f09fef5caf115785ee274f158907.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlp767upymw1n"
-path="res://.godot/imported/Spoon2.png-e7d3e0283cb36a52a25a20fa926f6235.ctex"
+uid="uid://dm15rkef8xcoa"
+path="res://.godot/imported/Hook.png-fce77855d3ef573c17bd4a66e644ea80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rig/Spoon/Spoon2.png"
-dest_files=["res://.godot/imported/Spoon2.png-e7d3e0283cb36a52a25a20fa926f6235.ctex"]
+source_file="res://Assets/textures/Hook.png"
+dest_files=["res://.godot/imported/Hook.png-fce77855d3ef573c17bd4a66e644ea80.ctex"]
 
 [params]
 

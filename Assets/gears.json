@@ -1,0 +1,83 @@
+[
+	{
+	"type": "Baite",
+	"price": 1,
+	"texture": "res://Assets/textures/Baite.png",
+	"strength": 10,
+	"speed": 10,
+	"snap": -10,
+	"rarity": 1
+	},
+	{
+	"type": "Baite",
+	"price": 10,
+	"texture": "res://Assets/textures/Hook.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 200,
+	"texture": "res://Assets/textures/Hook2.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 2100,
+	"texture": "res://Assets/textures/Hook3.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 210,
+	"texture": "res://Assets/textures/Line.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 210,
+	"texture": "res://Assets/textures/Reel.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 210,
+	"texture": "res://Assets/textures/Spoon.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 210,
+	"texture": "res://Assets/textures/Spoon2.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+	{
+	"type": "Baite",
+	"price": 210,
+	"texture": "res://Assets/textures/Spoon3.png",
+	"strength": 20,
+	"speed": 15,
+	"snap": -5,
+	"rarity": 2
+	},
+]

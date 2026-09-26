@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm15rkef8xcoa"
-path="res://.godot/imported/Hook.png-aeca5683c0876d0ced0514adb1f126bb.ctex"
+uid="uid://ch6folkuottgp"
+path="res://.godot/imported/Reel.png-f7529085bd76fe45221d68c55e447a8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rig/Hook/Hook.png"
-dest_files=["res://.godot/imported/Hook.png-aeca5683c0876d0ced0514adb1f126bb.ctex"]
+source_file="res://Assets/textures/Reel.png"
+dest_files=["res://.godot/imported/Reel.png-f7529085bd76fe45221d68c55e447a8d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2jcxwax7h3el"
-path="res://.godot/imported/Spoon.png-9d3a64f54480d0538ac718110cc31a8a.ctex"
+uid="uid://jqjejes2frq3"
+path="res://.godot/imported/Spoon3.png-9584cf99322e0c88afc01ec559a8258f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rig/Spoon/Spoon.png"
-dest_files=["res://.godot/imported/Spoon.png-9d3a64f54480d0538ac718110cc31a8a.ctex"]
+source_file="res://Assets/textures/Spoon3.png"
+dest_files=["res://.godot/imported/Spoon3.png-9584cf99322e0c88afc01ec559a8258f.ctex"]
 
 [params]
 
