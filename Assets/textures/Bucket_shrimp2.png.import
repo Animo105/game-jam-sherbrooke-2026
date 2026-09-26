@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2cw2sytyfa5d"
-path="res://.godot/imported/Squid_bucket2.png-23a2675039ab7b9938c91a327e2f4991.ctex"
+uid="uid://cv1uiwryd4h4i"
+path="res://.godot/imported/Bucket_shrimp2.png-577ce634911e0f644de7364df039444a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Squid_bucket2.png"
-dest_files=["res://.godot/imported/Squid_bucket2.png-23a2675039ab7b9938c91a327e2f4991.ctex"]
+source_file="res://Assets/textures/Bucket_shrimp2.png"
+dest_files=["res://.godot/imported/Bucket_shrimp2.png-577ce634911e0f644de7364df039444a.ctex"]
 
 [params]
 

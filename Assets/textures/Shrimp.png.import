@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm15rkef8xcoa"
-path="res://.godot/imported/Hook.png-fce77855d3ef573c17bd4a66e644ea80.ctex"
+uid="uid://bfqcekuiso7t4"
+path="res://.godot/imported/Shrimp.png-eb6ef4e0dd332f26d9a5212f6e6fb829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Hook.png"
-dest_files=["res://.godot/imported/Hook.png-fce77855d3ef573c17bd4a66e644ea80.ctex"]
+source_file="res://Assets/textures/Shrimp.png"
+dest_files=["res://.godot/imported/Shrimp.png-eb6ef4e0dd332f26d9a5212f6e6fb829.ctex"]
 
 [params]
 

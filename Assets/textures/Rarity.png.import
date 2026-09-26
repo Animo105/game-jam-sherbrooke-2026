@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgfl251nkpg3o"
-path="res://.godot/imported/Hook3.png-fda7fd2106d172d79f05cdd0ed22626c.ctex"
+uid="uid://qfnimdp76wj2"
+path="res://.godot/imported/Rarity.png-ddf28c9340f10abed81bedf7da495408.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Hook3.png"
-dest_files=["res://.godot/imported/Hook3.png-fda7fd2106d172d79f05cdd0ed22626c.ctex"]
+source_file="res://Assets/textures/Rarity.png"
+dest_files=["res://.godot/imported/Rarity.png-ddf28c9340f10abed81bedf7da495408.ctex"]
 
 [params]
 
