@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0iqeyk0s7oi0"
-path="res://.godot/imported/sneko_fish_hidden.png-17f6dbbce4b9767850e8d4bec7ac3750.ctex"
+uid="uid://bdnjkytyn7qgf"
+path="res://.godot/imported/ice_fish.png-ef2faac0d2f7496e35bb624ee8a0263a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/fish/sneko_fish_hidden.png"
-dest_files=["res://.godot/imported/sneko_fish_hidden.png-17f6dbbce4b9767850e8d4bec7ac3750.ctex"]
+source_file="res://Assets/fish/ice_fish.png"
+dest_files=["res://.godot/imported/ice_fish.png-ef2faac0d2f7496e35bb624ee8a0263a.ctex"]
 
 [params]
 
