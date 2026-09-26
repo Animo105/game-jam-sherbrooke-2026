@@ -5,19 +5,20 @@
 [ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="3_icvdq"]
 [ext_resource type="Texture2D" uid="uid://b6k6wu57i7vlv" path="res://Assets/textures/ShopShack.png" id="3_so0yi"]
 [ext_resource type="Resource" uid="uid://b8tjya7jsnhcu" path="res://Gears/Resources/hook1.tres" id="4_8sid2"]
-[ext_resource type="Texture2D" uid="uid://dlp767upymw1n" path="res://Assets/textures/Spoon2.png" id="4_so0yi"]
 [ext_resource type="Texture2D" uid="uid://d26wl1vau1xi3" path="res://Assets/textures/Baite.png" id="5_hfkrb"]
 [ext_resource type="Resource" uid="uid://dic1dx0wevjse" path="res://Gears/Resources/hook2.tres" id="5_jhfdn"]
-[ext_resource type="Texture2D" uid="uid://dlfrf84gu0jud" path="res://Assets/textures/Line.png" id="6_7gdb2"]
 [ext_resource type="Resource" uid="uid://4h1eur3x4y8d" path="res://Gears/Resources/hook3.tres" id="6_eu4ty"]
+[ext_resource type="Resource" uid="uid://b2gx2un86eys2" path="res://Gears/Resources/spoon1.tres" id="7_b7bcc"]
+[ext_resource type="Texture2D" uid="uid://btvmretf7wbuw" path="res://Assets/textures/ShopShack2.png" id="7_ytoel"]
 [ext_resource type="PackedScene" uid="uid://b3mjmisp70kjr" path="res://Shop/bait_bucket.tscn" id="8_hfkrb"]
-[ext_resource type="Texture2D" uid="uid://ceqtiyeq0tre3" path="res://Assets/gearsAssets/Hook1.png" id="9_eu4ty"]
+[ext_resource type="Resource" uid="uid://b4tmymav81b7t" path="res://Gears/Resources/spoon2.tres" id="8_q8r8l"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="13_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cv1uiwryd4h4i" path="res://Assets/textures/Bucket_shrimp2.png" id="13_jhfdn"]
 [ext_resource type="Texture2D" uid="uid://xfenj2nhkp6l" path="res://Assets/textures/Bucket_shrimp.png" id="14_eu4ty"]
 [ext_resource type="Texture2D" uid="uid://bfqcekuiso7t4" path="res://Assets/textures/Shrimp.png" id="15_eu4ty"]
 [ext_resource type="Texture2D" uid="uid://c1rxpo7ehrvow" path="res://Assets/textures/Paper.png" id="16_2b2i5"]
 [ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Squid_bucket.png" id="16_b5trs"]
+[ext_resource type="Texture2D" uid="uid://ci56e0203jxad" path="res://Assets/textures/Squid.png" id="16_b7bcc"]
 [ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Squid_bucket2.png" id="17_16e15"]
 [ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Strength.png" id="20_2wh60"]
 [ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Snap.png" id="23_b7bcc"]
@@ -44,6 +45,7 @@ metadata/_custom_type_script = "uid://c6skkt4jmcl07"
 script = ExtResource("3_icvdq")
 type = 3
 price = 150
+texture = ExtResource("16_b7bcc")
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"
 
 [node name="Shop" type="Control" unique_id=1115530980]
@@ -57,7 +59,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u3phx")
 script = ExtResource("1_6mmxm")
-Gears = Array[ExtResource("3_icvdq")]([ExtResource("4_8sid2"), ExtResource("5_jhfdn"), ExtResource("6_eu4ty")])
+Gears = Array[ExtResource("3_icvdq")]([ExtResource("4_8sid2"), ExtResource("5_jhfdn"), ExtResource("6_eu4ty"), ExtResource("7_b7bcc"), ExtResource("8_q8r8l")])
+frames = Array[Texture2D]([ExtResource("7_ytoel"), ExtResource("3_so0yi")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=322902441]
 layout_mode = 0
@@ -120,50 +123,6 @@ offset_bottom = 727.0
 scale = Vector2(1.082414, 0.96591586)
 texture = ExtResource("16_2b2i5")
 
-[node name="Rig" type="Control" parent="Equipment" unique_id=878125065]
-anchors_preset = 0
-offset_left = -22.172667
-offset_top = 45.55261
-offset_right = -22.172667
-offset_bottom = 45.55261
-scale = Vector2(1.0904748, 1.0904748)
-
-[node name="Hook" type="TextureRect" parent="Equipment/Rig" unique_id=1154737522]
-layout_mode = 0
-offset_left = 46.0
-offset_top = 224.0
-offset_right = 302.0
-offset_bottom = 480.0
-scale = Vector2(0.5171347, 0.5171347)
-texture = ExtResource("9_eu4ty")
-
-[node name="Bait" type="TextureRect" parent="Equipment/Rig" unique_id=1838366607]
-layout_mode = 0
-offset_left = 70.0
-offset_top = 320.0
-offset_right = 198.0
-offset_bottom = 448.0
-scale = Vector2(0.5799616, 0.5799616)
-texture = ExtResource("5_hfkrb")
-
-[node name="Spoon" type="TextureRect" parent="Equipment/Rig" unique_id=541707476]
-layout_mode = 0
-offset_left = 98.49005
-offset_top = 86.0
-offset_right = 226.49005
-offset_bottom = 214.0
-rotation = 0.61418915
-texture = ExtResource("4_so0yi")
-
-[node name="Line" type="TextureRect" parent="Equipment/Rig" unique_id=1211373828]
-layout_mode = 0
-offset_left = 103.90063
-offset_top = -37.602406
-offset_right = 231.90063
-offset_bottom = 90.3976
-rotation = 0.72241956
-texture = ExtResource("6_7gdb2")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Equipment" unique_id=665989312]
 layout_mode = 0
 offset_left = 155.20862
@@ -206,3 +165,32 @@ texture_empty = ExtResource("25_07ndg")
 texture_filled = ExtResource("26_ytoel")
 texture_icon = ExtResource("26_07ndg")
 metadata/_custom_type_script = "uid://dhcss8ophpmb1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Equipment" unique_id=876718618]
+layout_mode = 0
+offset_left = 48.040764
+offset_top = 19.670433
+offset_right = 178.04077
+offset_bottom = 551.6704
+
+[node name="Line" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1117458993]
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Spoon" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1319093274]
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Hook" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1213260707]
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Bait" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1114464977]
+custom_minimum_size = Vector2(64, 0)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(32, 32)
