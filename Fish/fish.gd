@@ -25,8 +25,6 @@ enum Bait{
 @export var speed : float = 0.1
 ## Fréquence de changement de direction (chance every 5 frames)
 @export var direction_change_frequency : float
-## réduction a la snap_strenght de la bar (total = timer lorsque le fish est pu dans la zone)
-@export var snap_strenght : float = 0
 ## base sell_value
 @export var base_value : float
 
