@@ -4,16 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_02ott"]
 [ext_resource type="Texture2D" uid="uid://dm2pfrukogmi1" path="res://Assets/icon.svg" id="2_6y7v2"]
 [ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/money_sign.svg" id="2_lyorp"]
+[ext_resource type="Script" uid="uid://ckitegob0uchk" path="res://progress_container.gd" id="3_bbyx3"]
+[ext_resource type="Texture2D" uid="uid://b6yw4ia8ojgc2" path="res://Assets/bar_test.png" id="3_lbgfd"]
 [ext_resource type="Texture2D" uid="uid://bu0whue464lh2" path="res://Assets/soleil.png" id="3_ofyt0"]
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/bucket.png" id="3_ueg10"]
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
-
-[sub_resource type="Curve2D" id="Curve2D_02ott"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 25, 25, 0, 0, 0, 0, 810, 25)
-}
-point_count = 2
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_yf5fn"]
 color = Color(1, 1, 1, 1)
@@ -88,20 +84,47 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=1210880583]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=78199646]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer" unique_id=1210880583]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Path2D" type="Path2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control" unique_id=1262604445]
-curve = SubResource("Curve2D_02ott")
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control" unique_id=1373781688]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+texture = ExtResource("3_lbgfd")
+patch_margin_left = 24
+patch_margin_right = 24
 
-[node name="DayCyclePathFollow" type="PathFollow2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control/Path2D" unique_id=1713440370]
+[node name="ProgressContainer" type="Container" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect" unique_id=1956447632]
 unique_name_in_owner = true
-position = Vector2(25, 25)
-loop = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_bbyx3")
+metadata/_custom_type_script = "uid://ckitegob0uchk"
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/Control/Path2D/DayCyclePathFollow" unique_id=1914180449]
-scale = Vector2(0.3, 0.3)
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer" unique_id=920197485]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-128, -128)
+offset_transform_scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ofyt0")
 
 [node name="BucketZone" type="PanelContainer" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=462486461]
@@ -240,5 +263,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=701712670]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

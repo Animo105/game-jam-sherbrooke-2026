@@ -9,7 +9,7 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var timer: Timer = $Timer
 @onready var fish_sprite: Sprite2D = %FishSprite
 @onready var fish_group: Node2D = %FishGroup
-@onready var day_cycle_path_follow: PathFollow2D = %DayCyclePathFollow
+@onready var progress_container: ProgressContainer = %ProgressContainer
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
@@ -43,7 +43,7 @@ func new_fish(fish : FishResource):
 	fish_sprite.texture = fish.texture if fish.seen else fish.hidden_texture
 	fish_sprite.visible = true
 	max_catch_timer = fish.catch_difficulty - Globals.rod.catch_speed
-	catch_timer_s = max_catch_timer
+	catch_timer_s = max_catch_timer * 0.8
 	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, Globals.MIN_SNAP_SPEED, Globals.MAX_SNAP_SPEED)
 	fish_speed = fish.speed - Globals.rod.pull_strenght
 	fish_direction = 1 if randf() < 0.5 else -1
@@ -138,7 +138,7 @@ func shaking_fish_or_bar():
 
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
-	day_cycle_path_follow.progress_ratio = progress
+	progress_container.progress_ratio = progress
 
 
 func _on_timer_timeout() -> void:
