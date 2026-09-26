@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx13cerf2ru5k"
-path="res://.godot/imported/Reel2.png-c8f4048032218b785d92403be5cd84fa.ctex"
+uid="uid://c2xuncfmyutep"
+path="res://.godot/imported/BassSpoon.png-86ecece6715b524c99fbccdb4e463626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Reel2.png"
-dest_files=["res://.godot/imported/Reel2.png-c8f4048032218b785d92403be5cd84fa.ctex"]
+source_file="res://Assets/gearsAssets/BassSpoon.png"
+dest_files=["res://.godot/imported/BassSpoon.png-86ecece6715b524c99fbccdb4e463626.ctex"]
 
 [params]
 

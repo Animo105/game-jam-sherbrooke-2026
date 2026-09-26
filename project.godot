@@ -18,10 +18,10 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 EventBus="*uid://dy0knqfdoqsya"
-SplashAudioSound="*uid://cev86rrwog377"
-SceneManager="*uid://dsxhsrelgofi4"
 Globals="*uid://brgkyplwkebrl"
 FishManager="*uid://dq6gb58w754co"
+SplashAudioSound="*uid://cev86rrwog377"
+SceneManager="*uid://dsxhsrelgofi4"
 
 [display]
 

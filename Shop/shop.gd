@@ -6,10 +6,13 @@ extends Control
 
 var slot_scene = preload("res://Shop/Slot.tscn")
 
-@onready var hook: TextureRect = $Equipment/Rig/Hook
-@onready var bait: TextureRect = $Equipment/Rig/Bait
-@onready var spoon: TextureRect = $Equipment/Rig/Spoon
-@onready var line: TextureRect = $Equipment/Rig/Line
+@onready var texture_rect: TextureRect = $TextureRect
+
+@onready var spoon: TextureRect = $Equipment/VBoxContainer2/Spoon
+@onready var hook: TextureRect = $Equipment/VBoxContainer2/Hook
+@onready var bait: TextureRect = $Equipment/VBoxContainer2/Bait
+@onready var line: TextureRect = $Equipment/VBoxContainer2/Line
+
 
 
 @onready var bait_bucket: BaitBucket = $Baits/BaitBucket
@@ -20,6 +23,9 @@ var slot_scene = preload("res://Shop/Slot.tscn")
 @onready var strength: PowerBar = $Equipment/VBoxContainer/Strength
 @onready var snap: PowerBar = $Equipment/VBoxContainer/Snap
 @onready var speed: PowerBar = $Equipment/VBoxContainer/Speed
+
+@export var frames: Array[Texture2D] = []
+var frame_index: int = 0
 
 
 func _ready():
@@ -35,6 +41,15 @@ func _ready():
 		
 		grid_container.add_child(slot)
 		slot.setup(gear)
+		
+	var timer := Timer.new()
+	timer.wait_time = 0.5
+	timer.timeout.connect(func():
+		texture_rect.texture = frames[frame_index]
+		frame_index = 1 if frame_index == 0 else 0
+	)
+	add_child(timer)
+	timer.start()
 
 func bucket_clicked(bucket: BaitBucket) :
 	buy_and_set(bucket.setup_gear)
@@ -52,6 +67,7 @@ func slot_exit_hover(slot: Slot) -> void :
 	strength.preview_slots = 0
 	speed.preview_slots = 0
 	snap.preview_slots = 0
+
 
 func buy_and_set(gear : GearResource) -> bool:
 	var gear_price = gear.price

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2jcxwax7h3el"
-path="res://.godot/imported/Spoon.png-e43ad459a728b180d90eda34c74ca642.ctex"
+uid="uid://d05vhok1dkt3m"
+path="res://.godot/imported/ChristmasHook1.png-d715f2c3f12484d1a082711a885d6694.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Spoon.png"
-dest_files=["res://.godot/imported/Spoon.png-e43ad459a728b180d90eda34c74ca642.ctex"]
+source_file="res://Assets/gearsAssets/ChristmasHook1.png"
+dest_files=["res://.godot/imported/ChristmasHook1.png-d715f2c3f12484d1a082711a885d6694.ctex"]
 
 [params]
 
