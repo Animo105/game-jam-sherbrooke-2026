@@ -67,13 +67,14 @@ func new_fish(fish : FishResource):
 	current_fish = fish
 	fish_sprite.texture = fish.texture if fish.seen else fish.hidden_texture
 	fish_sprite.visible = true
-	max_catch_timer = fish.catch_difficulty - Globals.rod.catch_speed
+	max_catch_timer = clamp(fish.catch_difficulty - Globals.rod.catch_speed, Globals.MIN_CATCH_TIME, Globals.MAX_CATCH_TIME)
 	catch_timer_s = max_catch_timer * 0.8
 	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, Globals.MIN_SNAP_SPEED, Globals.MAX_SNAP_SPEED)
-	fish_speed = fish.speed - Globals.rod.pull_strenght
+	fish_speed = clamp(fish.speed - Globals.rod.pull_strenght, Globals.MIN_FISH_SPEED, Globals.MAX_FISH_SPEED)
 	fish_direction = 1 if randf() < 0.5 else -1
 	fish_sprite.flip_h = fish_direction < 0
-	fish_sprite.global_position = fishing_bar.absolute_center_position
+	fish_sprite.global_position.x = randf_range(fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)
+	fish_sprite.global_position.y = fishing_bar.absolute_center_position.y
 
 func _physics_process(delta: float) -> void:
 	if not day_ended:

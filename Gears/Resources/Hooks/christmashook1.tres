@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://ctdvfj8l0ue5v"]
+
+[ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="1_v8nw4"]
+[ext_resource type="Texture2D" uid="uid://d05vhok1dkt3m" path="res://Assets/gearsAssets/ChristmasHook1.png" id="2_cst3o"]
+
+[resource]
+script = ExtResource("1_v8nw4")
+texture = ExtResource("2_cst3o")
+level = 1
+metadata/_custom_type_script = "uid://c6skkt4jmcl07"

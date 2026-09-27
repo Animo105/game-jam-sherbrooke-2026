@@ -9,4 +9,5 @@ type = 3
 price = 150
 texture = ExtResource("2_a3gnj")
 level = 2
+speed = 1.0
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"
