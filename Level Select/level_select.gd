@@ -51,6 +51,7 @@ func _on_left_pressed() -> void:
 		stage_tween.tween_property(stages[Globals.current_habitat], "position:x", center_marker.position.x * 3, 2.0)
 		stage_tween.tween_property(stages[Globals.current_habitat-1], "position:x", center_marker.position.x, 2.5)
 		Globals.current_habitat -= 1
+		SfxManager.play("rowing%s" % randi_range(1, 4))
 		updates_buttons()
 		display_fishes()
 		print(center_marker.global_position)
@@ -70,12 +71,15 @@ func _on_button_2_pressed() -> void:
 		stage_tween.tween_property(stages[Globals.current_habitat], "position:x", center_marker.position.x * -1.5, 2.5)
 		stage_tween.tween_property(stages[Globals.current_habitat+1], "position:x", center_marker.position.x, 2.0)
 		Globals.current_habitat += 1
+		SfxManager.play("rowing%s" % randi_range(1, 4))
 		updates_buttons()
 		display_fishes()
 
 
 func _on_select_pressed() -> void:
 	if !LevelManager.level_list[Globals.current_habitat].is_unlocked: return
+	SfxManager.play("enterarea", -2)
+	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Shop/shop.tscn"))
 
 func _on_unlock_button_pressed() -> void:
@@ -141,3 +145,7 @@ func _on_resized() -> void:
 	for i in stages.size():
 		stages[i].global_position.x = center_marker.global_position.x if i == Globals.current_habitat else center_marker.global_position.x * (-1.5 if i < Globals.current_habitat else 3)
 		stages[i].global_position.y = center_marker.global_position.y
+
+
+func _on_mouse_entered() -> void:
+	SfxManager.play("buttonhover2", randf_range(0.75, 1.25))

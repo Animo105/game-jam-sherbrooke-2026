@@ -96,5 +96,7 @@ texture_focused = ExtResource("7_0o4t1")
 ignore_texture_size = true
 stretch_mode = 4
 
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuittButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuittButton" to="." method="_on_quitt_button_pressed"]

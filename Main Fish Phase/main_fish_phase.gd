@@ -20,7 +20,6 @@ var displayed_money : int = 0 :
 		if money_label:
 			money_label.text = str(value)
 
-
 var day_ended : bool = false
 
 var money_tween : Tween
@@ -38,8 +37,30 @@ var is_inside_zone : bool = false
 var tween : Tween
 
 func _ready() -> void:
+	play_zone_music()
 	timer.start(Globals.DAY_DURATION)
 	bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
+
+func play_zone_music():
+	match Globals.current_habitat:
+		0:
+			MainMusic.play_music(
+				null, 
+				load("res://Assets/music/greedyfishing_swamp.ogg"), 
+				load("res://Assets/music/swampambience.ogg")
+			)
+		1:
+			MainMusic.play_music(
+				load("res://Assets/music/greedyfishing_snow_intro.ogg"), 
+				load("res://Assets/music/greedyfishing_snow_loop.ogg"), 
+				load("res://Assets/music/frozenambience.ogg")
+			)
+		2:
+			MainMusic.play_music(
+				load("res://Assets/music/greedyfishing_volcano_intro.ogg"),
+				load("res://Assets/music/greedyfishing_volcano_loop.ogg"),
+				load("res://Assets/music/volcanoambience.ogg")
+			)
 
 func new_fish(fish : FishResource):
 	if current_fish: return # déja un fish
@@ -78,8 +99,10 @@ func fish_physic_frame(delta : float) -> void:
 		frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
 	# do reeling
 	if Input.is_action_just_pressed("left"):
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 0.0, randf_range(0.75, 1.25))
 		new_x -= fishing_bar.pull_amount_px
 	if Input.is_action_just_pressed("right"):
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 0.0, randf_range(0.75, 1.25))
 		new_x += fishing_bar.pull_amount_px
 	# move fish
 	fish_sprite.global_position.x = clamp(new_x, fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)

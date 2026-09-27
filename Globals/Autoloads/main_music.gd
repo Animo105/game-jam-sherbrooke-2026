@@ -1,29 +1,31 @@
-extends AudioStreamPlayer
+extends Node
 
-var volcano_intro : AudioStream
-var volcano_loop : AudioStream
+var music_player : AudioStreamPlayer = AudioStreamPlayer.new()
+var ambience_player : AudioStreamPlayer = AudioStreamPlayer.new()
+
+var lake_ambience : AudioStream
 
 func _ready() -> void:
-	volcano_intro = load("res://Assets/music/greedyfishing_volcano_intro.ogg")
-	volcano_loop = load("res://Assets/music/greedyfishing_volcano_loop.ogg")
+	lake_ambience = load("res://Assets/music/lakeambience.ogg")
+	add_child(music_player)
+	add_child(ambience_player)
 
-func play_habitat_music():
-	if Globals.current_habitat == 0:
-		play_swamp()
-	elif Globals.current_habitat == 1:
-		play_ice()
-	elif Globals.current_habitat == 2:
-		play_volcano()
+func play_music(intro : AudioStream = null, loop : AudioStream = null, ambience : AudioStream = null):
+	if ambience:
+		ambience_player.stream = ambience
+		ambience_player.play()
+	if intro:
+		music_player.stream = intro
+		music_player.play()
+		await music_player.finished
+	if loop:
+		music_player.stream = loop
+		music_player.play()
 
-func play_swamp():
-	pass
+func stop():
+	music_player.stop()
+	ambience_player.stop()
 
-func play_ice():
-	pass
-
-func play_volcano():
-	stream = volcano_intro
-	play()
-	await finished
-	stream = volcano_loop
-	play()	
+func play_lake_ambience():
+	ambience_player.stream = lake_ambience
+	ambience_player.play()

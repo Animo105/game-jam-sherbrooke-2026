@@ -41,6 +41,9 @@ func _set_animation():
 	timer.start()
 
 func _ready():
+	var intro : AudioStream = load("res://Assets/music/greedyfishing_bossanova_intro.ogg")
+	var loop : AudioStream = load("res://Assets/music/greedyfishing_bossanova_loop.ogg")
+	MainMusic.play_music(intro, loop)
 	_set_animation()
 	money_label.text = str(Globals.money)
 	set_actives_slots()
@@ -117,6 +120,7 @@ func buy_and_set(gear : GearResource) -> bool:
 		return false
 	Globals.money -= gear_price
 	money_label.text = str(Globals.money)
+	SfxManager.play("cashregisternoise", -5)
 	match gear.type :
 		GearResource.Type.BAIT :
 			Globals.rod.bait_gear = gear
@@ -142,4 +146,6 @@ func set_actives_slots():
 
 func _on_next_button_pressed() -> void:
 	Globals.rod.calculate_stats()
+	MainMusic.stop()
+	SfxManager.play("buttonclick_generic")
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Main Fish Phase/main_fish_phase.tscn"))
