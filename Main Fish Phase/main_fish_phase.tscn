@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ckitegob0uchk" path="res://Globals/progress_container.gd" id="3_bbyx3"]
 [ext_resource type="Texture2D" uid="uid://b6yw4ia8ojgc2" path="res://Assets/textures/bar_test.png" id="3_lbgfd"]
 [ext_resource type="Texture2D" uid="uid://bu0whue464lh2" path="res://Assets/textures/soleil.png" id="3_ofyt0"]
+[ext_resource type="Texture2D" uid="uid://ckgxti6ahwwju" path="res://Assets/level icons/boat.png" id="3_rwc82"]
 [ext_resource type="Texture2D" uid="uid://bigxmpmgnbgqa" path="res://Assets/textures/bucket.png" id="3_ueg10"]
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
@@ -23,6 +24,7 @@ corner_radius_top_left = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueg10"]
+bg_color = Color(0.44705883, 0.654902, 0.5568628, 1)
 corner_radius_top_left = 10
 corner_radius_bottom_left = 10
 expand_margin_right = 2.0
@@ -33,6 +35,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y7v2"]
+bg_color = Color(0.44705883, 0.654902, 0.5568628, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 expand_margin_left = 3.0
@@ -46,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sb3fd")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=163650856]
+[node name="background" type="TextureRect" parent="." unique_id=163650856]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +57,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_02ott")
+
+[node name="Boat" type="TextureRect" parent="." unique_id=1278148936]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -402.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_rwc82")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1546046090]
 layout_mode = 1
@@ -235,7 +249,7 @@ size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_dtnf0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ueg10")
 max_value = 1.0
-value = 0.5
+value = 0.2
 fill_mode = 1
 show_percentage = false
 
@@ -246,7 +260,7 @@ size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_lyorp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6y7v2")
 max_value = 1.0
-value = 0.5
+value = 0.2
 show_percentage = false
 
 [node name="Right" type="TextureRect" parent="MarginContainer/VBoxContainer/FishingBar" unique_id=60413647]
@@ -255,8 +269,6 @@ layout_mode = 2
 size_flags_vertical = 8
 texture = ExtResource("11_rwc82")
 expand_mode = 1
-
-[node name="DayIndicatorSprite" type="Sprite2D" parent="." unique_id=459513602]
 
 [node name="Timer" type="Timer" parent="." unique_id=1191305872]
 one_shot = true

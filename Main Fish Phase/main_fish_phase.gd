@@ -100,10 +100,10 @@ func fish_physic_frame(delta : float) -> void:
 		frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
 	# do reeling
 	if Input.is_action_just_pressed("left"):
-		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 0.0, randf_range(0.75, 1.25))
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
 		new_x -= fishing_bar.pull_amount_px
 	if Input.is_action_just_pressed("right"):
-		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 0.0, randf_range(0.75, 1.25))
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
 		new_x += fishing_bar.pull_amount_px
 	# move fish
 	fish_sprite.global_position.x = clamp(new_x, fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)
@@ -129,6 +129,12 @@ func fish_physic_frame(delta : float) -> void:
 	catch_progress_bar.set_value(1-(catch_timer_s/max_catch_timer))
 
 func catch():
+	if current_fish.rarity < 2:
+		SfxManager.play("fishget_normal" , 5.0, randf_range(0.75, 1.25))
+	elif current_fish.rarity < 3:
+		SfxManager.play("fishget_rare" , 5.0, randf_range(0.75, 1.25))
+	else:
+		SfxManager.play("fishget_legendary" , 5.0, randf_range(0.75, 1.25))
 	var bucket_preview : FishRigidBody = FishRigidBody.new(current_fish.texture)
 	bucket_preview.position.x = randf_range(-100, 100)
 	fish_group.add_child(bucket_preview)
@@ -174,6 +180,7 @@ func _on_timer_timeout() -> void:
 	day_ended = true
 	fish_sprite.visible = false
 	current_fish = null
+	Globals.day_count += 1
 	EventBus.day_ended.emit()
 	await get_tree().create_timer(3).timeout
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))

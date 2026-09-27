@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cef5srpaxdjfu" path="res://Level Select/level_select.gd" id="1_x1q5d"]
 [ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_k822h"]
 [ext_resource type="Texture2D" uid="uid://ckgxti6ahwwju" path="res://Assets/level icons/boat.png" id="3_aeh2r"]
+[ext_resource type="Texture2D" uid="uid://k3c50qjgapd4" path="res://Assets/level icons/callendar.png" id="4_4ur2p"]
 [ext_resource type="Texture2D" uid="uid://db07g8ub1tgbi" path="res://Assets/buttons/left_normal.png" id="4_k822h"]
 [ext_resource type="Texture2D" uid="uid://bfnpwwghfg1fw" path="res://Assets/buttons/left_pressed.png" id="5_phuba"]
 [ext_resource type="Texture2D" uid="uid://c7di1vt0rrk6g" path="res://Assets/buttons/left_hover.png" id="6_ytddk"]
@@ -49,6 +50,33 @@ offset_top = -402.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_aeh2r")
+
+[node name="Callendar" type="TextureRect" parent="." unique_id=585873378]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 184.0
+grow_horizontal = 0
+texture = ExtResource("4_4ur2p")
+expand_mode = 1
+
+[node name="DayNumber" type="Label" parent="Callendar" unique_id=1881276217]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -31.0
+offset_right = -12.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
 
 [node name="CenterMarker" type="Control" parent="." unique_id=1784971592]
 layout_mode = 1

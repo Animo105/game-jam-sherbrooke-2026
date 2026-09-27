@@ -8,6 +8,7 @@ extends Control
 @onready var right: TextureButton = $MarginContainer/HBoxContainer/Right
 @onready var center_marker: Control = $CenterMarker
 @onready var price: Label = $MarginContainer/HBoxContainer/UnlockButton/price
+@onready var day_number: Label = $Callendar/DayNumber
 
 
 var stages: Array
@@ -18,6 +19,7 @@ var fish_tween : Tween
 func _ready() -> void:
 	updates_buttons()
 	display_fishes()
+	day_number.text = str(Globals.day_count)
 	var values : = LevelManager.level_list.values()
 	values.sort_custom(
 		func(a : LevelRessource, b : LevelRessource) -> bool:

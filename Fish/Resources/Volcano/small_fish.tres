@@ -12,4 +12,5 @@ catch_difficulty = 20.0
 speed = 0.5
 direction_change_frequency = 0.3
 base_value = 50.0
+habitat = 2
 metadata/_custom_type_script = "uid://bb6mc2xy1t4uq"
