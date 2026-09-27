@@ -19,4 +19,4 @@ enum Type {
 ## La snap speed est mesurer en seconde et soustraite a celle du poisson
 @export var snap : float
 ## La rarity est mesurer de 0 à 5 et change les poissons hooked
-@export var rarity : float
+@export_range(1, 3) var rarity : float = 1.0

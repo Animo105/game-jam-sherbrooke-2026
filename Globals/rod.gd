@@ -36,8 +36,29 @@ func calculate_stats():
 	if hook_gear:
 		_append_gear(hook_gear)
 
+func swap_gear(gear : GearResource):
+	match gear.type :
+		GearResource.Type.BAIT :
+			bait_gear = gear
+		GearResource.Type.SPOON :
+			spoon_gear = gear
+		GearResource.Type.LINE :
+			line_gear = gear
+		GearResource.Type.HOOK :
+			hook_gear = gear
+
 func _append_gear(gear : GearResource):
 	pull_strenght += gear.strenght
 	snap_resistence += gear.snap
 	catch_speed += gear.speed
 	rarity += gear.rarity
+
+func duplicate() -> Rod:
+	var rod = Rod.new()
+	rod.bait_gear = bait_gear
+	rod.bait_type = bait_type
+	rod.hook_gear = hook_gear
+	rod.spoon_gear = spoon_gear
+	rod.rarity = rarity
+	rod.line_gear = line_gear
+	return rod
