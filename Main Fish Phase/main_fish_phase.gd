@@ -185,11 +185,8 @@ func _on_timer_timeout() -> void:
 	day_ended = true
 	fish_sprite.visible = false
 	current_fish = null
-<<<<<<< Updated upstream
 	Globals.day_count += 1
-=======
 	Globals.money += total_money_today
->>>>>>> Stashed changes
 	EventBus.day_ended.emit()
 	await get_tree().create_timer(3).timeout
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
