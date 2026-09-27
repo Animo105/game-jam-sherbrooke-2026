@@ -6,6 +6,10 @@ signal fled
 
 const FISHING_FISH_PROGRESS_BAR = preload("uid://c010r347bfa83")
 const FISHING_FISH_PROGRESS_BAR_PROGRESS = preload("uid://cdutsjatg4k0y")
+const FISH_BAR_BACK = preload("uid://dui466y1b0k5h")
+const FISH_BAR_PROGRESS = preload("uid://ccnwom05alaul")
+const COLOR_GREEN : Color = Color.GREEN
+const COLOR_RED : Color = Color.RED
 
 const FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN : int = 5
 const MINIMAL_SNAP_STRENGHT_s : float = 3
@@ -44,6 +48,8 @@ func _init(fishingbar : FishingBar, fish : FishResource) -> void:
 	progress_bar.min_value = 0
 	progress_bar.offset_left = -192
 	progress_bar.offset_top = -188
+	progress_bar.set("theme_override_styles/background", FISH_BAR_BACK)
+	progress_bar.set("theme_override_styles/fill", FISH_BAR_PROGRESS)
 	progress_bar.custom_minimum_size = Vector2(384, 50)
 	progress_bar.custom_maximum_size = Vector2(384, 50)
 	add_child(progress_bar)
@@ -80,10 +86,12 @@ func _physics_process(delta: float) -> void:
 			tween.tween_property(self,"scale", Vector2(0.5,0.5), 0.05)
 	# ###################### #
 	if is_inside_zone:
+		progress_bar.self_modulate = COLOR_GREEN
 		catch_timer_s -= delta
 		if catch_timer_s <= 0:
 			catch()
 	else:
+		progress_bar.self_modulate = COLOR_RED
 		catch_timer_s = clamp(catch_timer_s + catch_recovery_s * delta, 0, max_catch_timer)
 		if catch_timer_s == max_catch_timer:
 			snap()
