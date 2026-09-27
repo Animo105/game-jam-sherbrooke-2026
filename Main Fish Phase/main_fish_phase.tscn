@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="7_rwc82"]
-[ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/Bucket.png" id="7_wywu7"]
+[ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/bucket.png" id="7_wywu7"]
 [ext_resource type="Texture2D" uid="uid://cyqj0oboq40ty" path="res://Assets/textures/Button_up.png" id="9_wywu7"]
 [ext_resource type="Script" uid="uid://cev86rrwog377" path="res://Main Fish Phase/splash_audio_sound.gd" id="11_7suml"]
 
@@ -212,6 +212,7 @@ size_flags_vertical = 1
 
 [node name="CatchProgressBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder" unique_id=794763116]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -264,5 +265,7 @@ grow_horizontal = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=701712670]
 script = ExtResource("11_7suml")
+
+[node name="Fishs" type="Node2D" parent="." unique_id=1825975707]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

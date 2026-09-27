@@ -22,7 +22,7 @@ var frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
 var is_inside_zone : bool = false
 var tween : Tween
 
-var progress_bar : TextureProgressBar = TextureProgressBar.new()
+var progress_bar : ProgressBar = ProgressBar.new()
 
 func _init(fishingbar : FishingBar, fish : FishResource) -> void:
 	scale = Vector2(0.5, 0.5)
@@ -39,10 +39,13 @@ func _init(fishingbar : FishingBar, fish : FishResource) -> void:
 	global_position.x = randf_range(fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)
 	global_position.y = fishing_bar.absolute_center_position.y
 	# make progress_bar
-	progress_bar.fill_mode = TextureProgressBar.FillMode.FILL_CLOCKWISE
-	progress_bar.texture_under = FISHING_FISH_PROGRESS_BAR
-	progress_bar.texture_progress = FISHING_FISH_PROGRESS_BAR_PROGRESS
+	progress_bar.show_percentage = false
 	progress_bar.max_value = 1
+	progress_bar.min_value = 0
+	progress_bar.offset_left = -192
+	progress_bar.offset_top = -188
+	progress_bar.custom_minimum_size = Vector2(384, 50)
+	progress_bar.custom_maximum_size = Vector2(384, 50)
 	add_child(progress_bar)
 
 func _physics_process(delta: float) -> void:
@@ -89,6 +92,7 @@ func _physics_process(delta: float) -> void:
 	progress_bar.value = (1-(catch_timer_s/max_catch_timer))
 
 func catch():
+	print("catched")
 	catched.emit()
 
 func snap():
