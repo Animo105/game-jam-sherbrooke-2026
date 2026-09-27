@@ -7,6 +7,7 @@ extends Control
 @onready var unlock_button: TextureButton = $MarginContainer/HBoxContainer/UnlockButton
 @onready var right: TextureButton = $MarginContainer/HBoxContainer/Right
 @onready var center_marker: Control = $CenterMarker
+@onready var price: Label = $MarginContainer/HBoxContainer/UnlockButton/price
 
 
 var stages: Array
@@ -32,9 +33,9 @@ func _ready() -> void:
 
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action("left"):
+	if event.is_action_pressed("left"):
 		_on_left_pressed()
-	if event.is_action("right"):
+	if event.is_action_pressed("right"):
 		_on_button_2_pressed()
 
 func _on_left_pressed() -> void:
@@ -43,12 +44,6 @@ func _on_left_pressed() -> void:
 			if stage_tween.is_running():
 				finish_tween()
 			stage_tween.kill()
-		if !LevelManager.level_list[Globals.current_habitat-1].is_unlocked:
-			pass
-			#select_button.text = str(LevelManager.level_list[Globals.current_habitat-1].cost) + "$"
-		else:
-			pass
-			#select_button.text = "select"
 		stage_tween = create_tween()
 		stage_tween.set_parallel()
 		stage_tween.set_trans(Tween.TRANS_BACK)
@@ -68,12 +63,6 @@ func _on_button_2_pressed() -> void:
 				finish_tween()
 			else:
 				stage_tween.kill()
-		if !LevelManager.level_list[Globals.current_habitat+1].is_unlocked:
-			pass
-			#select_button.text = str(LevelManager.level_list[Globals.current_habitat+1].cost) + "$"
-		else:
-			pass
-			#select_button.text = "select"
 		stage_tween = create_tween()
 		stage_tween.set_parallel()
 		stage_tween.set_trans(Tween.TRANS_BACK)
@@ -137,9 +126,12 @@ func updates_buttons():
 	left.disabled = Globals.current_habitat == 0
 	right.disabled = Globals.current_habitat == stages.size()-1
 	if LevelManager.level_list[Globals.current_habitat].is_unlocked:
+		price.visible = false
 		select_button.visible = true
 		unlock_button.visible = false
 	else:
+		price.text = str(LevelManager.level_list[Globals.current_habitat].cost) + "$"
+		price.visible = true
 		unlock_button.visible = true
 		select_button.visible = false
 		unlock_button.disabled = LevelManager.level_list[Globals.current_habitat].cost > Globals.money

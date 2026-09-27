@@ -7,5 +7,6 @@ script = ExtResource("1_8743i")
 type = 1
 price = 500
 level = 2
+strenght = -0.2
 rarity = 3.0
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

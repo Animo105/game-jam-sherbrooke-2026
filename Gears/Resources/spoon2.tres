@@ -9,5 +9,6 @@ type = 1
 price = 250
 texture = ExtResource("2_ughtn")
 level = 1
+strenght = -0.2
 rarity = 2.0
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

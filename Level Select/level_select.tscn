@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bai4bexrsrrsk" path="res://Assets/buttons/enter_hover.png" id="14_4ur2p"]
 [ext_resource type="Texture2D" uid="uid://o2lvibe6ymav" path="res://Assets/buttons/unlock_disabled.png" id="15_6tqpm"]
 [ext_resource type="Texture2D" uid="uid://d3q0703mspoe2" path="res://Assets/buttons/enter_disabled.png" id="15_f620x"]
+[ext_resource type="Texture2D" uid="uid://dk4cvr36s6v70" path="res://Assets/textures/Shop/Tag_big.png" id="16_0mg3m"]
 
 [node name="LevelSelect" type="Control" unique_id=2127754476]
 layout_mode = 3
@@ -128,6 +129,33 @@ texture_disabled = ExtResource("15_6tqpm")
 texture_focused = ExtResource("14_1i3wi")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/UnlockButton" unique_id=737532898]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 22.0
+offset_top = -123.0
+offset_right = 51.0
+offset_bottom = -11.0
+grow_horizontal = 2
+rotation = 0.6254329
+texture = ExtResource("16_0mg3m")
+flip_v = true
+
+[node name="price" type="Label" parent="MarginContainer/HBoxContainer/UnlockButton" unique_id=1790831106]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = -51.0
+offset_right = -1.0
+offset_bottom = -23.0
+grow_horizontal = 2
+rotation = 0.24077666
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
 
 [node name="Right" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=220472144]
 custom_minimum_size = Vector2(150, 150)
