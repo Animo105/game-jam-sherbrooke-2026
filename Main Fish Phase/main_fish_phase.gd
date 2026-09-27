@@ -17,10 +17,12 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 
 @onready var left: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Left
 @onready var right: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Right
+@onready var close: TextureButton = $tutorial/close
 
 const BUTTON_DOWN = preload("res://Assets/textures/Button.png")
 const BUTTON_UP = preload("res://Assets/textures/Button_up.png")
 
+@onready var tutorial: Control = $tutorial
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
@@ -42,6 +44,11 @@ var fish_getting_caught : Array[FishingFish] = []
 var max_fishing_fish : int = 1
 
 func _ready() -> void:
+	if Globals.day_count == 1:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		tutorial.show()
+		await close.pressed
+		process_mode = Node.PROCESS_MODE_INHERIT
 	set_zone()
 	background_night.visible = false
 	timer.start(Globals.DAY_DURATION)
@@ -172,3 +179,7 @@ func _on_timer_timeout() -> void:
 	await get_tree().create_timer(3).timeout
 	
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
+
+
+func _on_close_pressed() -> void:
+	tutorial.hide()

@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/bucket.png" id="7_wywu7"]
 [ext_resource type="Texture2D" uid="uid://cyqj0oboq40ty" path="res://Assets/textures/Button_up.png" id="9_wywu7"]
 [ext_resource type="Script" uid="uid://cev86rrwog377" path="res://Main Fish Phase/splash_audio_sound.gd" id="11_7suml"]
+[ext_resource type="Texture2D" uid="uid://c1ke2w15tkle" path="res://Assets/noir.png" id="15_smhmt"]
+[ext_resource type="Texture2D" uid="uid://b16oeusip4oxr" path="res://Assets/tutorialgaming.png" id="15_v2bl2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtnf0"]
 bg_color = Color(0.0885599, 0.08855992, 0.08855986, 1)
@@ -282,4 +284,40 @@ script = ExtResource("11_7suml")
 
 [node name="Fishs" type="Node2D" parent="." unique_id=1825975707]
 
+[node name="tutorial" type="Control" parent="." unique_id=93584543]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blackBackground" type="TextureRect" parent="tutorial" unique_id=1421254006]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_smhmt")
+
+[node name="tuto" type="TextureRect" parent="tutorial" unique_id=1072864977]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_v2bl2")
+
+[node name="close" type="TextureButton" parent="tutorial" unique_id=1246038657]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 411.0
+offset_right = 750.0
+offset_bottom = 558.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="tutorial/close" to="." method="_on_close_pressed"]
