@@ -92,11 +92,16 @@ setup_gear = ExtResource("13_07ndg")
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=466972300]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 773.0
-offset_top = 93.00001
-offset_right = 942.0
-offset_bottom = 158.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.666
+anchor_top = 0.15400001
+anchor_right = 0.666
+anchor_bottom = 0.15400001
+offset_left = -79.47998
+offset_top = -17.880005
+offset_right = 89.52002
+offset_bottom = 47.119987
 rotation = -0.18986747
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 28

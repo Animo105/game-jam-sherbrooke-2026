@@ -45,7 +45,7 @@ func _ready():
 	var loop : AudioStream = load("res://Assets/music/greedyfishing_bossanova_loop.ogg")
 	MainMusic.play_music(intro, loop)
 	_set_animation()
-	money_label.text = str(Globals.money)
+	money_label.text = "%.f$" % Globals.money
 	set_actives_slots()
 	if Globals.rod.bait_gear:
 		bait.set_texture(Globals.rod.bait_gear.texture)
@@ -146,7 +146,7 @@ func buy_and_set(gear : GearResource) -> bool:
 	if Globals.money < gear_price :
 		return false
 	Globals.money -= gear_price
-	money_label.text = "%.f" % Globals.money
+	money_label.text = "%.f$" % Globals.money
 	SfxManager.play("cashregisternoise", -5)
 	match gear.type :
 		GearResource.Type.BAIT :

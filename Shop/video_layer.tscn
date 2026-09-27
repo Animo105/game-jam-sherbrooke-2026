@@ -12,7 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=974513594]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=220305328]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/PanelContainer" unique_id=974513594]
 layout_mode = 2
 texture = ExtResource("1_q08q5")
 patch_margin_left = 85
@@ -20,26 +23,31 @@ patch_margin_top = 85
 patch_margin_right = 85
 patch_margin_bottom = 85
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect" unique_id=1823293650]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="StatTexture" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1394739941]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1823293650]
 layout_mode = 2
 
-[node name="With" type="VideoStreamPlayer" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1851479092]
+[node name="StatTexture" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1394739941]
 layout_mode = 2
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=871047596]
+[node name="With" type="VideoStreamPlayer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1851479092]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=871047596]
 clip_contents = true
 layout_mode = 2
-ratio = 6.0
+size_flags_vertical = 3
+ratio = 10.0
 
-[node name="Before" type="VideoStreamPlayer" parent="CenterContainer/NinePatchRect/VBoxContainer/AspectRatioContainer" unique_id=1279436995]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer/AspectRatioContainer" unique_id=1860949280]
 layout_mode = 2
+theme_override_constants/margin_left = -480
+theme_override_constants/margin_top = -270
+theme_override_constants/margin_right = -480
+theme_override_constants/margin_bottom = -270
+
+[node name="Before" type="VideoStreamPlayer" parent="CenterContainer/PanelContainer/VBoxContainer/AspectRatioContainer/MarginContainer" unique_id=1279436995]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
 stream = ExtResource("2_rxm36")
 autoplay = true

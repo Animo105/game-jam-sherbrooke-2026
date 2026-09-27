@@ -20,6 +20,8 @@ func tune_music_down(volume : float, time: float):
 	print(music_player.volume_db)
 
 func play_music(intro : AudioStream = null, loop : AudioStream = null, ambience : AudioStream = null):
+	if tween:
+		tween.kill()
 	music_player.volume_db = 0
 	ambience_player.volume_db = 0
 	if ambience:

@@ -17,6 +17,7 @@ var fish_tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MainMusic.play_music(load("res://Assets/music/greedyfishing_menu_intro.ogg"), load("res://Assets/music/greedyfishing_menu_loop.ogg"), load("res://Assets/music/lakeambience.ogg"))
 	updates_buttons()
 	display_fishes()
 	day_number.text = str(Globals.day_count)
@@ -80,14 +81,15 @@ func _on_button_2_pressed() -> void:
 
 func _on_select_pressed() -> void:
 	if !LevelManager.level_list[Globals.current_habitat].is_unlocked: return
+	MainMusic.tune_music_down(-25, 2)
 	SfxManager.play("enterarea", -2)
-	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Shop/shop.tscn"))
 
 func _on_unlock_button_pressed() -> void:
 	if LevelManager.level_list[Globals.current_habitat].is_unlocked: return
 	if LevelManager.level_list[Globals.current_habitat].cost < Globals.money:
 		Globals.money -= LevelManager.level_list[Globals.current_habitat].cost
+		SfxManager.play("lockopening")
 		LevelManager.level_list[Globals.current_habitat].is_unlocked = true
 		stages[Globals.current_habitat].texture = LevelManager.level_list[Globals.current_habitat].texture
 		select_button.visible = true
