@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://cfakql2phlbgh"]
+
+[ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="1_m0phv"]
+[ext_resource type="Texture2D" uid="uid://ftr1ic7cvj41" path="res://Assets/gearsAssets/Hooks/Cobalt_Hook2.png" id="2_dqmdx"]
+
+[resource]
+script = ExtResource("1_m0phv")
+texture = ExtResource("2_dqmdx")
+metadata/_custom_type_script = "uid://c6skkt4jmcl07"

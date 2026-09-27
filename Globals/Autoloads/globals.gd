@@ -1,6 +1,6 @@
 extends Node
 
-const DAY_DURATION : float = 5
+const DAY_DURATION : float = 150
 const PULL_FORCE_PERCENT : float = 0.05
 
 const MIN_CATCH_TIME : float = 0.1

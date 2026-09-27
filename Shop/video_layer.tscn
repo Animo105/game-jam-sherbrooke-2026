@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://xxvnb2poxaw"]
+
+[ext_resource type="Texture2D" uid="uid://dnlw08nae1njl" path="res://Assets/videos/video_background.png" id="1_q08q5"]
+[ext_resource type="VideoStream" uid="uid://c4ljv6d7pfbhd" path="res://Assets/videos/Demo_basic (1).ogv" id="2_rxm36"]
+
+[node name="VideoLayer" type="CanvasLayer" unique_id=1327021202]
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1541837581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=974513594]
+layout_mode = 2
+texture = ExtResource("1_q08q5")
+patch_margin_left = 85
+patch_margin_top = 85
+patch_margin_right = 85
+patch_margin_bottom = 85
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect" unique_id=1823293650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatTexture" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1394739941]
+layout_mode = 2
+
+[node name="With" type="VideoStreamPlayer" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1851479092]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=871047596]
+clip_contents = true
+layout_mode = 2
+ratio = 6.0
+
+[node name="Before" type="VideoStreamPlayer" parent="CenterContainer/NinePatchRect/VBoxContainer/AspectRatioContainer" unique_id=1279436995]
+layout_mode = 2
+stream = ExtResource("2_rxm36")
+autoplay = true
