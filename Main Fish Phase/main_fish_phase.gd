@@ -12,6 +12,8 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 
 @onready var background_day: TextureRect = $backgroundDay
 @onready var background_night: TextureRect = $BackgroundNight
+@onready var sun: TextureRect = $MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer/Sun
+@onready var moon: TextureRect = $MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer/Moon
 
 @onready var left: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Left
 @onready var right: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Right
@@ -32,7 +34,7 @@ var day_ended : bool = false
 var is_night : bool = false
 
 var money_tween : Tween
-var background_tween : Tween
+var night_tween : Tween
 
 var bait_timer_s : float = 0
 
@@ -126,21 +128,34 @@ func catch(fishing_fish : FishingFish):
 		fish.seen = true
 		Globals.unique_fish_caught += 1
 
+func set_to_night():
+	is_night = true
+	if night_tween:
+		night_tween.kill()
+	night_tween = create_tween()
+	night_tween
+	background_night.self_modulate = Color(1,1,1,1)
+	background_night.visible = true
+	moon.self_modulate = Color(1,1,1,0)
+	moon.visible = true
+	night_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
+	night_tween.tween_property(sun, "self_modulate", Color(1,1,1,0), 1.5).set_delay(2.5)
+	night_tween.tween_property(moon, "self_modulate", Color(1,1,1,1), 1.5).set_delay(2.5)
+	
+	
+
+
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
 	progress_container.progress_ratio = progress
 	if not is_night:
 		if progress >= 0.5:
-			is_night = true
-			if background_tween:
-				background_tween.kill()
-			background_tween = create_tween()
-			background_night.visible = true
-			background_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
-
+			set_to_night()
+			
 func snaped(fishing_fish : FishingFish):
 	fish_getting_caught.erase(fishing_fish)
 	fishing_fish.queue_free()
+	SfxManager.play("fishfail")
 
 func _on_timer_timeout() -> void:
 	day_ended = true
@@ -149,6 +164,9 @@ func _on_timer_timeout() -> void:
 	Globals.day_count += 1
 	Globals.money += total_money_today
 	EventBus.day_ended.emit()
+	SfxManager.play("endofday")
+	Globals.rod.bait_gear = null
+	Globals.rod.calculate_stats()
 	await get_tree().create_timer(3).timeout
 	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bomkkxcy3vj4g" path="res://Main Fish Phase/catch_progress_bar.gd" id="5_lyorp"]
 [ext_resource type="Texture2D" uid="uid://b10vlhyybc5gk" path="res://Assets/textures/Sun.png" id="5_wywu7"]
 [ext_resource type="Script" uid="uid://cw6iacf6dsbos" path="res://Main Fish Phase/sprite_2d.gd" id="6_rwc82"]
+[ext_resource type="Texture2D" uid="uid://2hgdkeh431je" path="res://Assets/textures/moon.png" id="7_1tb1g"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="7_rwc82"]
 [ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/bucket.png" id="7_wywu7"]
@@ -128,7 +129,7 @@ grow_vertical = 2
 script = ExtResource("3_bbyx3")
 metadata/_custom_type_script = "uid://ckitegob0uchk"
 
-[node name="Sprite2D" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer" unique_id=920197485]
+[node name="Sun" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer" unique_id=920197485]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -136,6 +137,17 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-128, -128)
 offset_transform_scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_wywu7")
+script = ExtResource("6_rwc82")
+
+[node name="Moon" type="TextureRect" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer" unique_id=1797766555]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-128, -128)
+offset_transform_scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_1tb1g")
 script = ExtResource("6_rwc82")
 
 [node name="BucketZone" type="Control" parent="MarginContainer/VBoxContainer/MainScreen/HBoxContainer" unique_id=1805824945]
