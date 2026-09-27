@@ -12,7 +12,7 @@ const MAX_SNAP_SPEED : float = 10
 const MIN_FISH_SPEED : float = 0.01
 const MAX_FISH_SPEED : float = 10
 
-var money : float = 100
+var money : float = 10000
 var day_count : int = 1
 
 func _ready() -> void:

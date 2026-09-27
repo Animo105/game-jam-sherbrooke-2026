@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvfxjkik6kjlh"]
 
 [ext_resource type="Script" uid="uid://cef5srpaxdjfu" path="res://Level Select/level_select.gd" id="1_x1q5d"]
-[ext_resource type="Texture2D" uid="uid://bw40etruspjdf" path="res://Assets/level icons/level_selct_background.png" id="2_k822h"]
+[ext_resource type="Texture2D" uid="uid://e67iux2jofwq" path="res://Assets/textures/background_water.png" id="2_0mg3m"]
 [ext_resource type="Texture2D" uid="uid://ckgxti6ahwwju" path="res://Assets/level icons/boat.png" id="3_aeh2r"]
 [ext_resource type="Texture2D" uid="uid://k3c50qjgapd4" path="res://Assets/level icons/callendar.png" id="4_4ur2p"]
 [ext_resource type="Texture2D" uid="uid://db07g8ub1tgbi" path="res://Assets/buttons/left_normal.png" id="4_k822h"]
@@ -38,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_k822h")
+texture = ExtResource("2_0mg3m")
 
 [node name="Boat" type="TextureRect" parent="." unique_id=104393912]
 layout_mode = 1
