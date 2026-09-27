@@ -9,8 +9,7 @@
 [ext_resource type="Resource" uid="uid://do3o0337y223o" path="res://Gears/Resources/Baits/bait3.tres" id="13_07ndg"]
 [ext_resource type="Texture2D" uid="uid://cv1uiwryd4h4i" path="res://Assets/textures/Shop/Bucket_shrimp2.png" id="13_jhfdn"]
 [ext_resource type="Texture2D" uid="uid://xfenj2nhkp6l" path="res://Assets/textures/Shop/Bucket_shrimp.png" id="14_eu4ty"]
-[ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/textures/money_sign.svg" id="15_2wh60"]
-[ext_resource type="Texture2D" uid="uid://b4khboge8ro3f" path="res://Assets/textures/Shop/Inventory.png" id="16_3mw0j"]
+[ext_resource type="Texture2D" uid="uid://ogdxy6y46nc" path="res://Assets/textures/Shop/Inventory.png" id="16_3mw0j"]
 [ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Shop/Squid_bucket.png" id="16_b5trs"]
 [ext_resource type="PackedScene" uid="uid://bifsyr3rmvq52" path="res://Shop/SkillBar.tscn" id="17_6qmg5"]
 [ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Shop/Squid_bucket2.png" id="17_16e15"]
@@ -90,31 +89,19 @@ mouse_default_cursor_shape = 2
 frames = Array[Texture2D]([ExtResource("16_b5trs"), ExtResource("17_16e15")])
 setup_gear = ExtResource("13_07ndg")
 
-[node name="Money" type="HBoxContainer" parent="." unique_id=887497269]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.657
-anchor_right = 0.657
-offset_left = -78.96002
-offset_top = 100.00001
-offset_right = 146.03998
-offset_bottom = 165.00002
-rotation = -0.19871618
-scale = Vector2(0.8660436, 0.8660436)
-theme_override_constants/separation = 5
-
-[node name="MoneyLabel" type="Label" parent="Money" unique_id=466972300]
+[node name="MoneyLabel" type="Label" parent="." unique_id=466972300]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 773.0
+offset_top = 93.00001
+offset_right = 942.0
+offset_bottom = 158.0
+rotation = -0.18986747
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 28
-text = "100000000"
+text = "0$"
+horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Money" unique_id=1268835208]
-layout_mode = 2
-texture = ExtResource("15_2wh60")
-expand_mode = 2
 
 [node name="Equipment" type="TextureRect" parent="." unique_id=1685118257]
 layout_mode = 1
@@ -137,10 +124,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 165.3711
-offset_top = 127.34029
-offset_right = -23.328613
-offset_bottom = -128.70886
+offset_left = 175.53357
+offset_top = 123.19917
+offset_right = -13.166138
+offset_bottom = -132.84998
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1

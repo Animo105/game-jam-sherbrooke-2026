@@ -7,7 +7,7 @@
 script = ExtResource("1_i58pm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1395851696]
-custom_minimum_size = Vector2(75, 64)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_ar4bp")
 expand_mode = 1

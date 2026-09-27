@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b76bco0cjs4o1"
-path="res://.godot/imported/Bucket.png-c2b5f9e11980f6084dcd8231555578e8.ctex"
+uid="uid://c4yug08acv7ak"
+path="res://.godot/imported/Inventory.png-404a50340b9b1ddc2cdc6150d463028b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Bucket.png"
-dest_files=["res://.godot/imported/Bucket.png-c2b5f9e11980f6084dcd8231555578e8.ctex"]
+source_file="res://Shop/Inventory.png"
+dest_files=["res://.godot/imported/Inventory.png-404a50340b9b1ddc2cdc6150d463028b.ctex"]
 
 [params]
 
