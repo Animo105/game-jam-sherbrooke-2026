@@ -14,7 +14,7 @@ const MAX_FISH_SPEED : float = 10
 
 var money : float = 10000
 var day_count : int = 1
-var unique_fish_caught : int = 0
+var unique_fish_caught : int = 999
 
 func _ready() -> void:
 	rod.snap_resistence = 1

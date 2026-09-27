@@ -8,10 +8,10 @@
 script = ExtResource("2_jaiih")
 texture = ExtResource("3_erii2")
 hidden_texture = ExtResource("1_u4brq")
-catch_difficulty = 10.0
+catch_difficulty = 20.0
 catch_recovery_speed = 1.4
 speed = 0.3
-direction_change_frequency = 0.3
+direction_change_frequency = 0.24
 base_value = 50.0
 rarity = 0.5
 habitat = 1

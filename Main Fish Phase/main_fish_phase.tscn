@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cw6iacf6dsbos" path="res://Main Fish Phase/sprite_2d.gd" id="6_rwc82"]
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="7_rwc82"]
-[ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/Bucket.png" id="7_wywu7"]
+[ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/bucket.png" id="7_wywu7"]
 [ext_resource type="Texture2D" uid="uid://cyqj0oboq40ty" path="res://Assets/textures/Button_up.png" id="9_wywu7"]
 [ext_resource type="Script" uid="uid://cev86rrwog377" path="res://Main Fish Phase/splash_audio_sound.gd" id="11_7suml"]
 
