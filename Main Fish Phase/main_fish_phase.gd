@@ -133,14 +133,14 @@ func set_to_night():
 	if night_tween:
 		night_tween.kill()
 	night_tween = create_tween()
-	night_tween
+	night_tween.set_parallel()
 	background_night.self_modulate = Color(1,1,1,1)
 	background_night.visible = true
 	moon.self_modulate = Color(1,1,1,0)
 	moon.visible = true
-	night_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
-	night_tween.tween_property(sun, "self_modulate", Color(1,1,1,0), 1.5).set_delay(2.5)
+	night_tween.tween_property(sun, "self_modulate", Color(1,1,1,0), 1.5).set_delay(1.5)
 	night_tween.tween_property(moon, "self_modulate", Color(1,1,1,1), 1.5).set_delay(2.5)
+	night_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
 	
 	
 
@@ -164,9 +164,11 @@ func _on_timer_timeout() -> void:
 	Globals.day_count += 1
 	Globals.money += total_money_today
 	EventBus.day_ended.emit()
-	SfxManager.play("endofday")
 	Globals.rod.bait_gear = null
 	Globals.rod.calculate_stats()
-	await get_tree().create_timer(3).timeout
+	await MainMusic.tune_music_down(-20, 1.5)
+	SfxManager.play("endofday", 7)
 	MainMusic.stop()
+	await get_tree().create_timer(3).timeout
+	
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
