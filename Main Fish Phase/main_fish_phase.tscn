@@ -210,12 +210,6 @@ offset_top = 0.0
 offset_bottom = 0.0
 size_flags_vertical = 1
 
-[node name="FishSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder/FishingBar" unique_id=410207045]
-unique_name_in_owner = true
-visible = false
-position = Vector2(414, 64)
-scale = Vector2(0.5, 0.5)
-
 [node name="CatchProgressBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FishingBar/FishingBarHolder" unique_id=794763116]
 unique_name_in_owner = true
 layout_mode = 1
