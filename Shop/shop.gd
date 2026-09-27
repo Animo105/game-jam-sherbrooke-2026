@@ -58,24 +58,20 @@ func _ready():
 	
 	# pick stuff
 	var hooks : Array = GearManager.hook_list.duplicate()
-	var gear : GearResource = null
-	for i in range(3):
-		gear = hooks.pick_random()
-		if gear == null: break
-		hooks.erase(gear)
-		create_slot(gear)
+	hooks.sort_custom(func(a : GearResource, b : GearResource): return a.price < b.price)
+	for gear : GearResource in hooks:
+		if gear.in_shop == Globals.current_habitat:
+			create_slot(gear)
 	var spoons : Array = GearManager.spoon_list.duplicate()
-	for i in range(3):
-		gear = spoons.pick_random()
-		if gear == null: break
-		spoons.erase(gear)
-		create_slot(gear)
+	spoons.sort_custom(func(a : GearResource, b : GearResource): return a.price < b.price)
+	for gear : GearResource in spoons:
+		if gear.in_shop == Globals.current_habitat:
+			create_slot(gear)
 	var lines : Array = GearManager.line_list.duplicate()
-	for i in range(3):
-		gear = lines.pick_random()
-		if gear == null: break
-		lines.erase(gear)
-		create_slot(gear)
+	lines.sort_custom(func(a : GearResource, b : GearResource): return a.price < b.price)
+	for gear : GearResource in lines:
+		if gear.in_shop == Globals.current_habitat:
+			create_slot(gear)
 
 	bait_bucket.pressed.connect(bucket_clicked)
 	bait_bucket_2.pressed.connect(bucket_clicked)

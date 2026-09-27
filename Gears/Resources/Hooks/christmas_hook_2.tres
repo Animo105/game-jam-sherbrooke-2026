@@ -5,10 +5,12 @@
 
 [resource]
 script = ExtResource("1_nsym6")
-price = 100
+price = 600
 texture = ExtResource("2_nsym6")
 level = 1
-strenght = 0.3
-speed = -0.1
+strenght = 0.7
+speed = -0.2
+snap = -0.4
 rarity = 2.0
+in_shop = 1
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"
