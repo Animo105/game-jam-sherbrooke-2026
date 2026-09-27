@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Shop/Squid_bucket.png" id="16_b5trs"]
 [ext_resource type="PackedScene" uid="uid://bifsyr3rmvq52" path="res://Shop/SkillBar.tscn" id="17_6qmg5"]
 [ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Shop/Squid_bucket2.png" id="17_16e15"]
+[ext_resource type="PackedScene" uid="uid://c5pb0mmkl42kc" path="res://Shop/shop_rod_slot.tscn" id="18_quj4d"]
 [ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Shop/Strength.png" id="20_2wh60"]
 [ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Shop/Snap.png" id="23_b7bcc"]
 [ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/textures/Shop/arrow_next.png" id="24_2wh60"]
@@ -156,63 +157,25 @@ offset_right = 162.33514
 offset_bottom = 544.42346
 theme_override_constants/separation = 10
 
-[node name="Line" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1117458993]
-custom_minimum_size = Vector2(120, 125)
-custom_maximum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="Preview_line" type="TextureRect" parent="Equipment/VBoxContainer2/Line" unique_id=125584192]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Spoon" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1319093274]
+[node name="Line" parent="Equipment/VBoxContainer2" unique_id=907431474 instance=ExtResource("18_quj4d")]
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
 layout_mode = 2
 
-[node name="Preview_spoon" type="TextureRect" parent="Equipment/VBoxContainer2/Spoon" unique_id=1192785355]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Hook" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1213260707]
+[node name="Spoon" parent="Equipment/VBoxContainer2" unique_id=1101554222 instance=ExtResource("18_quj4d")]
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
 layout_mode = 2
 
-[node name="Preview_hook" type="TextureRect" parent="Equipment/VBoxContainer2/Hook" unique_id=1018015555]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -129.99997
-offset_bottom = -129.99997
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Bait" type="TextureRect" parent="Equipment/VBoxContainer2" unique_id=1114464977]
+[node name="Hook" parent="Equipment/VBoxContainer2" unique_id=1062286987 instance=ExtResource("18_quj4d")]
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(32, 32)
 
-[node name="Preview_bait" type="TextureRect" parent="Equipment/VBoxContainer2/Bait" unique_id=1142140895]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -259.9999
-offset_bottom = -259.9999
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Bait" parent="Equipment/VBoxContainer2" unique_id=1404807040 instance=ExtResource("18_quj4d")]
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
+layout_mode = 2
 
 [node name="NextButton" type="TextureButton" parent="." unique_id=773777067]
 layout_mode = 1
