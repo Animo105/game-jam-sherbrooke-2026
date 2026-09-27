@@ -6,12 +6,22 @@ var fish_list : Dictionary[String,FishResource]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for file in DirAccess.get_files_at(FISH_FOLDER_PATH):
-		if ResourceLoader.exists(FISH_FOLDER_PATH + file):
-			var fish_name : String = file.trim_suffix(".tres")
-			var res = ResourceLoader.load(FISH_FOLDER_PATH + file)
+	load_fish_from_folder(FISH_FOLDER_PATH)
+
+func load_fish_from_folder(path: String) -> void:
+	var dir := DirAccess.open(path)
+	if dir == null: return
+	
+	for file in dir.get_files():
+		var file_path := path.path_join(file)
+		if ResourceLoader.exists(file_path):
+			var fish_name := file.trim_suffix(".tres")
+			var res = ResourceLoader.load(file_path)
 			if res is FishResource:
 				fish_list[fish_name] = res
+	
+	for folder in dir.get_directories():
+		load_fish_from_folder(path.path_join(folder))
 
 func pick_a_fish() -> FishResource:
 	var can_pick : Array[FishResource] = []

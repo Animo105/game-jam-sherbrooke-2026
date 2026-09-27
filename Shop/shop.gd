@@ -103,6 +103,7 @@ func slot_enter_hover(slot: Slot) -> void :
 	temp_rod.swap_gear(slot.gear)
 	temp_rod.calculate_stats()
 	strength.preview_value = temp_rod.pull_strenght
+	print(strength.preview_value)
 	speed.preview_value = temp_rod.catch_speed
 	snap.preview_value = temp_rod.snap_resistence
 	rarity.preview_value = temp_rod.rarity
@@ -119,7 +120,7 @@ func buy_and_set(gear : GearResource) -> bool:
 	if Globals.money < gear_price :
 		return false
 	Globals.money -= gear_price
-	money_label.text = str(Globals.money)
+	money_label.text = "%.f" % Globals.money
 	SfxManager.play("cashregisternoise", -5)
 	match gear.type :
 		GearResource.Type.BAIT :
