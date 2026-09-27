@@ -13,7 +13,6 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
 @onready var background: TextureRect = $background
 
-@onready var background: TextureRect = $Background
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
