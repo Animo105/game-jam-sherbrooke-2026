@@ -92,9 +92,7 @@ func _physics_process(delta: float) -> void:
 	progress_bar.value = (1-(catch_timer_s/max_catch_timer))
 
 func catch():
-	print("catched")
 	catched.emit()
 
 func snap():
-	print("snapped")
-	#fled.emit()
+	fled.emit()

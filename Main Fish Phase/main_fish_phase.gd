@@ -88,8 +88,8 @@ func _physics_process(delta: float) -> void:
 			right.texture = BUTTON_UP
 
 func try_catch_fish(delta : float):
+	if fish_getting_caught.size() >= max_fishing_fish: return
 	if bait_timer_s <= 0:
-		if fish_getting_caught.size() >= max_fishing_fish: return
 		bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 		new_fish(FishManager.pick_a_fish())
 	bait_timer_s -= delta
@@ -122,12 +122,9 @@ func catch(fishing_fish : FishingFish):
 		money_tween.kill()
 	money_tween = create_tween()
 	money_tween.tween_property(self, "displayed_money", total_money_today, 0.5)
-	fish_sprite.texture = null
-	fish_sprite.visible = false
-	if not current_fish.seen:
-		current_fish.seen = true
+	if not fish.seen:
+		fish.seen = true
 		Globals.unique_fish_caught += 1
-	current_fish = null
 
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
