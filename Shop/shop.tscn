@@ -12,16 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://dmf66iqxuh7ew" path="res://Assets/textures/money_sign.svg" id="15_2wh60"]
 [ext_resource type="Texture2D" uid="uid://b4khboge8ro3f" path="res://Assets/textures/Shop/Inventory.png" id="16_3mw0j"]
 [ext_resource type="Texture2D" uid="uid://d0j5xwp1cw5u4" path="res://Assets/textures/Shop/Squid_bucket.png" id="16_b5trs"]
+[ext_resource type="PackedScene" uid="uid://bifsyr3rmvq52" path="res://Shop/SkillBar.tscn" id="17_6qmg5"]
 [ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Shop/Squid_bucket2.png" id="17_16e15"]
 [ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Shop/Strength.png" id="20_2wh60"]
 [ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Shop/Snap.png" id="23_b7bcc"]
-[ext_resource type="Script" uid="uid://dhcss8ophpmb1" path="res://power_bar.gd" id="24_2b2i5"]
 [ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/textures/Shop/arrow_next.png" id="24_2wh60"]
 [ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Shop/Speed.png" id="24_q8r8l"]
-[ext_resource type="Texture2D" uid="uid://df7x3mxgunmnx" path="res://Assets/textures/Shop/StatBar.png" id="25_07ndg"]
 [ext_resource type="Texture2D" uid="uid://6nnmmxhojud8" path="res://Assets/textures/Shop/arrow_next_hover.png" id="25_ytoel"]
 [ext_resource type="Texture2D" uid="uid://qfnimdp76wj2" path="res://Assets/textures/Shop/Rarity.png" id="26_07ndg"]
-[ext_resource type="Texture2D" uid="uid://cym040m8qc8ph" path="res://Assets/textures/Shop/StatBar_full.png" id="26_ytoel"]
 
 [node name="Shop" type="Control" unique_id=1115530980]
 layout_mode = 3
@@ -135,47 +133,33 @@ scale = Vector2(1.082414, 0.96591586)
 texture = ExtResource("16_3mw0j")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Equipment" unique_id=665989312]
-layout_mode = 0
-offset_left = 166.29495
-offset_top = 134.58727
-offset_right = 206.29495
-offset_bottom = 322.58725
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 165.3711
+offset_top = 127.34029
+offset_right = -23.328613
+offset_bottom = -128.70886
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Strength" type="Control" parent="Equipment/VBoxContainer" unique_id=1888384924]
+[node name="Strength" parent="Equipment/VBoxContainer" unique_id=1843761292 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
-script = ExtResource("24_2b2i5")
-slots = 5
-texture_empty = ExtResource("25_07ndg")
-texture_filled = ExtResource("26_ytoel")
-texture_icon = ExtResource("20_2wh60")
-metadata/_custom_type_script = "uid://dhcss8ophpmb1"
+texture = ExtResource("20_2wh60")
 
-[node name="Snap" type="Control" parent="Equipment/VBoxContainer" unique_id=575450257]
+[node name="Snap" parent="Equipment/VBoxContainer" unique_id=1887145680 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
-script = ExtResource("24_2b2i5")
-slots = 5
-texture_empty = ExtResource("25_07ndg")
-texture_filled = ExtResource("26_ytoel")
-texture_icon = ExtResource("23_b7bcc")
-metadata/_custom_type_script = "uid://dhcss8ophpmb1"
+texture = ExtResource("23_b7bcc")
 
-[node name="Speed" type="Control" parent="Equipment/VBoxContainer" unique_id=1350415872]
+[node name="Speed" parent="Equipment/VBoxContainer" unique_id=550724686 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
-script = ExtResource("24_2b2i5")
-slots = 5
-texture_empty = ExtResource("25_07ndg")
-texture_filled = ExtResource("26_ytoel")
-texture_icon = ExtResource("24_q8r8l")
-metadata/_custom_type_script = "uid://dhcss8ophpmb1"
+texture = ExtResource("24_q8r8l")
 
-[node name="Rarity" type="Control" parent="Equipment/VBoxContainer" unique_id=7412238]
+[node name="Rarity" parent="Equipment/VBoxContainer" unique_id=1242390378 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
-script = ExtResource("24_2b2i5")
-slots = 3
-texture_empty = ExtResource("25_07ndg")
-texture_filled = ExtResource("26_ytoel")
-texture_icon = ExtResource("26_07ndg")
-metadata/_custom_type_script = "uid://dhcss8ophpmb1"
+texture = ExtResource("26_07ndg")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Equipment" unique_id=876718618]
 layout_mode = 0

@@ -15,9 +15,11 @@ var slot_scene = preload("res://Shop/Slot.tscn")
 @onready var bait_bucket_2: BaitBucket = $Baits/BaitBucket2
 @onready var bait_bucket_3: BaitBucket = $Baits/BaitBucket3
 
-@onready var strength: PowerBar = $Equipment/VBoxContainer/Strength
-@onready var snap: PowerBar = $Equipment/VBoxContainer/Snap
-@onready var speed: PowerBar = $Equipment/VBoxContainer/Speed
+@onready var strength: SkillBar = $Equipment/VBoxContainer/Strength
+@onready var snap: SkillBar = $Equipment/VBoxContainer/Snap
+@onready var speed: SkillBar = $Equipment/VBoxContainer/Speed
+@onready var rarity: SkillBar = $Equipment/VBoxContainer/Rarity
+
 
 @onready var money_label: Label = %MoneyLabel
 
@@ -94,14 +96,19 @@ func slot_clicked(slot: Slot) -> void :
 		grid_container.remove_child(slot)
 		
 func slot_enter_hover(slot: Slot) -> void :
-	strength.preview_slots = slot.gear.strenght
-	speed.preview_slots = slot.gear.speed
-	snap.preview_slots = slot.gear.snap
+	var temp_rod : Rod = Globals.rod.duplicate()
+	temp_rod.swap_gear(slot.gear)
+	temp_rod.calculate_stats()
+	strength.preview_value = temp_rod.pull_strenght
+	speed.preview_value = temp_rod.catch_speed
+	snap.preview_value = temp_rod.snap_resistence
+	rarity.preview_value = temp_rod.rarity
 	
-func slot_exit_hover(slot: Slot) -> void :
-	strength.preview_slots = 0
-	speed.preview_slots = 0
-	snap.preview_slots = 0
+func slot_exit_hover(_slot: Slot) -> void :
+	strength.hide_preview()
+	snap.hide_preview()
+	speed.hide_preview()
+	rarity.hide_preview()
 
 
 func buy_and_set(gear : GearResource) -> bool:
@@ -127,9 +134,11 @@ func buy_and_set(gear : GearResource) -> bool:
 
 func set_actives_slots():
 	Globals.rod.calculate_stats()
-	strength.active_slots = Globals.rod.pull_strenght
-	speed.active_slots = Globals.rod.catch_speed
-	snap.active_slots = Globals.rod.snap_resistence
+	strength.actual_value = Globals.rod.pull_strenght
+	speed.actual_value = Globals.rod.catch_speed
+	snap.actual_value = Globals.rod.snap_resistence
+	rarity.actual_value = Globals.rod.rarity
+	
 
 func _on_next_button_pressed() -> void:
 	Globals.rod.calculate_stats()
