@@ -11,6 +11,6 @@ hidden_texture = ExtResource("1_qnhtx")
 catch_difficulty = 10.0
 catch_recovery_speed = 1.5
 speed = 0.2
-direction_change_frequency = 0.2
+direction_change_frequency = 0.3
 base_value = 20.0
 metadata/_custom_type_script = "uid://bb6mc2xy1t4uq"

@@ -136,11 +136,14 @@ func updates_buttons():
 		select_button.visible = true
 		unlock_button.visible = false
 	else:
-		price.text = str(LevelManager.level_list[Globals.current_habitat].cost) + "$"
+		if LevelManager.level_list[Globals.current_habitat].cost-Globals.unique_fish_caught < 0:
+			price.text = "0"
+		else:
+			price.text = str(LevelManager.level_list[Globals.current_habitat].cost-Globals.unique_fish_caught)
 		price.visible = true
 		unlock_button.visible = true
 		select_button.visible = false
-		unlock_button.disabled = LevelManager.level_list[Globals.current_habitat].cost > Globals.money
+		unlock_button.disabled = LevelManager.level_list[Globals.current_habitat].cost > Globals.unique_fish_caught
 
 
 func _on_resized() -> void:

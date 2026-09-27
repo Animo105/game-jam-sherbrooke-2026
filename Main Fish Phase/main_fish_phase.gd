@@ -11,7 +11,9 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var fish_group: Node2D = %FishGroup
 @onready var progress_container: ProgressContainer = %ProgressContainer
 @onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
-@onready var background: TextureRect = $background
+@onready var background_day: TextureRect = $backgroundDay
+@onready var background_night: TextureRect = $BackgroundNight
+
 
 
 @onready var money_label: Label = %money_label
@@ -38,29 +40,35 @@ var frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
 var is_inside_zone : bool = false
 var tween : Tween
 
+var background_tween : Tween
+var is_night : bool = false
+
 func _ready() -> void:
 	set_zone()
+	background_night.visible = false
 	timer.start(Globals.DAY_DURATION)
 	bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 
 func set_zone():
 	match Globals.current_habitat:
 		0:
-			background.texture = load("res://Assets/textures/background_fishing_swamp.png")
+			background_day.texture = load("res://Assets/textures/background_fishing_swamp.png")
+			background_night.texture = load("res://Assets/textures/background_fishing_swamp_night.png")
 			MainMusic.play_music(
 				null, 
 				load("res://Assets/music/greedyfishing_swamp.ogg"), 
 				load("res://Assets/music/swampambience.ogg")
 			)
 		1:
-			background.texture = load("res://Assets/textures/background_fishing_frozen.png")
+			background_day.texture = load("res://Assets/textures/background_fishing_frozen.png")
+			background_night.texture = load("res://Assets/textures/background_fishing_frozen_night.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_snow_intro.ogg"), 
 				load("res://Assets/music/greedyfishing_snow_loop.ogg"), 
 				load("res://Assets/music/frozenambience.ogg")
 			)
 		2:
-			background.texture = load("res://Assets/textures/background_fishing_volcano.png")
+			background_day.texture = load("res://Assets/textures/background_fishing_volcano.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_volcano_intro.ogg"),
 				load("res://Assets/music/greedyfishing_volcano_loop.ogg"),
@@ -179,6 +187,14 @@ func shaking_fish_or_bar():
 func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
 	progress_container.progress_ratio = progress
+	if not is_night:
+		if progress >= 0.5:
+			is_night = true
+			if background_tween:
+				background_tween.kill()
+			background_tween = create_tween()
+			background_night.visible = true
+			background_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
 
 
 func _on_timer_timeout() -> void:
@@ -189,4 +205,5 @@ func _on_timer_timeout() -> void:
 	Globals.money += total_money_today
 	EventBus.day_ended.emit()
 	await get_tree().create_timer(3).timeout
+	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))

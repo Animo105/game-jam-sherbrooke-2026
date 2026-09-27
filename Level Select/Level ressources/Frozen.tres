@@ -11,6 +11,6 @@ script = ExtResource("2_3tttg")
 texture = ExtResource("3_cwah6")
 hidden_texture = ExtResource("1_6kaan")
 id = 1
-cost = 1000
+cost = 4
 shop_frames = Array[Texture2D]([ExtResource("3_01pm8"), ExtResource("4_m4aow")])
 metadata/_custom_type_script = "uid://d34bq8wrfn1wc"
