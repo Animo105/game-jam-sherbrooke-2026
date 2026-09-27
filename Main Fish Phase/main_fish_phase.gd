@@ -13,6 +13,8 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
 @onready var background: TextureRect = $background
 
+@onready var background: TextureRect = $Background
+
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
 var displayed_money : int = 0 :
@@ -38,25 +40,28 @@ var is_inside_zone : bool = false
 var tween : Tween
 
 func _ready() -> void:
-	play_zone_music()
+	set_zone()
 	timer.start(Globals.DAY_DURATION)
 	bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 
-func play_zone_music():
+func set_zone():
 	match Globals.current_habitat:
 		0:
+			background.texture = load("res://Assets/textures/background_fishing_swamp.png")
 			MainMusic.play_music(
 				null, 
 				load("res://Assets/music/greedyfishing_swamp.ogg"), 
 				load("res://Assets/music/swampambience.ogg")
 			)
 		1:
+			background.texture = load("res://Assets/textures/background_fishing_frozen.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_snow_intro.ogg"), 
 				load("res://Assets/music/greedyfishing_snow_loop.ogg"), 
 				load("res://Assets/music/frozenambience.ogg")
 			)
 		2:
+			background.texture = load("res://Assets/textures/background_fishing_volcano.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_volcano_intro.ogg"),
 				load("res://Assets/music/greedyfishing_volcano_loop.ogg"),
@@ -181,7 +186,11 @@ func _on_timer_timeout() -> void:
 	day_ended = true
 	fish_sprite.visible = false
 	current_fish = null
+<<<<<<< Updated upstream
 	Globals.day_count += 1
+=======
+	Globals.money += total_money_today
+>>>>>>> Stashed changes
 	EventBus.day_ended.emit()
 	await get_tree().create_timer(3).timeout
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
