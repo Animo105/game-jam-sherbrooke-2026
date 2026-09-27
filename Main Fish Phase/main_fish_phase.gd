@@ -11,6 +11,7 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var fish_group: Node2D = %FishGroup
 @onready var progress_container: ProgressContainer = %ProgressContainer
 @onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
+@onready var background: TextureRect = $background
 
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
