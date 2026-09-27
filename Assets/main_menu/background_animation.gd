@@ -42,6 +42,9 @@ func _on_play_mouse_exited() -> void:
 func _on_fish_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed && event.button_index == MouseButton.MOUSE_BUTTON_LEFT :
 		SfxManager.play("fishget_legendary", 1.0)
+		Globals.day_count = 69
+		Globals.money = 99999
+		Globals.unique_fish_caught = 999
 		fish.texture = SPLASH
 		has_fish = false
 		
