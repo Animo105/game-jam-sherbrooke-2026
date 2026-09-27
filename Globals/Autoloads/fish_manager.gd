@@ -36,6 +36,5 @@ func pick_a_fish() -> FishResource:
 	var weights : Array = []
 	for fish : FishResource in can_pick:
 		var weight : float = 1.0 / pow(abs(fish.rarity - Globals.rod.rarity) + 1.0, 2)
-		prints("Rarity:",fish.rarity," Weight:",weight)
 		weights.append(weight)
 	return can_pick[rng.rand_weighted(weights)]
