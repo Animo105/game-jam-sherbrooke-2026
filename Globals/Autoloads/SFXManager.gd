@@ -4,7 +4,7 @@ const POOL_SIZE := 16
 const SFX_PATH : String = "res://Assets/SFX/"
 
 var players: Array[AudioStreamPlayer] = []
-var sfxs : Dictionary[String, AudioStream] = {}
+@export var sfxs : Dictionary[String, AudioStream] = {}
 
 
 func _ready() -> void:
@@ -12,7 +12,7 @@ func _ready() -> void:
 		var player := AudioStreamPlayer.new()
 		add_child(player)
 		players.append(player)
-	
+	return
 	for file in DirAccess.get_files_at(SFX_PATH):
 		if ResourceLoader.exists(SFX_PATH + file):
 			var res = load(SFX_PATH + file)

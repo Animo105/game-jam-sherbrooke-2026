@@ -286,6 +286,7 @@ script = ExtResource("11_7suml")
 
 [node name="tutorial" type="Control" parent="." unique_id=93584543]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
