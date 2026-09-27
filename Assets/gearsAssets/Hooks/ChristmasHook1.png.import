@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e46r3uvdphv"
-path="res://.godot/imported/Hook3.png-3d513c307086fe01bb29155178b0e152.ctex"
+uid="uid://d05vhok1dkt3m"
+path="res://.godot/imported/ChristmasHook1.png-6ce575f43c72a36b74226d1b1e96d625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/Hook3.png"
-dest_files=["res://.godot/imported/Hook3.png-3d513c307086fe01bb29155178b0e152.ctex"]
+source_file="res://Assets/gearsAssets/Hooks/ChristmasHook1.png"
+dest_files=["res://.godot/imported/ChristmasHook1.png-6ce575f43c72a36b74226d1b1e96d625.ctex"]
 
 [params]
 

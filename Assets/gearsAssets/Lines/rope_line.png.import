@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d05vhok1dkt3m"
-path="res://.godot/imported/ChristmasHook1.png-d715f2c3f12484d1a082711a885d6694.ctex"
+uid="uid://dkcp3diybc41u"
+path="res://.godot/imported/rope_line.png-87951d505d014d5e5fd494d48c5b5d28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/ChristmasHook1.png"
-dest_files=["res://.godot/imported/ChristmasHook1.png-d715f2c3f12484d1a082711a885d6694.ctex"]
+source_file="res://Assets/gearsAssets/Lines/rope_line.png"
+dest_files=["res://.godot/imported/rope_line.png-87951d505d014d5e5fd494d48c5b5d28.ctex"]
 
 [params]
 

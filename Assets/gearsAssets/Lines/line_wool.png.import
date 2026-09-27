@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d26wl1vau1xi3"
-path="res://.godot/imported/Baite.png-2859a96b406dc623b3141b4a3418a465.ctex"
+uid="uid://c87eiyue3kyc2"
+path="res://.godot/imported/line_wool.png-1ccc6bbaf8e063ca7df6d0963ceed816.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/Baite.png"
-dest_files=["res://.godot/imported/Baite.png-2859a96b406dc623b3141b4a3418a465.ctex"]
+source_file="res://Assets/gearsAssets/Lines/line_wool.png"
+dest_files=["res://.godot/imported/line_wool.png-1ccc6bbaf8e063ca7df6d0963ceed816.ctex"]
 
 [params]
 

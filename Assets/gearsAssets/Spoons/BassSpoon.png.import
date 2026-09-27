@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqtiyeq0tre3"
-path="res://.godot/imported/Hook1.png-4d50a6c6732273faf760e515b5667015.ctex"
+uid="uid://c2xuncfmyutep"
+path="res://.godot/imported/BassSpoon.png-f078767c73593c3c936fa502b0482d05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/Hook1.png"
-dest_files=["res://.godot/imported/Hook1.png-4d50a6c6732273faf760e515b5667015.ctex"]
+source_file="res://Assets/gearsAssets/Spoons/BassSpoon.png"
+dest_files=["res://.godot/imported/BassSpoon.png-f078767c73593c3c936fa502b0482d05.ctex"]
 
 [params]
 

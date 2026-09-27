@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GearResource" format=3 uid="uid://b2gx2un86eys2"]
 
 [ext_resource type="Script" uid="uid://c6skkt4jmcl07" path="res://Gears/gear.gd" id="1_4csii"]
-[ext_resource type="Texture2D" uid="uid://c2xuncfmyutep" path="res://Assets/gearsAssets/BassSpoon.png" id="2_8htoo"]
+[ext_resource type="Texture2D" uid="uid://c2xuncfmyutep" path="res://Assets/gearsAssets/Spoons/BassSpoon.png" id="2_8htoo"]
 
 [resource]
 script = ExtResource("1_4csii")

@@ -70,7 +70,7 @@ func new_fish(fish : FishResource):
 	max_catch_timer = clamp(fish.catch_difficulty - Globals.rod.catch_speed, Globals.MIN_CATCH_TIME, Globals.MAX_CATCH_TIME)
 	catch_timer_s = max_catch_timer * 0.8
 	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, Globals.MIN_SNAP_SPEED, Globals.MAX_SNAP_SPEED)
-	fish_speed = clamp(fish.speed - Globals.rod.pull_strenght, Globals.MIN_FISH_SPEED, Globals.MAX_FISH_SPEED)
+	fish_speed = clamp(fish.speed - (Globals.rod.pull_strenght/10.0), Globals.MIN_FISH_SPEED, Globals.MAX_FISH_SPEED)
 	fish_direction = 1 if randf() < 0.5 else -1
 	fish_sprite.flip_h = fish_direction < 0
 	fish_sprite.global_position.x = randf_range(fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)

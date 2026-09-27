@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2xuncfmyutep"
-path="res://.godot/imported/BassSpoon.png-86ecece6715b524c99fbccdb4e463626.ctex"
+uid="uid://d26wl1vau1xi3"
+path="res://.godot/imported/Baite.png-6e2e14b902c6206a23234aca5c303af7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/BassSpoon.png"
-dest_files=["res://.godot/imported/BassSpoon.png-86ecece6715b524c99fbccdb4e463626.ctex"]
+source_file="res://Assets/gearsAssets/Baits/Baite.png"
+dest_files=["res://.godot/imported/Baite.png-6e2e14b902c6206a23234aca5c303af7.ctex"]
 
 [params]
 

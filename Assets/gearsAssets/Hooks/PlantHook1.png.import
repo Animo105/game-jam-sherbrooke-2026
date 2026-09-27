@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx4s5lke63t47"
-path="res://.godot/imported/PlantHook2.png-0fd9c0a1e1d1b62c2ee12fd26e683584.ctex"
+uid="uid://415y0okhj7g0"
+path="res://.godot/imported/PlantHook1.png-7f3141f06065a5d0367199fd571017ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gearsAssets/PlantHook2.png"
-dest_files=["res://.godot/imported/PlantHook2.png-0fd9c0a1e1d1b62c2ee12fd26e683584.ctex"]
+source_file="res://Assets/gearsAssets/Hooks/PlantHook1.png"
+dest_files=["res://.godot/imported/PlantHook1.png-7f3141f06065a5d0367199fd571017ed.ctex"]
 
 [params]
 
