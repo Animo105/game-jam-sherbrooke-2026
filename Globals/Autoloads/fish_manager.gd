@@ -34,9 +34,8 @@ func pick_a_fish() -> FishResource:
 		
 	var rng = RandomNumberGenerator.new()
 	var weights : Array = []
-	for x : FishResource in can_pick:
-		if x.rarity > Globals.rod.rarity:
-			weights.append(0.5)
-		else :
-			weights.append(2.0)
+	for fish : FishResource in can_pick:
+		var weight : float = 1.0 / pow(abs(fish.rarity - Globals.rod.rarity) + 1.0, 2)
+		prints("Rarity:",fish.rarity," Weight:",weight)
+		weights.append(weight)
 	return can_pick[rng.rand_weighted(weights)]

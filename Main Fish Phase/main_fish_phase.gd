@@ -61,6 +61,7 @@ func set_zone():
 			)
 		1:
 			background_day.texture = load("res://Assets/textures/background_fishing_frozen.png")
+			background_night.texture = load("res://Assets/textures/background_fishing_frozen_night.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_snow_intro.ogg"), 
 				load("res://Assets/music/greedyfishing_snow_loop.ogg"), 
@@ -187,13 +188,13 @@ func update_day_timer():
 	var progress : float = 1 - (timer.time_left/Globals.DAY_DURATION)
 	progress_container.progress_ratio = progress
 	if not is_night:
-		if progress >= 0.6:
+		if progress >= 0.5:
 			is_night = true
 			if background_tween:
 				background_tween.kill()
 			background_tween = create_tween()
 			background_night.visible = true
-			background_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 1)
+			background_tween.tween_property(background_day, "self_modulate", Color(1,1,1,0), 5)
 
 
 func _on_timer_timeout() -> void:
@@ -204,4 +205,5 @@ func _on_timer_timeout() -> void:
 	Globals.money += total_money_today
 	EventBus.day_ended.emit()
 	await get_tree().create_timer(3).timeout
+	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
