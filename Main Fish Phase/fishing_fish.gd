@@ -49,7 +49,6 @@ func _init(fishingbar : FishingBar, fish : FishResource) -> void:
 	add_child(progress_bar)
 
 func _physics_process(delta: float) -> void:
-	prints("Catch time", catch_timer_s)
 	if not current_fish: return # pas de fish a reel
 	var new_x = global_position.x + (fishing_bar.get_amount_px_for_speed(fish_speed) * fish_direction * delta)
 	frame_countdown -= 1
