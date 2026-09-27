@@ -1,16 +1,18 @@
 [gd_scene format=3 uid="uid://ci6fmohwbwdhl"]
 
 [ext_resource type="Script" uid="uid://5f4lbiivbiev" path="res://main_menu.gd" id="1_0k4wn"]
-[ext_resource type="Texture2D" uid="uid://5wnpq3elmifg" path="res://Assets/textures/MainMenu/main_screen.png" id="1_0o4t1"]
-[ext_resource type="Texture2D" uid="uid://clneii0m17c1k" path="res://Assets/buttons/play_normal.png" id="1_jix8l"]
-[ext_resource type="Texture2D" uid="uid://cx4mckcf7r11y" path="res://Assets/textures/MainMenu/main_screen_boat.png" id="2_0k4wn"]
-[ext_resource type="Texture2D" uid="uid://cp1pi5mbs362i" path="res://Assets/buttons/play_pressed.png" id="2_glbon"]
-[ext_resource type="Texture2D" uid="uid://4cl0incw3ob5" path="res://Assets/buttons/play_hover.png" id="3_nlkkf"]
-[ext_resource type="Texture2D" uid="uid://d4agbxgsndtir" path="res://Assets/buttons/play_disabled.png" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dk3tbrep1lli0" path="res://Assets/buttons/exit_normal.png" id="5_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://duftm28avbswt" path="res://Assets/buttons/exit_pressed.png" id="6_dy7ct"]
 [ext_resource type="Texture2D" uid="uid://minph8lx7i3i" path="res://Assets/buttons/exit_hover.png" id="7_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://dx4ktk7ecvmxk" path="res://Assets/buttons/exit_disabled.png" id="8_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://b665ynhh1smai" path="res://Assets/main_menu/sunset.png" id="10_iotk1"]
+[ext_resource type="Script" uid="uid://2cb8ycsgie3l" path="res://Assets/main_menu/background_animation.gd" id="10_w44g7"]
+[ext_resource type="Texture2D" uid="uid://2xs5oq2uikrc" path="res://Assets/main_menu/Boat.png" id="11_w44g7"]
+[ext_resource type="Texture2D" uid="uid://5exp573e8klf" path="res://Assets/main_menu/see.png" id="12_cm266"]
+[ext_resource type="Texture2D" uid="uid://dmtr86owba0ow" path="res://Assets/main_menu/tree.png" id="12_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://bphnhbs1605v7" path="res://Assets/fish/Frozen/Parrot_fish.png" id="13_cm266"]
+[ext_resource type="Texture2D" uid="uid://5ubyoj7htfkg" path="res://Assets/main_menu/quit.png" id="13_iotk1"]
+[ext_resource type="Texture2D" uid="uid://b80r12xknhe6t" path="res://Assets/main_menu/play_button.png" id="16_g8g3n"]
 
 [node name="MainMenu" type="Control" unique_id=1982284498]
 layout_mode = 3
@@ -20,31 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0k4wn")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1869360301]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_0o4t1")
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=934800560]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -93.0
-offset_right = 27.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-texture = ExtResource("2_0k4wn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=658047967]
 layout_mode = 1
@@ -67,21 +44,6 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 alignment = 1
 
-[node name="PlayButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1805563097]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-offset_transform_enabled = true
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_jix8l")
-texture_pressed = ExtResource("2_glbon")
-texture_hover = ExtResource("3_nlkkf")
-texture_disabled = ExtResource("4_qe12f")
-texture_focused = ExtResource("3_nlkkf")
-ignore_texture_size = true
-stretch_mode = 4
-
 [node name="QuittButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=2059674648]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -96,7 +58,105 @@ texture_focused = ExtResource("7_0o4t1")
 ignore_texture_size = true
 stretch_mode = 4
 
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="BackgroundAnimation" type="Control" parent="." unique_id=2058024738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("10_w44g7")
+
+[node name="Sunset" type="TextureRect" parent="BackgroundAnimation" unique_id=1949249146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_iotk1")
+
+[node name="Boat" type="TextureRect" parent="BackgroundAnimation" unique_id=1429342603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("11_w44g7")
+
+[node name="Play" type="TextureRect" parent="BackgroundAnimation/Boat" unique_id=1880649169]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 52.0
+offset_right = 657.0
+offset_bottom = 178.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("16_g8g3n")
+
+[node name="Fish" type="TextureRect" parent="BackgroundAnimation" unique_id=1812385432]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = -505.00003
+offset_right = 821.0
+offset_bottom = -249.00003
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 0.51099366
+scale = Vector2(0.3352981, 0.3352981)
+pivot_offset_ratio = Vector2(-2.37, 2.005)
+mouse_filter = 0
+texture = ExtResource("13_cm266")
+
+[node name="Sea" type="TextureRect" parent="BackgroundAnimation" unique_id=446201931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("12_cm266")
+
+[node name="Palm" type="TextureRect" parent="BackgroundAnimation" unique_id=1137347835]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_j5v2v")
+
+[node name="Quit" type="TextureRect" parent="BackgroundAnimation/Palm" unique_id=1482105390]
+layout_mode = 0
+offset_left = 91.999985
+offset_top = 408.99997
+offset_right = 225.99998
+offset_bottom = 535.0
+scale = Vector2(0.4677031, 0.4677031)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 0
+texture = ExtResource("13_iotk1")
+
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuittButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuittButton" to="." method="_on_quitt_button_pressed"]
+[connection signal="gui_input" from="BackgroundAnimation/Boat/Play" to="." method="_on_play_gui_input"]
+[connection signal="mouse_entered" from="BackgroundAnimation/Boat/Play" to="BackgroundAnimation" method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="BackgroundAnimation/Boat/Play" to="BackgroundAnimation" method="_on_play_mouse_exited"]
+[connection signal="gui_input" from="BackgroundAnimation/Fish" to="BackgroundAnimation" method="_on_fish_gui_input"]
+[connection signal="gui_input" from="BackgroundAnimation/Palm/Quit" to="." method="_on_quit_gui_input"]
+[connection signal="mouse_entered" from="BackgroundAnimation/Palm/Quit" to="BackgroundAnimation" method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="BackgroundAnimation/Palm/Quit" to="BackgroundAnimation" method="_on_quit_mouse_exited"]
