@@ -10,9 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bphtp80rd1oto" path="res://Main Fish Phase/fishing_bar.tscn" id="7_ofyt0"]
 [ext_resource type="FontFile" uid="uid://bt5jw78ub44tu" path="res://Assets/Comic Sans MS.ttf" id="7_rwc82"]
 [ext_resource type="Texture2D" uid="uid://b76bco0cjs4o1" path="res://Assets/textures/Bucket.png" id="7_wywu7"]
-[ext_resource type="Texture2D" uid="uid://db07g8ub1tgbi" path="res://Assets/buttons/left_normal.png" id="8_wywu7"]
+[ext_resource type="Texture2D" uid="uid://cyqj0oboq40ty" path="res://Assets/textures/Button_up.png" id="9_wywu7"]
 [ext_resource type="Script" uid="uid://cev86rrwog377" path="res://Main Fish Phase/splash_audio_sound.gd" id="11_7suml"]
-[ext_resource type="Texture2D" uid="uid://dt7balo1ragh5" path="res://Assets/buttons/right_normal.png" id="11_rwc82"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtnf0"]
 bg_color = Color(0.0885599, 0.08855992, 0.08855986, 1)
@@ -192,8 +191,9 @@ size_flags_vertical = 8
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_vertical = 8
-texture = ExtResource("8_wywu7")
+texture = ExtResource("9_wywu7")
 expand_mode = 1
+flip_h = true
 
 [node name="FishingBarHolder" type="Control" parent="MarginContainer/VBoxContainer/FishingBar" unique_id=393215742]
 layout_mode = 2
@@ -247,7 +247,7 @@ show_percentage = false
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_vertical = 8
-texture = ExtResource("11_rwc82")
+texture = ExtResource("9_wywu7")
 expand_mode = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1191305872]

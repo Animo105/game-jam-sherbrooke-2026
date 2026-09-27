@@ -13,6 +13,13 @@ const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 @onready var background_day: TextureRect = $backgroundDay
 @onready var background_night: TextureRect = $BackgroundNight
 
+@onready var left: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Left
+@onready var right: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Right
+
+const BUTTON_DOWN = preload("res://Assets/textures/Button.png")
+const BUTTON_UP = preload("res://Assets/textures/Button_up.png")
+
+
 @onready var money_label: Label = %money_label
 var total_money_today : int = 0
 var displayed_money : int = 0 :
@@ -70,9 +77,15 @@ func _physics_process(delta: float) -> void:
 		update_day_timer()
 		try_catch_fish(delta)
 		if Input.is_action_just_pressed("left"):
+			left.texture = BUTTON_DOWN
 			SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
 		if Input.is_action_just_pressed("right"):
+			right.texture = BUTTON_DOWN
 			SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
+		if Input.is_action_just_released("left") :
+			left.texture = BUTTON_UP
+		if Input.is_action_just_released("right") :
+			right.texture = BUTTON_UP
 
 func try_catch_fish(delta : float):
 	if bait_timer_s <= 0:
