@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_ddssg")
 type = 3
+price = 20
 texture = ExtResource("2_0yq12")
+speed = 3.0
+snap = 1.0
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

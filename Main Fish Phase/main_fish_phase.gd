@@ -1,25 +1,21 @@
 extends Control
 
-
+const FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN : int = 5
+const MINIMAL_SNAP_STRENGHT_s : float = 3
 const BAIT_RATE_RANGE : Vector2 = Vector2(1, 2)
 
 @onready var fishing_bar: FishingBar = %FishingBar
 @onready var catch_progress_bar: CatchProgressBar = %CatchProgressBar
 @onready var timer: Timer = $Timer
+@onready var fish_sprite: Sprite2D = %FishSprite
 @onready var fish_group: Node2D = %FishGroup
 @onready var progress_container: ProgressContainer = %ProgressContainer
 @onready var audio_stream_player: SplashPlayer = $AudioStreamPlayer
-
 @onready var background_day: TextureRect = $backgroundDay
 @onready var background_night: TextureRect = $BackgroundNight
 @onready var sun: TextureRect = $MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer/Sun
 @onready var moon: TextureRect = $MarginContainer/VBoxContainer/MainScreen/HBoxContainer/MarginContainer/Control/NinePatchRect/ProgressContainer/Moon
 
-@onready var left: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Left
-@onready var right: TextureRect = $MarginContainer/VBoxContainer/FishingBar/Right
-
-const BUTTON_DOWN = preload("res://Assets/textures/Button.png")
-const BUTTON_UP = preload("res://Assets/textures/Button_up.png")
 
 
 @onready var money_label: Label = %money_label
@@ -31,15 +27,24 @@ var displayed_money : int = 0 :
 			money_label.text = str(value)
 
 var day_ended : bool = false
-var is_night : bool = false
 
 var money_tween : Tween
 var night_tween : Tween
 
 var bait_timer_s : float = 0
 
-var fish_getting_caught : Array[FishingFish] = []
-var max_fishing_fish : int = 1
+var current_fish : FishResource = null
+var max_catch_timer : float = 0
+var catch_timer_s : float = 0
+var catch_recovery_s : float = 0
+var fish_speed : float = 0
+var fish_direction : float = 0
+var frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
+var is_inside_zone : bool = false
+var tween : Tween
+
+var background_tween : Tween
+var is_night : bool = false
 
 func _ready() -> void:
 	set_zone()
@@ -59,7 +64,6 @@ func set_zone():
 			)
 		1:
 			background_day.texture = load("res://Assets/textures/background_fishing_frozen.png")
-			background_night.texture = load("res://Assets/textures/background_fishing_frozen_night.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_snow_intro.ogg"), 
 				load("res://Assets/music/greedyfishing_snow_loop.ogg"), 
@@ -67,66 +71,98 @@ func set_zone():
 			)
 		2:
 			background_day.texture = load("res://Assets/textures/background_fishing_volcano.png")
-			background_night.texture = load("res://Assets/textures/background_fishing_volcano_night.png")
 			MainMusic.play_music(
 				load("res://Assets/music/greedyfishing_volcano_intro.ogg"),
 				load("res://Assets/music/greedyfishing_volcano_loop.ogg"),
 				load("res://Assets/music/volcanoambience.ogg")
 			)
 
+func new_fish(fish : FishResource):
+	if current_fish: return # déja un fish
+	current_fish = fish
+	fish_sprite.texture = fish.texture if fish.seen else fish.hidden_texture
+	fish_sprite.visible = true
+	max_catch_timer = clamp(fish.catch_difficulty - Globals.rod.catch_speed, Globals.MIN_CATCH_TIME, Globals.MAX_CATCH_TIME)
+	catch_timer_s = max_catch_timer * 0.8
+	catch_recovery_s = clamp(current_fish.catch_recovery_speed - Globals.rod.snap_resistence, Globals.MIN_SNAP_SPEED, Globals.MAX_SNAP_SPEED)
+	fish_speed = clamp(fish.speed - (Globals.rod.pull_strenght/10.0), Globals.MIN_FISH_SPEED, Globals.MAX_FISH_SPEED)
+	fish_direction = 1 if randf() < 0.5 else -1
+	fish_sprite.flip_h = fish_direction < 0
+	fish_sprite.global_position.x = randf_range(fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)
+	fish_sprite.global_position.y = fishing_bar.absolute_center_position.y
+
 func _physics_process(delta: float) -> void:
 	if not day_ended:
 		update_day_timer()
+		fish_physic_frame(delta)
 		try_catch_fish(delta)
-		if Input.is_action_just_pressed("left"):
-			left.texture = BUTTON_DOWN
-			SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
-		if Input.is_action_just_pressed("right"):
-			right.texture = BUTTON_DOWN
-			SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
-		if Input.is_action_just_released("left") :
-			left.texture = BUTTON_UP
-		if Input.is_action_just_released("right") :
-			right.texture = BUTTON_UP
 
 func try_catch_fish(delta : float):
-	if fish_getting_caught.size() >= max_fishing_fish: return
+	if current_fish: return # si ya un fish faut pas
 	if bait_timer_s <= 0:
 		bait_timer_s = randf_range(BAIT_RATE_RANGE.x, BAIT_RATE_RANGE.y)
 		new_fish(FishManager.pick_a_fish())
 	bait_timer_s -= delta
 
-func new_fish(fish : FishResource):
-	var new_fishing_fish : FishingFish = FishingFish.new(fishing_bar, fish)
-	fish_getting_caught.append(new_fishing_fish)
-	new_fishing_fish.catched.connect(catch.bind(new_fishing_fish))
-	new_fishing_fish.fled.connect(snaped.bind(new_fishing_fish))
-	fishing_bar.add_child(new_fishing_fish)
-	new_fishing_fish.global_position = fishing_bar.absolute_center_position
-	
+func fish_physic_frame(delta : float) -> void:
+	if not current_fish: return # pas de fish a reel
+	var new_x = fish_sprite.global_position.x + (fishing_bar.get_amount_px_for_speed(fish_speed) * fish_direction * delta)
+	frame_countdown -= 1
+	if frame_countdown <= 0:
+		if randf() < current_fish.direction_change_frequency:
+			fish_direction *= -1
+			fish_sprite.flip_h = fish_direction < 0
+		frame_countdown = FISH_CHANGE_DIRECTION_ATTEMPT_COOLDOWN
+	# do reeling
+	if Input.is_action_just_pressed("left"):
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
+		new_x -= fishing_bar.pull_amount_px
+	if Input.is_action_just_pressed("right"):
+		SfxManager.play("fishstruggle%s" % randi_range(1, 2), 5.0, randf_range(0.75, 1.25))
+		new_x += fishing_bar.pull_amount_px
+	# move fish
+	fish_sprite.global_position.x = clamp(new_x, fishing_bar.leftmost_x_position, fishing_bar.rightmost_x_position)
+	#fish_sprite.global_position.y = fishing_bar.absolute_center_position.y
+	# do catch or break cycle
+	# ##### a changer ##### #
+	var new_is_inside_zone :bool = fishing_bar.is_inside_zone(fish_sprite.global_position.x)
+	if new_is_inside_zone != is_inside_zone:
+		is_inside_zone = new_is_inside_zone
+		shaking_fish_or_bar()
+	# ###################### #
+	if is_inside_zone:
+		pass
+		catch_timer_s -= delta
+		if catch_timer_s <= 0:
+			catch()
+	else:
+		pass
+		catch_timer_s = clamp(catch_timer_s + catch_recovery_s * delta, 0, max_catch_timer)
+		if catch_timer_s == max_catch_timer:
+			snap()
+	# update catch bar
+	catch_progress_bar.set_value(1-(catch_timer_s/max_catch_timer))
 
-func catch(fishing_fish : FishingFish):
-	fish_getting_caught.erase(fishing_fish)
-	fishing_fish.queue_free()
-	var fish : FishResource = fishing_fish.current_fish
-	if fish.rarity < 2:
+func catch():
+	if current_fish.rarity < 2:
 		SfxManager.play("fishget_normal" , 5.0, randf_range(0.75, 1.25))
-	elif fish.rarity < 3:
+	elif current_fish.rarity < 3:
 		SfxManager.play("fishget_rare" , 5.0, randf_range(0.75, 1.25))
 	else:
 		SfxManager.play("fishget_legendary" , 5.0, randf_range(0.75, 1.25))
-	var bucket_preview : FishRigidBody = FishRigidBody.new(fish.texture)
+	var bucket_preview : FishRigidBody = FishRigidBody.new(current_fish.texture)
 	bucket_preview.position.x = randf_range(-100, 100)
 	fish_group.add_child(bucket_preview)
 	audio_stream_player.play_splash()
-	total_money_today += int(fish.base_value)
+	total_money_today += int(current_fish.base_value)
 	if money_tween:
 		money_tween.kill()
 	money_tween = create_tween()
 	money_tween.tween_property(self, "displayed_money", total_money_today, 0.5)
-	if not fish.seen:
-		fish.seen = true
-		Globals.unique_fish_caught += 1
+	fish_sprite.texture = null
+	fish_sprite.visible = false
+	current_fish.seen = true
+	current_fish = null
 
 func set_to_night():
 	is_night = true
@@ -159,8 +195,8 @@ func snaped(fishing_fish : FishingFish):
 
 func _on_timer_timeout() -> void:
 	day_ended = true
-	for fish in fish_getting_caught:
-		fish.queue_free()
+	fish_sprite.visible = false
+	current_fish = null
 	Globals.day_count += 1
 	Globals.money += total_money_today
 	EventBus.day_ended.emit()
@@ -168,5 +204,4 @@ func _on_timer_timeout() -> void:
 	Globals.rod.bait_gear = null
 	Globals.rod.calculate_stats()
 	await get_tree().create_timer(3).timeout
-	MainMusic.stop()
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Level Select/level_select.tscn"))
