@@ -20,4 +20,5 @@ enum Type {
 @export var snap : float
 ## La rarity est mesurer de 0 à 5 et change les poissons hooked
 @export var rarity : float
-@export_range(0, 2, 1) var in_shop : int = 0
+
+@export_range(0, 2, 1) var in_shop : int
