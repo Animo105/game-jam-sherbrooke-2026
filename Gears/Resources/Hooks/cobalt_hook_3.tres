@@ -5,5 +5,11 @@
 
 [resource]
 script = ExtResource("1_0qrq3")
+price = 3500
 texture = ExtResource("2_fsjar")
+level = 2
+strenght = 1.0
+speed = 1.0
+snap = 1.0
+in_shop = 2
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

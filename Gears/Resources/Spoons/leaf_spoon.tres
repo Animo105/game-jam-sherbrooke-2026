@@ -6,7 +6,11 @@
 [resource]
 script = ExtResource("1_8743i")
 type = 1
-price = 300
+price = 100
 texture = ExtResource("2_qv6sa")
 level = 1
+strenght = 0.1
+speed = 0.3
+snap = -1.0
+rarity = 0.2
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

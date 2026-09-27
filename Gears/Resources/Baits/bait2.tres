@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4xdra")
 type = 3
-price = 60
+price = 500
 texture = ExtResource("2_a3bro")
 level = 1
 strenght = 4.0

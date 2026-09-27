@@ -6,4 +6,10 @@
 [resource]
 script = ExtResource("1_oxfcu")
 texture = ExtResource("2_e5gdg")
+level = 1
+strenght = 1.0
+speed = -0.5
+snap = -0.5
+rarity = 1.0
+in_shop = 2
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"

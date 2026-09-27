@@ -7,4 +7,5 @@
 script = ExtResource("1_3j0wb")
 type = 2
 texture = ExtResource("2_d0ilg")
+in_shop = 2
 metadata/_custom_type_script = "uid://c6skkt4jmcl07"
