@@ -41,17 +41,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0mg3m")
 
-[node name="Boat" type="TextureRect" parent="." unique_id=104393912]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -402.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("3_aeh2r")
-
 [node name="Callendar" type="TextureRect" parent="." unique_id=585873378]
 layout_mode = 1
 anchors_preset = 1
@@ -94,6 +83,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SpriteLayer" type="Node2D" parent="." unique_id=1976952966]
+
+[node name="Boat" type="TextureRect" parent="." unique_id=104393912]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -402.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_aeh2r")
 
 [node name="FishDisplay" type="HFlowContainer" parent="." unique_id=1604793732]
 layout_mode = 1

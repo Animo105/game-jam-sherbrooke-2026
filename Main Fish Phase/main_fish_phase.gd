@@ -159,7 +159,9 @@ func catch():
 	money_tween.tween_property(self, "displayed_money", total_money_today, 0.5)
 	fish_sprite.texture = null
 	fish_sprite.visible = false
-	current_fish.seen = true
+	if not current_fish.seen:
+		current_fish.seen = true
+		Globals.unique_fish_caught += 1
 	current_fish = null
 
 func snap():
