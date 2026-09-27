@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://2cw2sytyfa5d" path="res://Assets/textures/Shop/Squid_bucket2.png" id="17_16e15"]
 [ext_resource type="PackedScene" uid="uid://c5pb0mmkl42kc" path="res://Shop/shop_rod_slot.tscn" id="18_quj4d"]
 [ext_resource type="Texture2D" uid="uid://dieh2iaah5dhx" path="res://Assets/textures/Shop/Strength.png" id="20_2wh60"]
+[ext_resource type="PackedScene" uid="uid://xxvnb2poxaw" path="res://Shop/video_layer.tscn" id="21_w1rpo"]
 [ext_resource type="Texture2D" uid="uid://bk5py7pm8s4ok" path="res://Assets/textures/Shop/Snap.png" id="23_b7bcc"]
 [ext_resource type="Texture2D" uid="uid://cgl0mo5vjbisq" path="res://Assets/textures/Shop/arrow_next.png" id="24_2wh60"]
 [ext_resource type="Texture2D" uid="uid://dcujwelfnieqn" path="res://Assets/textures/Shop/Speed.png" id="24_q8r8l"]
@@ -140,14 +141,17 @@ alignment = 1
 
 [node name="Strength" parent="Equipment/VBoxContainer" unique_id=1843761292 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture = ExtResource("20_2wh60")
 
 [node name="Snap" parent="Equipment/VBoxContainer" unique_id=1887145680 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture = ExtResource("23_b7bcc")
 
 [node name="Speed" parent="Equipment/VBoxContainer" unique_id=550724686 instance=ExtResource("17_6qmg5")]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture = ExtResource("24_q8r8l")
 
 [node name="Rarity" parent="Equipment/VBoxContainer" unique_id=1242390378 instance=ExtResource("17_6qmg5")]
@@ -197,4 +201,9 @@ texture_hover = ExtResource("25_ytoel")
 texture_disabled = ExtResource("24_2wh60")
 texture_focused = ExtResource("25_ytoel")
 
+[node name="VideoLayer" parent="." unique_id=1327021202 instance=ExtResource("21_w1rpo")]
+
+[connection signal="gui_input" from="Equipment/VBoxContainer/Strength" to="." method="_on_strength_gui_input"]
+[connection signal="gui_input" from="Equipment/VBoxContainer/Snap" to="." method="_on_snap_gui_input"]
+[connection signal="gui_input" from="Equipment/VBoxContainer/Speed" to="." method="_on_speed_gui_input"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

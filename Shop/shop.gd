@@ -20,6 +20,7 @@ var slot_scene = preload("res://Shop/Slot.tscn")
 @onready var speed: SkillBar = $Equipment/VBoxContainer/Speed
 @onready var rarity: SkillBar = $Equipment/VBoxContainer/Rarity
 
+@onready var video_layer: StatsTuto = $VideoLayer
 
 @onready var money_label: Label = %MoneyLabel
 
@@ -146,7 +147,7 @@ func buy_and_set(gear : GearResource) -> bool:
 	if Globals.money < gear_price :
 		return false
 	Globals.money -= gear_price
-	money_label.text = "%.f$" % Globals.money
+	money_label.text = "%.f" % Globals.money
 	SfxManager.play("cashregisternoise", -5)
 	match gear.type :
 		GearResource.Type.BAIT :
@@ -176,3 +177,18 @@ func _on_next_button_pressed() -> void:
 	MainMusic.stop()
 	SfxManager.play("buttonclick_generic")
 	TransitionScreen.call_between_fade(SceneManager.load_from_file.bind("res://Main Fish Phase/main_fish_phase.tscn"))
+
+
+func _on_strength_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.pressed && event.button_index == 1:
+		video_layer.show_strength()
+
+
+func _on_snap_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.pressed && event.button_index == 1:
+		video_layer.show_snap()
+
+
+func _on_speed_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && event.pressed && event.button_index == 1:
+		video_layer.show_speed()
