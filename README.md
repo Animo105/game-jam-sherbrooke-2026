@@ -1,4 +1,6 @@
-# game-jam-sherbrooke-2026
+# Greedy Fishing
+### Game Jam Sherbrooke 2026
+Un jeu de pêche ou il faut faire full cash!
 
 ## Collaborator
 - [Animo105](https://github.com/Animo105)
